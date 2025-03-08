@@ -1,7 +1,11 @@
-const Header = () => {
-  return <div className="bg-background text-foreground border border-b text-sm">
+import Typography from '../ui/typography';
 
-  </div>;
+const Header = () => {
+  return (
+    <div className="bg-background text-foreground border border-b p-4 pt-2 text-sm">
+      <Typography size={'lg'}>JobSeek</Typography>
+    </div>
+  );
 };
 
 export default Header;

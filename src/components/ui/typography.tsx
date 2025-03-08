@@ -8,7 +8,7 @@ const typographyVariants = cva('', {
     size: {
       default: 'text-base',
       sm: 'text-sm',
-      lg: 'text-lg',
+      lg: 'text-2xl font-medium',
     },
   },
   defaultVariants: {
@@ -31,10 +31,10 @@ const Typography = ({ asChild, className, size, ...props }: TypographyProps) => 
         typographyVariants({
           className,
           size,
-        })
+        }),
       )}
       {...props}
-    ></Comp>
+    />
   );
 };
 
