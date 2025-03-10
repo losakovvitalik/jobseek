@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
+import JobCard from '@/entities/job/ui/JobCard';
 
 export default function Home() {
-  return <Button>Hello</Button>;
+  return <JobCard />;
 }
