@@ -1,5 +1,9 @@
 import JobCard from '@/entities/job/ui/JobCard';
 
 export default function Home() {
-  return <JobCard />;
+  return (
+    <div className='p-4 h-full'>
+      <JobCard />
+    </div>
+  );
 }

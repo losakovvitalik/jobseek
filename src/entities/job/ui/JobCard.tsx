@@ -3,7 +3,7 @@ import Typography from '@/components/ui/typography';
 
 const JobCard = () => {
   return (
-    <div className="bg-secondary mx-auto mt-2 flex h-full w-11/12 flex-col gap-2 rounded-xl p-4">
+    <div className="bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4">
       <Typography>Стажер / Frontend Специалист</Typography>
       <Typography>Зарплата: 40 000 ₽</Typography>
       <Typography>Опыт работы: любой</Typography>

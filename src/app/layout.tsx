@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased grid grid-rows-[var(--header-height)_1fr]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
