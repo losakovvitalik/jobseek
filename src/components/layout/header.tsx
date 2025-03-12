@@ -1,9 +1,11 @@
+import { UserRound } from 'lucide-react';
 import Typography from '../ui/typography';
 
 const Header = () => {
   return (
-    <div className="bg-background text-foreground border-border border-b p-4 text-sm">
+    <div className="bg-background text-foreground border-border border-b p-4 text-sm flex justify-between items-center">
       <Typography size={'lg'}>JobSeek</Typography>
+      <UserRound />
     </div>
   );
 };
