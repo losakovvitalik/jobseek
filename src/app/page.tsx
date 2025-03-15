@@ -27,8 +27,8 @@ const Card = ({
   setCards: Dispatch<SetStateAction<string[]>>;
 }) => {
   const x = useMotionValue(0);
-  const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
+  const background = useTransform(x, [-150, 0, 150], ['#6EC175', '#262626', '#F47174']);
 
   const isFront = cards[cards.length - 1] === job;
 
@@ -41,16 +41,17 @@ const Card = ({
   return (
     <motion.div
       drag="x"
-      className="origin-bottom"
+      className="origin-bottom rounded-xl"
       key={job}
       onDragEnd={handleDragEnd}
       style={{
+        z: isFront ? 1 : 0,
         gridColumn: 1,
         gridRow: 1,
-        opacity,
+        background,
+        // opacity,
         rotate,
         x,
-        z: isFront ? 1 : 0,
       }}
       dragConstraints={{
         left: 0,
@@ -58,7 +59,7 @@ const Card = ({
       }}
       animate={{ scale: isFront ? 1 : 0.9 }}
     >
-      <JobCard job={{ title: job }} />
+      <JobCard className="bg-transparent" job={{ title: job }} />
     </motion.div>
   );
 };

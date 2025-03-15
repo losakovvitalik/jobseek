@@ -1,8 +1,8 @@
+import MobileMenu from '@/components/layout/mobile-menu';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import MobileMenu from '@/components/layout/mobile-menu';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} grid min-h-dvh grid-rows-[1fr_var(--menu-height)] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} h-dvh antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -35,9 +35,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <Header /> */}
-          <main>{children}</main>
-          <MobileMenu />
+          <div className='h-dvh grid grid-rows-[1fr_var(--menu-height)]'>
+            <main className="p-2 overflow-auto">{children}</main>
+            <MobileMenu />
+          </div>
         </ThemeProvider>
       </body>
     </html>
