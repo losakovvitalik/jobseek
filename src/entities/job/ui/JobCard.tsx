@@ -1,10 +1,18 @@
 import { Badge } from '@/components/ui/badge';
 import Typography from '@/components/ui/typography';
+import { cn } from '@/lib/utils';
 
-const JobCard = () => {
+interface JobCardProps {
+  job: {
+    title: string;
+  };
+  className?: string;
+}
+
+const JobCard = ({ job, className }: JobCardProps) => {
   return (
-    <div className="bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4">
-      <Typography>Стажер / Frontend Специалист</Typography>
+    <div className={cn("bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4", className)}>
+      <Typography>{job.title}</Typography>
       <Typography>Зарплата: 40 000 ₽</Typography>
       <Typography>Опыт работы: любой</Typography>
       <Typography>Компания: ООО TestCompany</Typography>
@@ -16,7 +24,7 @@ const JobCard = () => {
         eius cupiditate pariatur recusandae. Optio fuga magnam maiores reiciendis delectus facilis
         consectetur laboriosam vero consequatur.
       </Typography>
-      <div className="flex flex-wrap gap-1 mt-2">
+      <div className="mt-2 flex flex-wrap gap-1">
         <Badge>JavaScript</Badge>
         <Badge>TypeScript</Badge>
         <Badge>React</Badge>
