@@ -9,7 +9,7 @@ export default function Home() {
   const [cards, setCards] = useState(jobs);
 
   return (
-    <div className="grid h-full place-items-center p-4 hover:cursor-grab active:cursor-grabbing">
+    <div className="grid h-full place-items-center p-4 hover:cursor-grab active:cursor-grabbing overflow-hidden">
       {cards.map((job) => (
         <Card job={job} key={job} cards={cards} setCards={setCards} />
       ))}
@@ -28,7 +28,7 @@ const Card = ({
 }) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
-  const background = useTransform(x, [-150, 0, 150], ['#6EC175', '#262626', '#F47174']);
+  const background = useTransform(x, [-100, 0, 100], ['#6EC175', '#262626', '#F47174']);
 
   const isFront = cards[cards.length - 1] === job;
 
