@@ -1,5 +1,5 @@
 'use client';
-import JobCard from '@/entities/job/ui/JobCard';
+import JobCard from '@/entities/job/ui/job-card';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { Dispatch, SetStateAction, useState } from 'react';
 

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';
 
-// Компонент для отдельной ссылки меню
 const MobileMenuLink = ({
   href,
   icon: Icon,
@@ -31,7 +30,6 @@ const MobileMenuLink = ({
   );
 };
 
-// Массив с конфигурацией ссылок
 const menuLinks = [
   { path: '/search', icon: Search, key: 'search' },
   { path: '/news', icon: Newspaper, key: 'news' },
