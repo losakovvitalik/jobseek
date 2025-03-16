@@ -1,12 +1,21 @@
+import { SearchInput } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
+import Conversation from '@/entities/messages/ui/conversation';
 
 const MessagesPage = () => {
   return (
     <div>
-      <Typography className="text-center border-b border-border pb-2" size={'2xl'}>
+      <Typography className="pb-2 text-center" size={'2xl'}>
         Сообщения
       </Typography>
-      
+      <SearchInput className="mt-2" placeholder="Поиск" />
+      <div className='mt-2'>
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+      </div>
     </div>
   );
 };

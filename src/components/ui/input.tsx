@@ -24,8 +24,8 @@ export interface SearchInputProps extends React.ComponentProps<'input'> {}
 
 function SearchInput({ className, ...props }: SearchInputProps) {
   return (
-    <div className="relative flex">
-      <Input className={cn('rounded-r-none border-r-0', className)} {...props} />
+    <div className={cn("relative flex", className)}>
+      <Input className={cn('rounded-r-none border-r-0')} {...props} />
       <Button className='rounded-l-none' variant={'outline'} size={'icon'}>
         <Search className="" />
       </Button>
