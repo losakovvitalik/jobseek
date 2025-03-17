@@ -1,6 +1,6 @@
 import { SearchInput } from '@/components/ui/input';
 
-const NewsSearch = () => {
+const PostsSearch = () => {
   return (
     <div>
       <SearchInput placeholder="Поиск..." />
@@ -8,4 +8,4 @@ const NewsSearch = () => {
   );
 };
 
-export default NewsSearch;
+export default PostsSearch;

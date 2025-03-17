@@ -32,7 +32,7 @@ const MobileMenuLink = ({
 
 const menuLinks = [
   { path: '/search', icon: Search, key: 'search' },
-  { path: '/news', icon: Newspaper, key: 'news' },
+  { path: '/posts', icon: Newspaper, key: 'posts' },
   { path: '/jobs', icon: WalletCards, key: 'jobs' },
   { path: '/messages', icon: List, key: 'messages' },
   { path: '/me', icon: User, key: 'me' },

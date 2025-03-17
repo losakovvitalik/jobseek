@@ -1,8 +1,8 @@
-import { News } from '../types/news';
+import { Post } from '../types/post';
 
-export const mockNews: News[] = [
+export const mockPosts: Post[] = [
   {
-    id: 'news-1',
+    id: 'post-1',
     title: 'Топ-5 навыков для IT-специалистов в 2024 году',
     excerpt:
       'Эксперты составили список самых востребованных навыков в сфере информационных технологий на текущий год.',
@@ -12,10 +12,10 @@ export const mockNews: News[] = [
       image_url: '/company-placeholder.png',
     },
     image_url:
-      '/news-main-image.jpg',
+      '/post-main-image.jpg',
   },
   {
-    id: 'news-2',
+    id: 'post-2',
     title: 'Как подготовиться к собеседованию за неделю',
     excerpt:
       'Пошаговое руководство по эффективной подготовке к техническому интервью с примерами задач и ответов.',
@@ -25,10 +25,10 @@ export const mockNews: News[] = [
       image_url: '/company-placeholder.png',
     },
     image_url:
-      '/news-main-image.jpg',
+      '/post-main-image.jpg',
   },
   {
-    id: 'news-3',
+    id: 'post-3',
     title: 'Удалённая работа: новые правила трудоустройства',
     excerpt:
       'Изменения в трудовом законодательстве, которые нужно знать при работе с зарубежными компаниями.',
@@ -38,10 +38,10 @@ export const mockNews: News[] = [
       image_url: '/company-placeholder.png',
     },
     image_url:
-      '/news-main-image.jpg',
+      '/post-main-image.jpg',
   },
   {
-    id: 'news-4',
+    id: 'post-4',
     title: '10 ошибок в резюме, которые всех раздражают',
     excerpt:
       'Составили список самых распространённых ошибок, которые мешают найти работу даже опытным специалистам.',
@@ -51,10 +51,10 @@ export const mockNews: News[] = [
       image_url: '/company-placeholder.png',
     },
     image_url:
-      '/news-main-image.jpg',
+      '/post-main-image.jpg',
   },
   {
-    id: 'news-5',
+    id: 'post-5',
     title: 'Рынок труда: рост спроса на AI-специалистов',
     excerpt:
       'Аналитический обзор изменений на рынке труда в сфере искусственного интеллекта и машинного обучения.',
@@ -64,6 +64,6 @@ export const mockNews: News[] = [
       image_url: '/company-placeholder.png',
     },
     image_url:
-      '/news-main-image.jpg',
+      '/post-main-image.jpg',
   },
 ];

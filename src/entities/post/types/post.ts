@@ -1,13 +1,13 @@
-export interface News {
+export interface Post {
   id: string;
   title: string;
   excerpt: string;
   tags: string[];
-  author: NewsAuthor;
+  author: PostAuthor;
   image_url: string;
 }
 
-export interface NewsAuthor {
+export interface PostAuthor {
   name: string;
   image_url: string;
 }

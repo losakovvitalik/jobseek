@@ -8,8 +8,8 @@ import {
 } from '@/components/ui/carousel';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Typography from '@/components/ui/typography';
-import { mockNews } from '@/entities/news/mock/news.mock';
-import NewsCard from '@/entities/news/ui/news-card';
+import { mockPosts } from '@/entities/post/mock/posts.mock';
+import PostsCard from '@/entities/post/ui/posts-card';
 import { Trophy } from 'lucide-react';
 import Image from 'next/image';
 
@@ -132,8 +132,8 @@ const MePage = () => {
         </TabsContent>
         <TabsContent value="post">
           <div className="flex h-full flex-col gap-4 overflow-auto">
-            {mockNews.map((news) => (
-              <NewsCard news={news} key={news.id} />
+            {mockPosts.map((post) => (
+              <PostsCard post={post} key={post.id} />
             ))}
           </div>
         </TabsContent>
