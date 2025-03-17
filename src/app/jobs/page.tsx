@@ -3,7 +3,7 @@ import JobCard from '@/entities/job/ui/job-card';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { Dispatch, SetStateAction, useState } from 'react';
 
-const jobs = ['тест 1', 'тест 2', 'тест 3', 'тест 4'];
+const jobs = ['Тест 1', 'Тест 2', 'Тест 3', 'Тест 4'];
 
 export default function Home() {
   const [cards, setCards] = useState(jobs);

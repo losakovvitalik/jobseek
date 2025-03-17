@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import Typography from '@/components/ui/typography';
+import CompanyAvatar from '@/entities/company/ui/company-avatar';
 import { cn } from '@/lib/utils';
 
 interface JobCardProps {
@@ -11,11 +12,14 @@ interface JobCardProps {
 
 const JobCard = ({ job, className }: JobCardProps) => {
   return (
-    <div className={cn("bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4", className)}>
-      <Typography>{job.title}</Typography>
-      <Typography>Зарплата: 40 000 ₽</Typography>
+    <div className={cn('bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
+      <Typography size={'3xl'}>{job.title}</Typography>
+      <div className="flex gap-3 items-center">
+        <CompanyAvatar src="/company-placeholder.png" />
+        <Typography size={'xl'}>Сбербанк</Typography>
+      </div>
+      <Typography size={'lg'}>40 000₽ - 80 000₽</Typography>
       <Typography>Опыт работы: любой</Typography>
-      <Typography>Компания: ООО TestCompany</Typography>
       <Typography>Город: Москва</Typography>
 
       <Typography>

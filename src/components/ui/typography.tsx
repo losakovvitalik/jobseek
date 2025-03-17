@@ -7,10 +7,12 @@ const typographyVariants = cva('', {
   variants: {
     size: {
       default: 'text-base',
+      xs: 'text-xs',
       sm: 'text-sm',
       lg: 'text-lg font-medium',
       xl: 'text-xl font-medium',
       '2xl': 'text-2xl font-medium',
+      '3xl': 'text-3xl font-medium'
     },
   },
   defaultVariants: {
