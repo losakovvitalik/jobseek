@@ -117,6 +117,12 @@ const MePage = () => {
           >
             Посты
           </TabsTrigger>
+          <TabsTrigger
+            className="border-input rounded-none border-x-0 border-t-0 border-b-2 bg-transparent dark:data-[state=active]:border-white"
+            value="settings"
+          >
+            Настройки
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="info">
           <Typography>Стаж работы: 5 лет</Typography>
@@ -130,6 +136,9 @@ const MePage = () => {
               <NewsCard news={news} key={news.id} />
             ))}
           </div>
+        </TabsContent>
+        <TabsContent value="settings">
+          Настройки профиля, будут видны только при просмотре своего профиля
         </TabsContent>
       </Tabs>
     </div>
