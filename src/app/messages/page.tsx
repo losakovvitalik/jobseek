@@ -1,6 +1,6 @@
 import { SearchInput } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
-import Conversation from '@/entities/messages/ui/conversation';
+import Conversation from '@/entities/message/ui/conversation';
 
 const MessagesPage = () => {
   return (

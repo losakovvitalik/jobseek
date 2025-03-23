@@ -9,7 +9,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Typography from '@/components/ui/typography';
 import { mockPosts } from '@/entities/post/mock/posts.mock';
-import PostsCard from '@/entities/post/ui/posts-card';
+import PostWithTopComment from '@/features/post-feed/ui/PostWithTopComment';
 import { Trophy } from 'lucide-react';
 import Image from 'next/image';
 
@@ -36,6 +36,21 @@ const MePage = () => {
           </div>
         </CardContent>
       </Card>
+
+      <div className="relative mt-6 grid grid-cols-[24px_1fr] gap-2">
+        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500">
+          <Typography className="font-bold">1</Typography>
+        </div>
+        <div className="bg-secondary h-6 rounded-2xl">
+          <div className="h-6 w-8/12 rounded-2xl bg-orange-500"></div>
+          <Typography
+            className="absolute top-1/2 left-1/2 -translate-1/2 text-center font-medium"
+            size={'sm'}
+          >
+            400 / 600
+          </Typography>
+        </div>
+      </div>
 
       <Typography className="mt-6" size={'2xl'}>
         Достижения
@@ -133,7 +148,7 @@ const MePage = () => {
         <TabsContent value="post">
           <div className="flex h-full flex-col gap-4 overflow-auto">
             {mockPosts.map((post) => (
-              <PostsCard post={post} key={post.id} />
+              <PostWithTopComment post={post} key={post.id} />
             ))}
           </div>
         </TabsContent>

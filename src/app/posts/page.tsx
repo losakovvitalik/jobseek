@@ -1,5 +1,5 @@
 import { mockPosts } from '@/entities/post/mock/posts.mock';
-import PostsCard from '@/entities/post/ui/posts-card';
+import PostCard from '@/entities/post/ui/post-card';
 import PostsSearch from '@/entities/post/ui/posts-search';
 
 const PostsPage = () => {
@@ -8,7 +8,7 @@ const PostsPage = () => {
       <PostsSearch />
       <div className="flex h-full flex-col gap-4 overflow-auto">
         {mockPosts.map((post) => (
-          <PostsCard post={post} key={post.id} />
+          <PostCard post={post} key={post.id} />
         ))}
       </div>
     </div>
