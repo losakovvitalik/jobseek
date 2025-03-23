@@ -1,5 +1,5 @@
-import { Badge } from '@/components/ui/badge';
-import Typography from '@/components/ui/typography';
+import { Badge } from '@/shared/ui/badge';
+import Typography from '@/shared/ui/typography';
 import CompanyAvatar from '@/entities/company/ui/company-avatar';
 import { cn } from '@/lib/utils';
 

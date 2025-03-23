@@ -1,5 +1,5 @@
-import { Badge } from '@/components/ui/badge';
-import Typography from '@/components/ui/typography';
+import { Badge } from '@/shared/ui/badge';
+import Typography from '@/shared/ui/typography';
 import { Heart, MessageSquareText } from 'lucide-react';
 import Image from 'next/image';
 import { Post } from '../types/post';

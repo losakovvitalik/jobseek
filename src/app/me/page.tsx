@@ -1,15 +1,15 @@
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/shared/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Typography from '@/components/ui/typography';
+} from '@/shared/ui/carousel';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
+import Typography from '@/shared/ui/typography';
 import { mockPosts } from '@/entities/post/mock/posts.mock';
-import PostWithTopComment from '@/features/post-feed/ui/PostWithTopComment';
+import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
 import { Trophy } from 'lucide-react';
 import Image from 'next/image';
 

@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/shared/ui/card';
 import Comment from '@/entities/comment/ui/comment';
 import PostCard, { PostCardProps } from '@/entities/post/ui/post-card';
 

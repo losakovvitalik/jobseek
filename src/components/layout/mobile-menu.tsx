@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { List, Newspaper, Search, User, WalletCards } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Button } from '../ui/button';
+import { Button } from '@/shared/ui/button';
 
 const MobileMenuLink = ({
   href,

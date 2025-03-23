@@ -1,11 +1,11 @@
 import { SearchInput } from '@/shared/ui/input';
 
-const PostsSearch = () => {
+const GlobalSearchInput = () => {
   return (
-    <div role='search'>
+    <div>
       <SearchInput placeholder="Поиск" />
     </div>
   );
 };
 
-export default PostsSearch;
+export default GlobalSearchInput;

@@ -1,5 +1,5 @@
-import { SearchInput } from '@/components/ui/input';
-import Typography from '@/components/ui/typography';
+import { SearchInput } from '@/shared/ui/input';
+import Typography from '@/shared/ui/typography';
 import Conversation from '@/entities/message/ui/conversation';
 
 const MessagesPage = () => {
