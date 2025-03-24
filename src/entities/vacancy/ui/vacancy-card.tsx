@@ -10,7 +10,7 @@ interface JobCardProps {
   className?: string;
 }
 
-const JobCard = ({ job, className }: JobCardProps) => {
+const VacancyCard = ({ job, className }: JobCardProps) => {
   return (
     <div className={cn('bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
       <Typography size={'3xl'}>{job.title}</Typography>
@@ -40,4 +40,4 @@ const JobCard = ({ job, className }: JobCardProps) => {
   );
 };
 
-export default JobCard;
+export default VacancyCard;

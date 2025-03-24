@@ -1,6 +1,30 @@
+import { Card, CardContent } from '@/shared/ui/card';
+import Typography from '@/shared/ui/typography';
+import Image from 'next/image';
+
 const CompanyPage = () => {
   return (
-    <div>CompanyPage</div>
+    <div>
+      <Card className="bg-secondary">
+        <CardContent>
+          <div className="flex items-center gap-4">
+            <Image
+              className="h-20 w-20 rounded-full object-cover"
+              src={'/company-placeholder.png'}
+              alt=""
+              width={80}
+              height={80}
+            />
+            <div>
+              <Typography size={'xl'}>Сбербанк</Typography>
+              <Typography className="text-muted-foreground">
+                Лидер в разработке искусственного интеллекта в России
+              </Typography>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

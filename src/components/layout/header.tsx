@@ -1,5 +1,5 @@
+import Typography from '@/shared/ui/typography';
 import { UserRound } from 'lucide-react';
-import Typography from '../ui/typography';
 
 const Header = () => {
   return (

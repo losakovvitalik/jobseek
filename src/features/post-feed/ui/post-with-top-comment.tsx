@@ -9,7 +9,7 @@ const PostWithTopComment = ({ post }: PostWithTopCommentProps) => {
     <Card>
       <CardContent>
         <PostCard className="p-0" post={post} />
-        <div className="bg-accent mx-auto my-4 h-0.5 w-10/12 rounded" />
+        <div className="bg-accent mx-auto my-4 h-0.5 w-11/12 rounded" />
         <Comment />
       </CardContent>
     </Card>
