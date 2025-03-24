@@ -1,16 +1,10 @@
-import { Card, CardContent } from '@/shared/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/shared/ui/carousel';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
-import Typography from '@/shared/ui/typography';
+import AchievementCard from '@/components/achievement/ui/achievement-card';
 import { mockPosts } from '@/entities/post/mock/posts.mock';
 import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
-import { Trophy } from 'lucide-react';
+import { Card, CardContent } from '@/shared/ui/card';
+import { Carousel, CarouselContent, CarouselItem } from '@/shared/ui/carousel';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
+import Typography from '@/shared/ui/typography';
 import Image from 'next/image';
 
 const MePage = () => {
@@ -56,66 +50,30 @@ const MePage = () => {
         Достижения
       </Typography>
       <Carousel
-        className="mx-auto mt-2 w-3/4"
+        className="mx-auto mt-2 cursor-grab active:cursor-grabbing"
         opts={{
           align: 'end',
-          // duration: 20,
         }}
       >
         <CarouselContent>
           <CarouselItem className="basis-[40%]">
-            <Card className="flex aspect-square w-full items-center justify-center p-0">
-              <CardContent className="p-2">
-                <Trophy className="mx-auto mb-1 size-8" />
-                <Typography className="text-center" size={'xs'}>
-                  Победил в 10 хакатонах!
-                </Typography>
-              </CardContent>
-            </Card>
+            <AchievementCard />
           </CarouselItem>
           <CarouselItem className="basis-[40%]">
-            <Card className="flex aspect-square w-full items-center justify-center p-0">
-              <CardContent className="p-2">
-                <Trophy className="mx-auto mb-1 size-8" />
-                <Typography className="text-center" size={'xs'}>
-                  Победил в 10 хакатонах!
-                </Typography>
-              </CardContent>
-            </Card>
+            <AchievementCard />
           </CarouselItem>
           <CarouselItem className="basis-[40%]">
-            <Card className="flex aspect-square w-full items-center justify-center p-0">
-              <CardContent className="p-2">
-                <Trophy className="mx-auto mb-1 size-8" />
-                <Typography className="text-center" size={'xs'}>
-                  Победил в 10 хакатонах!
-                </Typography>
-              </CardContent>
-            </Card>
+            <AchievementCard />
           </CarouselItem>
           <CarouselItem className="basis-[40%]">
-            <Card className="flex aspect-square w-full items-center justify-center p-0">
-              <CardContent className="p-2">
-                <Trophy className="mx-auto mb-1 size-8" />
-                <Typography className="text-center" size={'xs'}>
-                  Победил в 10 хакатонах!
-                </Typography>
-              </CardContent>
-            </Card>
+            <AchievementCard />
           </CarouselItem>
           <CarouselItem className="basis-[40%]">
-            <Card className="flex aspect-square w-full items-center justify-center p-0">
-              <CardContent className="p-2">
-                <Trophy className="mx-auto mb-1 size-8" />
-                <Typography className="text-center" size={'xs'}>
-                  Победил в 10 хакатонах!
-                </Typography>
-              </CardContent>
-            </Card>
+            <AchievementCard />
           </CarouselItem>
         </CarouselContent>
-        <CarouselNext />
-        <CarouselPrevious />
+        {/* <CarouselNext /> */}
+        {/* <CarouselPrevious /> */}
       </Carousel>
 
       <Tabs defaultValue="info" className="mt-6 w-full">
