@@ -1,5 +1,5 @@
 import AchievementCard from '@/components/achievement/ui/achievement-card';
-import { mockPosts } from '@/entities/post/mock/posts.mock';
+import { mockPosts } from '@/entities/post/__test__/mock/posts.mock';
 import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
 import { Card, CardContent } from '@/shared/ui/card';
 import { Carousel, CarouselContent, CarouselItem } from '@/shared/ui/carousel';

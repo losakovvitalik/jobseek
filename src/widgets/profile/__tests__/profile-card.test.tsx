@@ -10,8 +10,10 @@ const defaultProps = {
 
 vitest.mock('next/image', () => ({
   __esModule: true,
-  // eslint-disable-next-line @next/next/no-img-element
-  default: (props: any) => <img {...props} src={props.src} alt={props.alt} loading="eager" />,
+  default: (props: React.ComponentProps<'img'>) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img {...props} src={props.src} alt={props.alt} loading="eager" />
+  ),
 }));
 
 describe('ProfileCard', () => {

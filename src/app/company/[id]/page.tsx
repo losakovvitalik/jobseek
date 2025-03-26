@@ -1,3 +1,4 @@
+import PartnerCompanyIcon from '@/entities/company/ui/partner-company-icon';
 import { Card, CardContent } from '@/shared/ui/card';
 import Typography from '@/shared/ui/typography';
 import Image from 'next/image';
@@ -16,7 +17,10 @@ const CompanyPage = () => {
               height={80}
             />
             <div>
-              <Typography size={'xl'}>Сбербанк</Typography>
+              <div className='flex gap-2'>
+                <Typography size={'xl'}>Сбербанк</Typography>
+                <PartnerCompanyIcon />
+              </div>
               <Typography className="text-muted-foreground">
                 Лидер в разработке искусственного интеллекта в России
               </Typography>
