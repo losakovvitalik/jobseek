@@ -1,0 +1,494 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MePage > should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="text-2xl font-medium mb-4 text-center"
+    >
+      Профиль
+    </div>
+    <div
+      class="text-card-foreground flex flex-col gap-6 rounded-xl border py-4 shadow-sm bg-secondary"
+      data-slot="card"
+    >
+      <div
+        class="px-4"
+        data-slot="card-content"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <img
+            alt="user avatar"
+            class="h-20 w-20 rounded-full object-cover"
+            height="80"
+            loading="eager"
+            src="/avatar-placeholder.png"
+            width="80"
+          />
+          <div>
+            <div
+              class="text-xl font-medium"
+            >
+              Сергей Витальевич Иванов
+            </div>
+            <div
+              class="text-base text-muted-foreground"
+            >
+              Frontend разработчик
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative mt-6 grid grid-cols-[24px_1fr] gap-2"
+    >
+      <div
+        class="flex h-6 w-6 items-center justify-center rounded-full bg-orange-500"
+      >
+        <div
+          class="text-base font-bold"
+        >
+          1
+        </div>
+      </div>
+      <div
+        class="bg-secondary h-6 rounded-2xl"
+      >
+        <div
+          class="h-6 w-8/12 rounded-2xl bg-orange-500"
+        />
+        <div
+          class="text-sm absolute top-1/2 left-1/2 -translate-1/2 text-center font-medium"
+        >
+          400 / 600
+        </div>
+      </div>
+    </div>
+    <div
+      class="text-2xl font-medium mt-6"
+    >
+      Достижения
+    </div>
+    <div
+      aria-roledescription="carousel"
+      class="relative mx-auto mt-2 cursor-grab active:cursor-grabbing"
+      data-slot="carousel"
+      role="region"
+    >
+      <div
+        class="overflow-hidden"
+        data-slot="carousel-content"
+      >
+        <div
+          class="flex -ml-4"
+        >
+          <div
+            aria-roledescription="slide"
+            class="min-w-0 shrink-0 grow-0 flex items-center pl-4 basis-[40%]"
+            data-slot="carousel-item"
+            role="group"
+          >
+            <div>
+              <div
+                class="bg-card text-card-foreground flex-col gap-6 rounded-xl border shadow-sm flex aspect-square w-full items-center justify-center p-0"
+                data-slot="card"
+              >
+                <div
+                  class="p-2"
+                  data-slot="card-content"
+                >
+                  <svg
+                    class="lucide lucide-trophy mx-auto mb-1 size-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                    />
+                    <path
+                      d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                    />
+                    <path
+                      d="M4 22h16"
+                    />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path
+                      d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                    />
+                  </svg>
+                  <div
+                    class="text-xs text-center"
+                  >
+                    Победил в 10 хакатонах!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-roledescription="slide"
+            class="min-w-0 shrink-0 grow-0 flex items-center pl-4 basis-[40%]"
+            data-slot="carousel-item"
+            role="group"
+          >
+            <div>
+              <div
+                class="bg-card text-card-foreground flex-col gap-6 rounded-xl border shadow-sm flex aspect-square w-full items-center justify-center p-0"
+                data-slot="card"
+              >
+                <div
+                  class="p-2"
+                  data-slot="card-content"
+                >
+                  <svg
+                    class="lucide lucide-trophy mx-auto mb-1 size-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                    />
+                    <path
+                      d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                    />
+                    <path
+                      d="M4 22h16"
+                    />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path
+                      d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                    />
+                  </svg>
+                  <div
+                    class="text-xs text-center"
+                  >
+                    Победил в 10 хакатонах!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-roledescription="slide"
+            class="min-w-0 shrink-0 grow-0 flex items-center pl-4 basis-[40%]"
+            data-slot="carousel-item"
+            role="group"
+          >
+            <div>
+              <div
+                class="bg-card text-card-foreground flex-col gap-6 rounded-xl border shadow-sm flex aspect-square w-full items-center justify-center p-0"
+                data-slot="card"
+              >
+                <div
+                  class="p-2"
+                  data-slot="card-content"
+                >
+                  <svg
+                    class="lucide lucide-trophy mx-auto mb-1 size-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                    />
+                    <path
+                      d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                    />
+                    <path
+                      d="M4 22h16"
+                    />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path
+                      d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                    />
+                  </svg>
+                  <div
+                    class="text-xs text-center"
+                  >
+                    Победил в 10 хакатонах!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-roledescription="slide"
+            class="min-w-0 shrink-0 grow-0 flex items-center pl-4 basis-[40%]"
+            data-slot="carousel-item"
+            role="group"
+          >
+            <div>
+              <div
+                class="bg-card text-card-foreground flex-col gap-6 rounded-xl border shadow-sm flex aspect-square w-full items-center justify-center p-0"
+                data-slot="card"
+              >
+                <div
+                  class="p-2"
+                  data-slot="card-content"
+                >
+                  <svg
+                    class="lucide lucide-trophy mx-auto mb-1 size-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                    />
+                    <path
+                      d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                    />
+                    <path
+                      d="M4 22h16"
+                    />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path
+                      d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                    />
+                  </svg>
+                  <div
+                    class="text-xs text-center"
+                  >
+                    Победил в 10 хакатонах!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-roledescription="slide"
+            class="min-w-0 shrink-0 grow-0 flex items-center pl-4 basis-[40%]"
+            data-slot="carousel-item"
+            role="group"
+          >
+            <div>
+              <div
+                class="bg-card text-card-foreground flex-col gap-6 rounded-xl border shadow-sm flex aspect-square w-full items-center justify-center p-0"
+                data-slot="card"
+              >
+                <div
+                  class="p-2"
+                  data-slot="card-content"
+                >
+                  <svg
+                    class="lucide lucide-trophy mx-auto mb-1 size-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"
+                    />
+                    <path
+                      d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+                    />
+                    <path
+                      d="M4 22h16"
+                    />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path
+                      d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                    />
+                  </svg>
+                  <div
+                    class="text-xs text-center"
+                  >
+                    Победил в 10 хакатонах!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col gap-2 mt-6 w-full"
+      data-orientation="horizontal"
+      data-slot="tabs"
+      dir="ltr"
+    >
+      <div
+        aria-orientation="horizontal"
+        class="text-muted-foreground h-11 w-full rounded-lg p-[3px] grid auto-cols-fr grid-flow-col bg-transparent"
+        data-orientation="horizontal"
+        data-slot="tabs-list"
+        role="tablist"
+        style="outline: none;"
+        tabindex="0"
+      >
+        <button
+          aria-controls="radix-:r0:-content-info"
+          aria-selected="true"
+          class="data-[state=active]:bg-background data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 border px-2 py-2 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer select-none border-input rounded-none border-x-0 border-t-0 border-b-2 bg-transparent dark:data-[state=active]:border-white"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-slot="tabs-trigger"
+          data-state="active"
+          id="radix-:r0:-trigger-info"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          Информация
+        </button>
+        <button
+          aria-controls="radix-:r0:-content-posts"
+          aria-selected="false"
+          class="data-[state=active]:bg-background data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 border px-2 py-2 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer select-none border-input rounded-none border-x-0 border-t-0 border-b-2 bg-transparent dark:data-[state=active]:border-white"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-slot="tabs-trigger"
+          data-state="inactive"
+          id="radix-:r0:-trigger-posts"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          Посты
+        </button>
+        <button
+          aria-controls="radix-:r0:-content-settings"
+          aria-selected="false"
+          class="data-[state=active]:bg-background data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 border px-2 py-2 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer select-none border-input rounded-none border-x-0 border-t-0 border-b-2 bg-transparent dark:data-[state=active]:border-white"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-slot="tabs-trigger"
+          data-state="inactive"
+          id="radix-:r0:-trigger-settings"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          Настройки
+        </button>
+      </div>
+      <div
+        aria-labelledby="radix-:r0:-trigger-info"
+        class="flex-1 outline-none"
+        data-orientation="horizontal"
+        data-slot="tabs-content"
+        data-state="active"
+        id="radix-:r0:-content-info"
+        role="tabpanel"
+        style="animation-duration: 0s;"
+        tabindex="0"
+      >
+        <div
+          aria-labelledby="radix-:r0:-trigger-info"
+          data-orientation="horizontal"
+          data-state="active"
+          id="radix-:r0:-content-info"
+          role="tabpanel"
+          style="animation-duration: 0s;"
+          tabindex="0"
+        >
+          <div
+            class="text-base"
+          >
+            Стаж работы: 5 лет
+          </div>
+          <div
+            class="text-base"
+          >
+            Возраст: 26 лет
+          </div>
+          <div
+            class="text-base"
+          >
+            Пол: Мужской
+          </div>
+          <div
+            class="text-base"
+          >
+            Email: losakovvitalik@gmail.com
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="radix-:r0:-trigger-posts"
+        class="flex-1 outline-none"
+        data-orientation="horizontal"
+        data-slot="tabs-content"
+        data-state="inactive"
+        hidden=""
+        id="radix-:r0:-content-posts"
+        role="tabpanel"
+        tabindex="0"
+      />
+      <div
+        aria-labelledby="radix-:r0:-trigger-settings"
+        class="flex-1 outline-none"
+        data-orientation="horizontal"
+        data-slot="tabs-content"
+        data-state="inactive"
+        hidden=""
+        id="radix-:r0:-content-settings"
+        role="tabpanel"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;

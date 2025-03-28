@@ -12,7 +12,7 @@ export interface ProfileTabsProps {
 
 const ProfileTabs = ({ tabs }: ProfileTabsProps) => {
   return (
-    <Tabs defaultValue="info" className="mt-6 w-full">
+    <Tabs className="mt-6 w-full" defaultValue={tabs[0].value}>
       <TabsList className="bg-transparent">
         {tabs.map((tab) => (
           <TabsTrigger
