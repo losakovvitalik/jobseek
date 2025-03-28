@@ -1,9 +1,13 @@
+'use client';
 import PartnerCompanyIcon from '@/entities/company/ui/partner-company-icon';
+import usePageTitle from '@/shared/hooks/use-page-title';
 import { Card, CardContent } from '@/shared/ui/card';
 import Typography from '@/shared/ui/typography';
 import Image from 'next/image';
 
 const CompanyPage = () => {
+  usePageTitle('Сбербанк');
+
   return (
     <div>
       <Card className="bg-secondary">
@@ -17,7 +21,7 @@ const CompanyPage = () => {
               height={80}
             />
             <div>
-              <div className='flex gap-2'>
+              <div className="flex gap-2">
                 <Typography size={'xl'}>Сбербанк</Typography>
                 <PartnerCompanyIcon />
               </div>

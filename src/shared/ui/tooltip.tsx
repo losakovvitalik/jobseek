@@ -4,6 +4,17 @@ import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
+import { createContext } from 'react';
+
+type TooltipTriggerContextType = {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const TooltipTriggerContext = createContext<TooltipTriggerContextType>({
+  open: false,
+  setOpen: () => {},
+});
 
 function TooltipProvider({
   delayDuration = 0,

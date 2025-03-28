@@ -1,18 +1,21 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
+import { Tip } from '@/shared/ui/tip';
 import { BadgeCheck } from 'lucide-react';
 
 const PartnerCompanyIcon = () => {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <BadgeCheck />
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Компания партнер</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tip content={<p>Компания партнер</p>}>
+      <BadgeCheck />
+    </Tip>
+    // <TooltipProvider>
+    //   <Tooltip>
+    //     <TooltipTrigger asChild>
+    //       <BadgeCheck />
+    //     </TooltipTrigger>
+    //     <TooltipContent>
+    //       <p>Компания партнер</p>
+    //     </TooltipContent>
+    //   </Tooltip>
+    // </TooltipProvider>
   );
 };
 

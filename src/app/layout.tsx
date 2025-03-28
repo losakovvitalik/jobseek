@@ -1,3 +1,4 @@
+import MobileHeader from '@/components/layout/mobile-header';
 import MobileMenu from '@/components/layout/mobile-menu';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import type { Metadata } from 'next';
@@ -26,17 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} h-dvh antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} h-dvh antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className='h-dvh grid grid-rows-[1fr_var(--menu-height)]'>
-            <main className="p-2 overflow-auto">{children}</main>
+          <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
+            <MobileHeader />
+            <main className="overflow-auto p-2">{children}</main>
             <MobileMenu />
           </div>
         </ThemeProvider>
