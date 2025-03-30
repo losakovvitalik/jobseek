@@ -1,4 +1,4 @@
-import { mockPosts } from '@/entities/post/__test__/mock/posts.mock';
+import { mockPosts } from '@/entities/post/__tests__/mock/posts.mock';
 import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
 import { TabsContent } from '@/shared/ui/tabs';
 

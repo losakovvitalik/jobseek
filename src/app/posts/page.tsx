@@ -1,4 +1,4 @@
-import { mockPosts } from '@/entities/post/__test__/mock/posts.mock';
+import { mockPosts } from '@/entities/post/__tests__/mock/posts.mock';
 import PostCard from '@/entities/post/ui/post-card';
 import PostsSearch from '@/entities/post/ui/posts-search';
 
