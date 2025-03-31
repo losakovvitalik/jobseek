@@ -1,5 +1,5 @@
 'use client';
-import VacancyCard from '@/entities/vacancy/ui/vacancy-card';
+import VacancySwipeableCard from '@/entities/vacancy/ui/vacancy-swipeable-card';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { Dispatch, SetStateAction, useState } from 'react';
 
@@ -59,7 +59,7 @@ const Card = ({
       }}
       animate={{ scale: isFront ? 1 : 0.9 }}
     >
-      <VacancyCard className="bg-transparent" job={{ title: job }} />
+      <VacancySwipeableCard className="bg-transparent" job={{ title: job }} />
     </motion.div>
   );
 };

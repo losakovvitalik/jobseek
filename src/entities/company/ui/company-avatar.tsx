@@ -10,7 +10,8 @@ export interface CompanyAvatarProps {
 const companyAvatarVariants = cva('size-12 rounded-full object-cover', {
   variants: {
     size: {
-      sm: 'size-4',
+      xs: 'size-4',
+      sm: 'size-6',
       md: 'size-8',
       lg: 'size-12',
     },
@@ -22,6 +23,7 @@ const companyAvatarVariants = cva('size-12 rounded-full object-cover', {
 
 const CompanyAvatar = ({
   className,
+  size,
   src,
 }: CompanyAvatarProps & VariantProps<typeof companyAvatarVariants>) => {
   return (
@@ -29,6 +31,7 @@ const CompanyAvatar = ({
       className={cn(
         companyAvatarVariants({
           className: className,
+          size,
         }),
       )}
       src={src}

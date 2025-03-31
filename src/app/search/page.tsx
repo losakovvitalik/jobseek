@@ -1,6 +1,7 @@
 import GlobalSearchInput from '@/features/global-search/ui/global-search-input';
 import Typography from '@/shared/ui/typography';
 import CompanyCarousel from '@/widgets/company-carousel/ui/company-carousel';
+import VacancyCarousel from '@/widgets/vacancy-carousel/ui/vacancy-carousel';
 
 const SearchPage = () => {
   return (
@@ -17,7 +18,7 @@ const SearchPage = () => {
         <Typography className="font-bold" size={'xl'}>
           Рекомендуемые вакансии
         </Typography>
-        <CompanyCarousel className="mt-2" />
+        <VacancyCarousel className="mt-2" />
       </div>
       <div className="mt-6">
         <Typography className="font-bold" size={'xl'}>

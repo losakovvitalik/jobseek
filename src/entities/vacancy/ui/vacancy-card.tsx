@@ -1,42 +1,37 @@
-import { Badge } from '@/shared/ui/badge';
-import Typography from '@/shared/ui/typography';
 import CompanyAvatar from '@/entities/company/ui/company-avatar';
-import { cn } from '@/lib/utils';
+import PartnerCompanyIcon from '@/entities/company/ui/partner-company-icon';
+import { Button } from '@/shared/ui/button';
+import { Card, CardContent } from '@/shared/ui/card';
+import Typography from '@/shared/ui/typography';
 
-interface JobCardProps {
-  job: {
-    title: string;
-  };
-  className?: string;
-}
-
-const VacancyCard = ({ job, className }: JobCardProps) => {
+const VacancyCard = () => {
   return (
-    <div className={cn('bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
-      <Typography size={'3xl'}>{job.title}</Typography>
-      <div className="flex gap-3 items-center">
-        <CompanyAvatar src="/company-placeholder.png" />
-        <Typography size={'xl'}>Сбербанк</Typography>
-      </div>
-      <Typography size={'lg'}>40 000₽ - 80 000₽</Typography>
-      <Typography>Опыт работы: любой</Typography>
-      <Typography>Город: Москва</Typography>
+    <Card className="h-full w-full">
+      <CardContent>
+        <div className="flex items-center">
+          <CompanyAvatar size={'sm'} src="/company-placeholder.png" />
+          <Typography size={'sm'} className="mr-1 ml-2 font-semibold">
+            Сбербанк
+          </Typography>
+          <PartnerCompanyIcon className="size-4" />
+        </div>
+        <Typography size={'lg'} className="mt-1 font-bold">
+          Frontend Разработчик
+        </Typography>
 
-      <Typography>
-        Описание: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod sit aliquid
-        quia adipisci, maiores perferendis blanditiis, hic est quae dolorum cumque iure vero, velit
-        eius cupiditate pariatur recusandae. Optio fuga magnam maiores reiciendis delectus facilis
-        consectetur laboriosam vero consequatur.
-      </Typography>
-      <div className="mt-2 flex flex-wrap gap-1">
-        <Badge>JavaScript</Badge>
-        <Badge>TypeScript</Badge>
-        <Badge>React</Badge>
-        <Badge>NextJs</Badge>
-        <Badge>Tailwind</Badge>
-        <Badge>FSD</Badge>
-      </div>
-    </div>
+        <Typography className="text-muted-foreground mt-2" size={'xs'}>
+          Ищем старшего разработчик в новую команду. Нужно будет заниматься проектирование
+          архитектуры проекта, код-ревью, написание автоматических тестов
+        </Typography>
+
+        <div className="flex items-center justify-between mt-2">
+          <Typography size={'lg'} className='font-bold'>От 120 000 ₽</Typography>
+          <Button size={'sm'}>
+            Откликнуться
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

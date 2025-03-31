@@ -1,10 +1,14 @@
 import { Tip } from '@/shared/ui/tip';
 import { BadgeCheck } from 'lucide-react';
 
-const PartnerCompanyIcon = () => {
+export interface PartnerCompanyIconProps {
+  className?: string;
+}
+
+const PartnerCompanyIcon = ({ className }: PartnerCompanyIconProps) => {
   return (
     <Tip content={<p>Компания партнер</p>}>
-      <BadgeCheck />
+      <BadgeCheck className={className} />
     </Tip>
     // <TooltipProvider>
     //   <Tooltip>
