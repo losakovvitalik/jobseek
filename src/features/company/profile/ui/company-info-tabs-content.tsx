@@ -1,10 +1,16 @@
+import { Card, CardContent } from '@/shared/ui/card';
+
 const CompanyInfoTabsContent = () => {
   return (
     <div>
-      <p>Количество сотрудников: 20 000+</p>
-      <p>Год основания 1841</p>
-      <p>Сфера: Банкинг</p>
-      <p>Город: Москва</p>
+      <Card>
+        <CardContent>
+
+          <div className="flex items-center gap-1">
+
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

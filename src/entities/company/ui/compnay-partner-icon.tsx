@@ -1,11 +1,11 @@
 import { Tip } from '@/shared/ui/tip';
 import { BadgeCheck } from 'lucide-react';
 
-export interface PartnerCompanyIconProps {
+export interface CompanyPartnerIconProps {
   className?: string;
 }
 
-const PartnerCompanyIcon = ({ className }: PartnerCompanyIconProps) => {
+const CompanyPartnerIcon = ({ className }: CompanyPartnerIconProps) => {
   return (
     <Tip content={<p>Компания партнер</p>}>
       <BadgeCheck className={className} />
@@ -23,4 +23,4 @@ const PartnerCompanyIcon = ({ className }: PartnerCompanyIconProps) => {
   );
 };
 
-export default PartnerCompanyIcon;
+export default CompanyPartnerIcon;

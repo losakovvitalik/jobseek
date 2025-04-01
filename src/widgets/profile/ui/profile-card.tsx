@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export interface ProfileCardProps {
   imageUrl?: string;
-  name: string;
+  name: React.ReactNode;
   description?: string;
   className?: string;
 }
@@ -25,7 +25,7 @@ const ProfileCard = ({ description, imageUrl, name, className}: ProfileCardProps
             />
           )}
           <div>
-            <Typography size={'xl'}>{name}</Typography>
+            {name}
             {description && (
               <Typography className="text-muted-foreground">
                 {description}

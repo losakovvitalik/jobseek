@@ -3,7 +3,7 @@ import Typography from '@/shared/ui/typography';
 import { Star } from 'lucide-react';
 import Link from 'next/link';
 import CompanyAvatar from './company-avatar';
-import PartnerCompanyIcon from './partner-company-icon';
+import CompanyPartnerIcon from './compnay-partner-icon';
 
 const CompanyCard = () => {
   return (
@@ -12,7 +12,7 @@ const CompanyCard = () => {
         <Link href={'/company/34'} className="flex items-center gap-2">
           <CompanyAvatar src="/company-placeholder.png" />
           <Typography className="font-semibold">Сбербанк</Typography>
-          <PartnerCompanyIcon />
+          <CompanyPartnerIcon />
         </Link>
         <Typography className="text-muted-foreground mt-2" size={'xs'}>
           Ведущий банк России основанный в 1864 году. Лидер в IT сфере и разработке искусственного

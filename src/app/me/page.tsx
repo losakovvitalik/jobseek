@@ -31,7 +31,9 @@ const MePage = () => {
         Профиль
       </Typography>
       <ProfileCard
-        name="Сергей Витальевич Иванов"
+        name={
+          <Typography size={'xl'}>Сергей Витальевич Иванов</Typography>
+        }
         description="Frontend разработчик"
         imageUrl="/avatar-placeholder.png"
       />
