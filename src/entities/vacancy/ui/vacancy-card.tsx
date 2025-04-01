@@ -9,8 +9,8 @@ const VacancyCard = () => {
     <Card className="h-full w-full">
       <CardContent>
         <div className="flex items-center">
-          <CompanyAvatar size={'sm'} src="/company-placeholder.png" />
-          <Typography size={'sm'} className="mr-1 ml-2 font-semibold">
+          <CompanyAvatar size={'xs'} src="/company-placeholder.png" />
+          <Typography size={'default'} className="mr-1 ml-2 font-semibold">
             Сбербанк
           </Typography>
           <PartnerCompanyIcon className="size-4" />
@@ -24,7 +24,7 @@ const VacancyCard = () => {
           архитектуры проекта, код-ревью, написание автоматических тестов
         </Typography>
 
-        <div className="flex items-center justify-between mt-2">
+        <div className="flex items-center justify-between mt-4">
           <Typography size={'lg'} className='font-bold'>От 120 000 ₽</Typography>
           <Button size={'sm'}>
             Откликнуться

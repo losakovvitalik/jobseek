@@ -10,19 +10,19 @@ const AchievementsCarousel = () => {
       }}
     >
       <CarouselContent>
-        <CarouselItem className="basis-[40%]">
+        <CarouselItem className="basis-1/3">
           <AchievementCard />
         </CarouselItem>
-        <CarouselItem className="basis-[40%]">
+        <CarouselItem className="basis-1/3">
           <AchievementCard />
         </CarouselItem>
-        <CarouselItem className="basis-[40%]">
+        <CarouselItem className="basis-1/3">
           <AchievementCard />
         </CarouselItem>
-        <CarouselItem className="basis-[40%]">
+        <CarouselItem className="basis-1/3">
           <AchievementCard />
         </CarouselItem>
-        <CarouselItem className="basis-[40%]">
+        <CarouselItem className="basis-1/3">
           <AchievementCard />
         </CarouselItem>
       </CarouselContent>
