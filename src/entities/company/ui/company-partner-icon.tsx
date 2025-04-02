@@ -10,16 +10,6 @@ const CompanyPartnerIcon = ({ className }: CompanyPartnerIconProps) => {
     <Tip content={<p>Компания партнер</p>}>
       <BadgeCheck className={className} />
     </Tip>
-    // <TooltipProvider>
-    //   <Tooltip>
-    //     <TooltipTrigger asChild>
-    //       <BadgeCheck />
-    //     </TooltipTrigger>
-    //     <TooltipContent>
-    //       <p>Компания партнер</p>
-    //     </TooltipContent>
-    //   </Tooltip>
-    // </TooltipProvider>
   );
 };
 

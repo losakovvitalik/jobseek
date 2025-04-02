@@ -1,20 +1,21 @@
 import CompanyAvatar from '@/entities/company/ui/company-avatar';
-import CompanyPartnerIcon from '@/entities/company/ui/compnay-partner-icon';
+import CompanyPartnerIcon from '@/entities/company/ui/company-partner-icon';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import Typography from '@/shared/ui/typography';
+import Link from 'next/link';
 
 const VacancyCard = () => {
   return (
     <Card className="h-full w-full">
       <CardContent>
-        <div className="flex items-center">
+        <Link href={'/company/34'} className="flex items-center">
           <CompanyAvatar size={'xs'} src="/company-placeholder.png" />
           <Typography size={'default'} className="mr-1 ml-2 font-semibold">
             Сбербанк
           </Typography>
           <CompanyPartnerIcon className="size-4" />
-        </div>
+        </Link>
         <Typography size={'lg'} className="mt-1 font-bold">
           Frontend Разработчик
         </Typography>

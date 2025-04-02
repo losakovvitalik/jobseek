@@ -12,7 +12,10 @@ const typographyVariants = cva('', {
       lg: 'text-lg font-medium',
       xl: 'text-xl font-medium',
       '2xl': 'text-2xl font-medium',
-      '3xl': 'text-3xl font-medium'
+      '3xl': 'text-3xl font-medium',
+    },
+    variant: {
+      subtitle: 'text-xl font-bold',
     },
   },
   defaultVariants: {
@@ -27,7 +30,7 @@ interface TypographyProps
   asChild?: boolean;
 }
 
-const Typography = ({ asChild, className, size, ...props }: TypographyProps) => {
+const Typography = ({ asChild, className, size, variant, ...props }: TypographyProps) => {
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
@@ -35,6 +38,7 @@ const Typography = ({ asChild, className, size, ...props }: TypographyProps) => 
         typographyVariants({
           className,
           size,
+          variant,
         }),
       )}
       {...props}

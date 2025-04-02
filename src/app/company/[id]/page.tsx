@@ -1,5 +1,5 @@
 'use client';
-import CompanyPartnerIcon from '@/entities/company/ui/compnay-partner-icon';
+import CompanyPartnerIcon from '@/entities/company/ui/company-partner-icon';
 import CompanyProfileTabs from '@/features/company/profile/ui/company-profile-tabs';
 import usePageTitle from '@/shared/hooks/use-page-title';
 import StarIcon from '@/shared/ui/icons/star-icon';

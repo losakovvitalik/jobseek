@@ -3,7 +3,7 @@ import Typography from '@/shared/ui/typography';
 import { Star } from 'lucide-react';
 import Link from 'next/link';
 import CompanyAvatar from './company-avatar';
-import CompanyPartnerIcon from './compnay-partner-icon';
+import CompanyPartnerIcon from './company-partner-icon';
 
 const CompanyCard = () => {
   return (
