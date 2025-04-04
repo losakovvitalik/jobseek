@@ -1,7 +1,9 @@
-import { Badge } from '@/shared/ui/badge';
-import Typography from '@/shared/ui/typography';
 import CompanyAvatar from '@/entities/company/ui/company-avatar';
+import ReportVacancyButton from '@/features/vacancy/report/ui/report-vacancy-button';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/shared/ui/badge';
+import { Button } from '@/shared/ui/button';
+import Typography from '@/shared/ui/typography';
 
 interface JobCardProps {
   job: {
@@ -13,8 +15,11 @@ interface JobCardProps {
 const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
   return (
     <div className={cn('bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
-      <Typography size={'3xl'}>{job.title}</Typography>
-      <div className="flex gap-3 items-center">
+      <div className="flex justify-between">
+        <Typography size={'3xl'}>{job.title}</Typography>
+        <ReportVacancyButton />
+      </div>
+      <div className="flex items-center gap-3">
         <CompanyAvatar src="/company-placeholder.png" />
         <Typography size={'xl'}>Сбербанк</Typography>
       </div>
@@ -36,6 +41,7 @@ const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
         <Badge>Tailwind</Badge>
         <Badge>FSD</Badge>
       </div>
+      <Button>Подробнее</Button>
     </div>
   );
 };
