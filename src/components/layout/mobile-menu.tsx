@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import useLayoutStore from '@/shared/stores/use-layout-store';
 import { Button } from '@/shared/ui/button';
-import { List, Newspaper, Search, User, WalletCards } from 'lucide-react';
+import { BookOpen, Mail, Search, User, WalletCards } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -33,9 +33,9 @@ const MobileMenuLink = ({
 
 const menuLinks = [
   { path: '/search', icon: Search, key: 'search' },
-  { path: '/posts', icon: Newspaper, key: 'posts' },
+  { path: '/posts', icon: BookOpen, key: 'posts' },
   { path: '/jobs', icon: WalletCards, key: 'jobs' },
-  { path: '/messages', icon: List, key: 'messages' },
+  { path: '/messages', icon: Mail, key: 'messages' },
   { path: '/me', icon: User, key: 'me' },
 ];
 

@@ -12,7 +12,7 @@ export interface ProfileCardProps {
 
 const ProfileCard = ({ description, imageUrl, name, className}: ProfileCardProps) => {
   return (
-    <Card className={cn("bg-secondary", className)}>
+    <Card className={cn("", className)}>
       <CardContent>
         <div className="flex items-center gap-4">
           {imageUrl && (
