@@ -2,8 +2,9 @@ import CompanyAvatar from '@/entities/company/ui/company-avatar';
 import ReportVacancyButton from '@/features/vacancy/report/ui/report-vacancy-button';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/shared/ui/badge';
-import { Button } from '@/shared/ui/button';
+import { buttonVariants } from '@/shared/ui/button';
 import Typography from '@/shared/ui/typography';
+import Link from 'next/link';
 
 interface JobCardProps {
   job: {
@@ -41,7 +42,15 @@ const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
         <Badge>Tailwind</Badge>
         <Badge>FSD</Badge>
       </div>
-      <Button>Подробнее</Button>
+      <Link
+        className={buttonVariants({
+          className: 'ml-auto flex',
+          size: 'sm',
+        })}
+        href="/vacancy/34"
+      >
+        Подробнее
+      </Link>
     </div>
   );
 };

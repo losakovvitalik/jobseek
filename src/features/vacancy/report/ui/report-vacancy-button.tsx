@@ -14,14 +14,18 @@ import { RadioGroup, RadioGroupItem } from '@/shared/ui/radio-group';
 import { Textarea } from '@/shared/ui/textarea';
 import { OctagonAlert } from 'lucide-react';
 
-const ReportVacancyButton = () => {
+export interface ReportVacancyButtonProps {
+  className?: string;
+}
+
+const ReportVacancyButton = ({ className }: ReportVacancyButtonProps) => {
   return (
-    <div>
+    <div className={className}>
       <Drawer>
         <DrawerTrigger>
-          <OctagonAlert className='size-4' />
+          <OctagonAlert className="size-4" />
         </DrawerTrigger>
-        <DrawerContent className='px-4'>
+        <DrawerContent className="px-4">
           <DrawerHeader>
             <DrawerTitle>Отправить жалобу</DrawerTitle>
           </DrawerHeader>
@@ -48,7 +52,10 @@ const ReportVacancyButton = () => {
                 <Label htmlFor="option-five">Другое</Label>
               </div>
             </RadioGroup>
-            <Textarea className="mt-4" placeholder="Опишите ситуацию более детально. Это поможет поддержки оперативно решить проблему." />
+            <Textarea
+              className="mt-4"
+              placeholder="Опишите ситуацию более детально. Это поможет поддержки оперативно решить проблему."
+            />
           </div>
           <DrawerFooter>
             <Button>Отправить</Button>
