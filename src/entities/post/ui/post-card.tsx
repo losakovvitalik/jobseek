@@ -24,7 +24,7 @@ const PostCard = ({ post, className }: PostCardProps) => {
           />
           <Typography className="font-medium">{post.author.name}</Typography>
         </div>
-        <Typography size={'xl'}>{post.title}</Typography>
+        <Typography className={'font-bold'} size={'xl'}>{post.title}</Typography>
         <Typography size={'sm'}>{post.excerpt}</Typography>
 
         <div className="mt-2 flex gap-2">
