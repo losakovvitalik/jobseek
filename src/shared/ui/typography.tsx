@@ -16,6 +16,7 @@ const typographyVariants = cva('', {
     },
     variant: {
       subtitle: 'text-xl font-bold',
+      muted: 'text-muted-foreground',
     },
   },
   defaultVariants: {

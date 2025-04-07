@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import useLayoutStore from '../stores/use-layout-store';
 
-const usePageTitle = (title: string | null) => {
+const usePageTitle = (title: React.ReactNode | null) => {
   const setPage = useLayoutStore((state) => state.setPage);
 
   useEffect(() => {

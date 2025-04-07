@@ -1,4 +1,4 @@
-import AchievementCard from "@/components/achievement/ui/achievement-card";
+import AchievementCard from "@/entities/achievement/ui/achievement-card";
 import { Carousel, CarouselContent, CarouselItem } from "@/shared/ui/carousel";
 
 const AchievementsCarousel = () => {
