@@ -1,6 +1,6 @@
-import { Card, CardContent } from '@/shared/ui/card';
 import Comment from '@/entities/comment/ui/comment';
 import PostCard, { PostCardProps } from '@/entities/post/ui/post-card';
+import { Card, CardContent } from '@/shared/ui/card';
 
 export interface PostWithTopCommentProps extends Pick<PostCardProps, 'post'> {}
 

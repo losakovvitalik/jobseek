@@ -1,14 +1,14 @@
 import { mockPosts } from '@/entities/post/__tests__/mock/posts.mock';
-import PostCard from '@/entities/post/ui/post-card';
 import PostsSearch from '@/entities/post/ui/posts-search';
+import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
 
 const PostsPage = () => {
   return (
-    <div className="grid grid-rows-[auto,1fr] gap-2 h-full">
+    <div className="grid h-full grid-rows-[auto,1fr] gap-2">
       <PostsSearch />
       <div className="flex h-full flex-col gap-4 overflow-auto">
         {mockPosts.map((post) => (
-          <PostCard post={post} key={post.id} />
+          <PostWithTopComment post={post} key={post.id} />
         ))}
       </div>
     </div>
