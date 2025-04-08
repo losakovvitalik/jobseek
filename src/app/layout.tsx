@@ -26,17 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} h-dvh antialiased`}>
+    <html className={'h-dvh max-h-dvh overflow-hidden'} lang="ru" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
+          <div className="grid h-full grid-rows-[auto_calc(100%-var(--spacing-menu))_auto] overflow-hidden">
             <MobileHeader />
-            <main className="overflow-auto p-2">{children}</main>
+            <main className="h-full p-2">{children}</main>
             <MobileMenu />
           </div>
         </ThemeProvider>

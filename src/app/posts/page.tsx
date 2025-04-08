@@ -6,7 +6,7 @@ const PostsPage = () => {
   return (
     <div className="grid h-full grid-rows-[auto,1fr] gap-2">
       <PostsSearch />
-      <div className="flex h-full flex-col gap-4 overflow-auto">
+      <div className="flex overflow-auto h-full flex-col gap-4">
         {mockPosts.map((post) => (
           <PostWithTopComment post={post} key={post.id} />
         ))}
