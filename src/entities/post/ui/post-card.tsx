@@ -11,8 +11,8 @@ export interface PostCardProps {
 
 const PostCard = ({ post, className }: PostCardProps) => {
   return (
-    <div>
-      <div className="my-1 flex items-center gap-1">
+    <div className={className}>
+      <div className="mb-3 flex items-center gap-1">
         <Image
           className="h-6 w-6 rounded-full object-cover"
           src={post.author.image_url}
