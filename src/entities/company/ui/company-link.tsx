@@ -10,11 +10,13 @@ export interface CompanyLinkProps {
 
 const CompanyLink = ({ className }: CompanyLinkProps) => {
   return (
-    <Link href={'/company/34'} className={cn('flex items-center gap-2', className)}>
-      <CompanyAvatar src="/company-placeholder.png" />
-      <Typography className="font-semibold">Сбербанк</Typography>
+    <div className={'flex gap-1'}>
+      <Link href={'/company/34'} className={cn('flex items-center gap-2', className)}>
+        <CompanyAvatar className={'size-6'} src="/company-placeholder.png" />
+        <Typography className="font-semibold">Сбербанк</Typography>
+      </Link>
       <CompanyPartnerIcon />
-    </Link>
+    </div>
   );
 };
 

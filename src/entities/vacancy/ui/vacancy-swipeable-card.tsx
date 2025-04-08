@@ -1,4 +1,4 @@
-import CompanyAvatar from '@/entities/company/ui/company-avatar';
+import CompanyLink from '@/entities/company/ui/company-link';
 import ReportVacancyButton from '@/features/vacancy/report/ui/report-vacancy-button';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/shared/ui/badge';
@@ -20,10 +20,7 @@ const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
         <Typography size={'3xl'}>{job.title}</Typography>
         <ReportVacancyButton />
       </div>
-      <div className="flex items-center gap-3">
-        <CompanyAvatar src="/company-placeholder.png" />
-        <Typography size={'xl'}>Сбербанк</Typography>
-      </div>
+      <CompanyLink />
       <Typography size={'lg'}>40 000₽ - 80 000₽</Typography>
       <Typography>Опыт работы: любой</Typography>
       <Typography>Город: Москва</Typography>
