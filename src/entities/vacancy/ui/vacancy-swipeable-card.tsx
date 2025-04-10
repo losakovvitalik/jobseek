@@ -15,7 +15,7 @@ interface JobCardProps {
 
 const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
   return (
-    <div className={cn('bg-secondary flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
+    <div className={cn('bg-background flex h-full w-full flex-col gap-2 rounded-xl p-4', className)}>
       <div className="flex justify-between">
         <Typography size={'3xl'}>{job.title}</Typography>
         <ReportVacancyButton />

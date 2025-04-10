@@ -1,7 +1,7 @@
 'use client';
 import VacancySwipeableCard from '@/entities/vacancy/ui/vacancy-swipeable-card';
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 const jobs = ['Тест 1', 'Тест 2', 'Тест 3', 'Тест 4'];
 
@@ -9,7 +9,7 @@ export default function Home() {
   const [cards, setCards] = useState(jobs);
 
   return (
-    <div className="grid h-full place-items-center p-4 hover:cursor-grab active:cursor-grabbing overflow-hidden">
+    <div className="grid h-full place-items-center overflow-hidden p-4 hover:cursor-grab active:cursor-grabbing">
       {cards.map((job) => (
         <Card job={job} key={job} cards={cards} setCards={setCards} />
       ))}
@@ -28,7 +28,16 @@ const Card = ({
 }) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
-  const background = useTransform(x, [-100, 0, 100], ['#6EC175', '#262626', '#F47174']);
+  const [secondaryColor, setSecondaryColor] = useState('transparent'); // Default fallback
+
+  useEffect(() => {
+    // Get the CSS variable value after component mounts
+    const root = document.documentElement;
+    const color = getComputedStyle(root).getPropertyValue('--secondary').trim();
+    setSecondaryColor(color);
+  }, []);
+
+  const background = useTransform(x, [-100, 0, 100], ['#6EC175', secondaryColor, '#F47174']);
 
   const isFront = cards[cards.length - 1] === job;
 
