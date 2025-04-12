@@ -30,7 +30,7 @@ const MobileHeader = () => {
   }
 
   return (
-    <header className="bg-accent relative flex h-14 items-center justify-center rounded-b p-2 pl-12 text-2xl">
+    <header className="bg-accent relative flex h-12 items-center justify-center rounded-b p-2 pl-12 text-2xl">
       <ArrowLeft className="absolute top-1/2 left-3 -translate-y-1/2" onClick={handleBack} />
       <Typography className={'line-clamp-1'} size={'xl'}>
         {page}

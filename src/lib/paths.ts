@@ -1,6 +1,6 @@
 export const paths = {
   menu: {
-    resume: '/menu/resume',
+    resumes: '/menu/resumes',
     applications: '/menu/applications',
     favorites: '/menu/favorites',
     settings: '/menu/settings',
@@ -15,5 +15,9 @@ export const paths = {
   jobsLink: '/jobs',
   posts: {
     single: (id: string) => `/posts/${id}`,
+  },
+  resume: {
+    single: (id: string) => `/resumes/${id}`,
+    edit: (id: string) => `/resumes/${id}/edit`,
   },
 };

@@ -17,7 +17,7 @@ const MenuPage = () => {
       />
       <div className={'mt-4 flex flex-col gap-4'}>
         <ToggleThemeButton className={buttonVariants({ variant: 'outline', size: 'lg' })} />
-        <MenuPageLink icon={FileUser} href={paths.menu.resume}>
+        <MenuPageLink icon={FileUser} href={paths.menu.resumes}>
           Мои резюме
         </MenuPageLink>
         <MenuPageLink icon={ListRestart} href={paths.menu.applications}>

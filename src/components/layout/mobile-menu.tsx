@@ -18,7 +18,7 @@ const MobileMenuLink = ({
   return (
     <Button
       className={cn('size-10', {
-        'ring-ring/50 ring-[2px]': href === pathname,
+        'ring-ring/50 ring-[2px] border-gray-300': href === pathname,
       })}
       asChild
       size={'icon'}
@@ -41,8 +41,6 @@ const menuLinks = [
 
 const MobileMenu = () => {
   const pathname = usePathname();
-
-  console.log(pathname, pathname.split('/'));
 
   if (pathname.split('/').length >= 3) {
     return null;
