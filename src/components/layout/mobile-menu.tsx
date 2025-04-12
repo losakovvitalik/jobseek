@@ -1,7 +1,8 @@
 'use client';
+import { paths } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { Button } from '@/shared/ui/button';
-import { BookOpen, Mail, Menu, Search, User, WalletCards } from 'lucide-react';
+import { BookOpen, Mail, Menu, Search, WalletCards } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -31,11 +32,11 @@ const MobileMenuLink = ({
 };
 
 const menuLinks = [
-  { path: '/search', icon: Search, key: 'search' },
-  { path: '/posts', icon: BookOpen, key: 'posts' },
-  { path: '/jobs', icon: WalletCards, key: 'jobs' },
-  { path: '/messages', icon: Mail, key: 'messages' },
-  { path: '/menu', icon: Menu, key: 'menu' },
+  { path: paths.searchLink, icon: Search, key: 'search' },
+  { path: paths.postsLink, icon: BookOpen, key: 'posts' },
+  { path: paths.jobsLink, icon: WalletCards, key: 'jobs' },
+  { path: paths.messagesLink, icon: Mail, key: 'messages' },
+  { path: paths.menuLink, icon: Menu, key: 'menu' },
 ];
 
 const MobileMenu = () => {

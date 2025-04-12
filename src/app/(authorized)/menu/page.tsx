@@ -1,4 +1,6 @@
+import MenuPageLink from '@/app/(authorized)/menu/ui/menu-page-link';
 import ToggleThemeButton from '@/features/toggle-theme/ui/toggle-theme-button';
+import { paths } from '@/lib/paths';
 import { Button } from '@/shared/ui/button';
 import PageTitle from '@/shared/ui/page-title';
 import ProfileCard from '@/widgets/profile/ui/profile-card';
@@ -13,24 +15,16 @@ const MenuPage = () => {
         imageUrl={'/avatar-placeholder.png'}
       />
       <div className={'mt-4 flex flex-col gap-4'}>
-        <ToggleThemeButton className={'w-full'} />
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>Мои резюме</Button>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>Мои отклики</Buttona>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>
-          Избранное
+        <Button asChild>
+          <ToggleThemeButton />
         </Button>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>
-          Настройки
-        </Button>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>
-          Уведомления
-        </Button>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>
-          Пользовательское соглашение
-        </Button>
-        <Button className={'w-full'} size={'lg'} variant={'outline'}>
-          Контакты
-        </Button>
+        <MenuPageLink href={paths.menu.resume}>Мои резюме</MenuPageLink>
+        <MenuPageLink href={paths.menu.applications}>Мои отклики</MenuPageLink>
+        <MenuPageLink href={paths.menu.favorites}>Избранное</MenuPageLink>
+        <MenuPageLink href={paths.menu.settings}>Настройки</MenuPageLink>
+        <MenuPageLink href={paths.menu.notifications}>Уведомления</MenuPageLink>
+        <MenuPageLink href={paths.menu.agreement}>Пользовательское соглашение</MenuPageLink>
+        <MenuPageLink href={paths.menu.contact}>Контакты</MenuPageLink>
       </div>
     </div>
   );

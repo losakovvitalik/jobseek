@@ -1,5 +1,4 @@
 'use client';
-import { Button } from '@/shared/ui/button';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -21,9 +20,9 @@ const ToggleThemeButton = ({ className }: ToggleThemeButtonProps) => {
   };
 
   return (
-    <Button className={className} variant={'outline'} size={'lg'} onClick={toggleTheme}>
+    <button className={className} onClick={toggleTheme}>
       Включить {theme === 'dark' ? 'светлую' : 'темную'} тему
-    </Button>
+    </button>
   );
 };
 
