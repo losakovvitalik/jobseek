@@ -98,14 +98,14 @@ const VacancyPage = () => {
       <div className="mt-4 flex gap-1 px-4">
         <Typography size={'sm'}>Опубликовано: 23 марат 2025</Typography>
         <Typography size={'sm'}>•</Typography>
-        <Typography className="flex gap-1 items-center" size={'sm'}>
-          <Eye className='size-3'/> 1.2K
+        <Typography className="flex items-center gap-1" size={'sm'}>
+          <Eye className="size-3" /> 1.2K
         </Typography>
       </div>
 
-      <div className='mt-4 px-4'>
+      <div className="mt-4 px-4">
         <Typography variant={'subtitle'}>Похожие вакансии</Typography>
-        <VacancyCarousel className='mt-2' />
+        <VacancyCarousel className="mt-2" />
       </div>
     </div>
   );

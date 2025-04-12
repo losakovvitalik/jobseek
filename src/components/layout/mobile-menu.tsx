@@ -1,8 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
-import useLayoutStore from '@/shared/stores/use-layout-store';
 import { Button } from '@/shared/ui/button';
-import { BookOpen, Mail, Search, User, WalletCards } from 'lucide-react';
+import { BookOpen, Mail, Menu, Search, User, WalletCards } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -36,18 +35,20 @@ const menuLinks = [
   { path: '/posts', icon: BookOpen, key: 'posts' },
   { path: '/jobs', icon: WalletCards, key: 'jobs' },
   { path: '/messages', icon: Mail, key: 'messages' },
-  { path: '/me', icon: User, key: 'me' },
+  { path: '/menu', icon: Menu, key: 'menu' },
 ];
 
 const MobileMenu = () => {
-  const page = useLayoutStore((state) => state.page);
+  const pathname = usePathname();
 
-  if (page) {
+  console.log(pathname, pathname.split('/'));
+
+  if (pathname.split('/').length >= 3) {
     return null;
   }
 
   return (
-    <div className="border-border h-menu grid grid-cols-5 items-center justify-items-center border-t px-4 bg-background z-10">
+    <div className="border-border h-menu bg-background z-10 grid grid-cols-5 items-center justify-items-center border-t px-4">
       {menuLinks.map((link) => (
         <MobileMenuLink key={link.key} href={link.path} icon={link.icon} />
       ))}

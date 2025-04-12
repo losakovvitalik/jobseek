@@ -11,7 +11,7 @@ export interface CompanyLinkProps {
 const CompanyLink = ({ className }: CompanyLinkProps) => {
   return (
     <div className={cn('flex gap-1', className)}>
-      <Link href={'/company/34'} className={cn('flex items-center gap-2')}>
+      <Link href={'/src/app/(authorized)/company/34'} className={cn('flex items-center gap-2')}>
         <CompanyAvatar className={'size-6'} src="/company-placeholder.png" />
         <Typography className="font-semibold">Сбербанк</Typography>
       </Link>

@@ -9,7 +9,7 @@ const VacancyCard = () => {
   return (
     <Card className="h-full w-full">
       <CardContent>
-        <Link href={'/company/34'} className="flex items-center">
+        <Link href={'/src/app/(authorized)/company/34'} className="flex items-center">
           <CompanyAvatar size={'xs'} src="/company-placeholder.png" />
           <Typography size={'default'} className="mr-1 ml-2 font-semibold">
             Сбербанк

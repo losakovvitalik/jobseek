@@ -5,6 +5,7 @@ import UserSettingsTabsContent from '@/entities/user/ui/user-settings-tabs-conte
 import Typography from '@/shared/ui/typography';
 import ProfileCard from '@/widgets/profile/ui/profile-card';
 import ProfileTabs, { ProfileTab } from '@/widgets/profile/ui/profile-tabs';
+import PageTitle from '@/shared/ui/page-title';
 
 const tabs: ProfileTab[] = [
   {
@@ -27,13 +28,8 @@ const tabs: ProfileTab[] = [
 const MePage = () => {
   return (
     <div>
-      <Typography className="mb-4 text-center" size={'2xl'}>
-        Профиль
-      </Typography>
       <ProfileCard
-        name={
-          <Typography size={'xl'}>Сергей Витальевич Иванов</Typography>
-        }
+        name={<Typography size={'xl'}>Сергей Витальевич Иванов</Typography>}
         description="Frontend разработчик"
         imageUrl="/avatar-placeholder.png"
       />

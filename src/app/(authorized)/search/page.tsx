@@ -7,7 +7,6 @@ const SearchPage = () => {
   return (
     <div className="">
       <GlobalSearchInput />
-
       <div className="mt-8 px-1">
         <Typography className="font-bold" size={'xl'}>
           Рекомендуемые компании

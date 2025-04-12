@@ -44,7 +44,7 @@ const VacancySwipeableCard = ({ job, className }: JobCardProps) => {
           className: 'ml-auto flex',
           size: 'sm',
         })}
-        href="/vacancy/34"
+        href="/src/app/(authorized)/vacancy/34"
       >
         Подробнее
       </Link>
