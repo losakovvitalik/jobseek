@@ -14,6 +14,7 @@ const MobileHeader = () => {
       if (history.length === 1) return 'Первая страница';
 
       const referrer = document.referrer;
+      console.log(referrer);
       if (!referrer) router.push('/jobs');
 
       const currentHost = window.location.hostname;

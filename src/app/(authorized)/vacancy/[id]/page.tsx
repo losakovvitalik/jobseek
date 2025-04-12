@@ -1,12 +1,13 @@
 'use client';
 import CompanyLink from '@/entities/company/ui/company-link';
+import FavoriteVacancyButton from '@/features/vacancy/favorite/ui/favorite-vacancy-button';
 import ReportVacancyButton from '@/features/vacancy/report/ui/report-vacancy-button';
 import usePageTitle from '@/shared/hooks/use-page-title';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import Typography from '@/shared/ui/typography';
 import VacancyCarousel from '@/widgets/vacancy-carousel/ui/vacancy-carousel';
-import { Eye, Heart, Share } from 'lucide-react';
+import { Eye, Share } from 'lucide-react';
 
 const VacancyPage = () => {
   usePageTitle('Вакансия');
@@ -26,9 +27,7 @@ const VacancyPage = () => {
         </CardContent>
       </Card>
       <div className="my-4 grid grid-cols-[1fr_1fr_auto] gap-2">
-        <Button variant={'secondary'}>
-          В избранное <Heart />
-        </Button>
+        <FavoriteVacancyButton />
         <Button variant={'secondary'}>Откликнуться</Button>
         <Button size={'icon'} variant={'secondary'}>
           <Share />
