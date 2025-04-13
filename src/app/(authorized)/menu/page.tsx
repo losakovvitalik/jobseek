@@ -1,6 +1,5 @@
 import MenuPageLink from '@/app/(authorized)/menu/ui/menu-page-link';
 import { paths } from '@/lib/paths';
-import PageTitle from '@/shared/ui/page-title';
 import ProfileCard from '@/widgets/profile/ui/profile-card';
 import { Bell, ContactIcon, FileUser, Handshake, Heart, ListRestart, Settings } from 'lucide-react';
 

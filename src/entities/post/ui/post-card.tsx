@@ -1,7 +1,10 @@
+import { paths } from '@/lib/paths';
 import { Badge } from '@/shared/ui/badge';
+import { Button } from '@/shared/ui/button';
 import Typography from '@/shared/ui/typography';
 import { Heart, MessageSquareText } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Post } from '../types/post';
 
 export interface PostCardProps {
@@ -22,7 +25,7 @@ const PostCard = ({ post, className }: PostCardProps) => {
         />
         <Typography className="font-medium">{post.author.name}</Typography>
       </div>
-      <Typography className={'font-bold'} size={'xl'}>
+      <Typography className="font-bold" size={'xl'}>
         {post.title}
       </Typography>
       <Typography size={'sm'}>{post.excerpt}</Typography>
@@ -31,6 +34,12 @@ const PostCard = ({ post, className }: PostCardProps) => {
         {post.tags.map((tag) => (
           <Badge key={tag}>{tag}</Badge>
         ))}
+      </div>
+
+      <div className="mt-2 flex justify-end">
+        <Button className="ml-auto" asChild size={'sm'}>
+          <Link href={paths.posts.single('34')}>Подробнее</Link>
+        </Button>
       </div>
 
       <div className="mt-4 flex justify-between">

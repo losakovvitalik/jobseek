@@ -1,3 +1,4 @@
+import { paths } from '@/lib/paths';
 import Typography from '@/shared/ui/typography';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,7 +7,7 @@ export interface ConversationProps {}
 
 const Conversation = () => {
   return (
-    <Link href={'/messages/1'} className="border-border block border-b py-2.5">
+    <Link href={paths.chat.single('34')} className="border-border block border-b py-2.5">
       <div className="grid grid-cols-[48px_1fr] gap-2">
         <Image
           className="h-12 w-12 rounded-full object-cover"

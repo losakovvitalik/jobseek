@@ -11,8 +11,11 @@ export const paths = {
   searchLink: '/search',
   postsLink: '/posts',
   menuLink: '/menu',
-  messagesLink: '/messages',
   jobsLink: '/jobs',
+  chat: {
+    link: '/chats',
+    single: (id: string) => `/chats/${id}`
+  },
   companies: {
     single: (id: string) => `/companies/${id}`,
   },

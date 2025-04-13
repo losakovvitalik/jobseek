@@ -13,7 +13,7 @@ const CompanyLink = ({ className }: CompanyLinkProps) => {
     <div className={cn('flex gap-1', className)}>
       <Link href={'/src/app/(authorized)/companies/34'} className={cn('flex items-center gap-2')}>
         <CompanyAvatar className={'size-6'} src="/company-placeholder.png" />
-        <Typography className="font-semibold">Сбербанк</Typography>
+        <Typography className="font-semibold leading-6 text-xl">Сбербанк</Typography>
       </Link>
       <CompanyPartnerIcon />
     </div>

@@ -5,7 +5,6 @@ import UserSettingsTabsContent from '@/entities/user/ui/user-settings-tabs-conte
 import Typography from '@/shared/ui/typography';
 import ProfileCard from '@/widgets/profile/ui/profile-card';
 import ProfileTabs, { ProfileTab } from '@/widgets/profile/ui/profile-tabs';
-import PageTitle from '@/shared/ui/page-title';
 
 const tabs: ProfileTab[] = [
   {
