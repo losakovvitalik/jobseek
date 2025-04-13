@@ -13,6 +13,13 @@ export const paths = {
   menuLink: '/menu',
   messagesLink: '/messages',
   jobsLink: '/jobs',
+  companies: {
+    single: (id: string) => `/companies/${id}`,
+  },
+  vacancies: {
+    link: '/vacancies',
+    single: (id: string) => `/vacancies/${id}`,
+  },
   posts: {
     single: (id: string) => `/posts/${id}`,
   },

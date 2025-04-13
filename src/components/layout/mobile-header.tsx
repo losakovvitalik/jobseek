@@ -3,28 +3,35 @@
 import useLayoutStore from '@/shared/stores/use-layout-store';
 import Typography from '@/shared/ui/typography';
 import { ArrowLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const MobileHeader = () => {
   const page = useLayoutStore((state) => state.page);
   const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const currentStoredPath = sessionStorage.getItem('currentPath');
+    if (currentStoredPath) {
+      sessionStorage.setItem('previousPath', currentStoredPath);
+    }
+    sessionStorage.setItem('currentPath', window.location.pathname);
+  }, [pathname]);
 
   const handleBack = () => {
-    try {
-      if (history.length === 1) return 'Первая страница';
+    const previousPath = sessionStorage.getItem('previousPath');
 
-      const referrer = document.referrer;
-      console.log(referrer);
-      if (!referrer) router.push('/jobs');
-
-      const currentHost = window.location.hostname;
-      const referrerHost = new URL(referrer).hostname;
-
-      return currentHost === referrerHost ? router.back() : router.push(`/jobs`);
-    } catch {
-      return router.push('/jobs');
+    if (previousPath && previousPath !== window.location.pathname) {
+      router.push(previousPath);
+    } else {
+      router.push('/jobs');
     }
   };
+
+  if (!page) {
+    return <div />;
+  }
 
   if (!page) {
     return <div />;

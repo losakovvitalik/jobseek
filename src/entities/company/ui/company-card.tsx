@@ -9,7 +9,7 @@ const CompanyCard = () => {
   return (
     <Card className="h-full w-full">
       <CardContent>
-        <Link href={'/src/app/(authorized)/company/34'} className="flex items-center gap-2">
+        <Link href={'/src/app/(authorized)/companies/34'} className="flex items-center gap-2">
           <CompanyAvatar src="/company-placeholder.png" />
           <Typography className="font-semibold">Сбербанк</Typography>
           <CompanyPartnerIcon />

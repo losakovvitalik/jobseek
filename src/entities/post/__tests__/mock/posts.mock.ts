@@ -9,7 +9,7 @@ export const mockPosts: Post[] = [
     tags: ['Карьера', 'IT', 'Тренды'],
     author: {
       name: 'Иван Петров',
-      image_url: '/company-placeholder.png',
+      image_url: '/companies-placeholder.png',
     },
     image_url:
       '/post-main-image.jpg',
@@ -22,7 +22,7 @@ export const mockPosts: Post[] = [
     tags: ['Советы', 'Интервью'],
     author: {
       name: 'Мария Сидорова',
-      image_url: '/company-placeholder.png',
+      image_url: '/companies-placeholder.png',
     },
     image_url:
       '/post-main-image.jpg',
@@ -35,7 +35,7 @@ export const mockPosts: Post[] = [
     tags: ['Удалёнка', 'Законодательство'],
     author: {
       name: 'Алексей Смирнов',
-      image_url: '/company-placeholder.png',
+      image_url: '/companies-placeholder.png',
     },
     image_url:
       '/post-main-image.jpg',
@@ -48,7 +48,7 @@ export const mockPosts: Post[] = [
     tags: ['Советы', 'Резюме'],
     author: {
       name: 'Екатерина Волкова',
-      image_url: '/company-placeholder.png',
+      image_url: '/companies-placeholder.png',
     },
     image_url:
       '/post-main-image.jpg',
@@ -61,7 +61,7 @@ export const mockPosts: Post[] = [
     tags: ['Аналитика', 'AI'],
     author: {
       name: 'Павел Новиков',
-      image_url: '/company-placeholder.png',
+      image_url: '/companies-placeholder.png',
     },
     image_url:
       '/post-main-image.jpg',

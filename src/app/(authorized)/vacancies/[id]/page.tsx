@@ -26,10 +26,10 @@ const VacancyPage = () => {
           </Typography>
         </CardContent>
       </Card>
-      <div className="my-4 grid grid-cols-[1fr_1fr_auto] gap-2">
+      <div className="my-4 grid grid-cols-[1fr_auto_auto] gap-2">
+        <Button>Откликнуться</Button>
         <FavoriteVacancyButton />
-        <Button variant={'secondary'}>Откликнуться</Button>
-        <Button size={'icon'} variant={'secondary'}>
+        <Button size={'icon'}>
           <Share />
         </Button>
       </div>
