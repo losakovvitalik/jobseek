@@ -12,7 +12,7 @@ const MenuPage = () => {
         imageUrl={'/avatar-placeholder.png'}
       />
       <div className={'mt-4 flex flex-col gap-4'}>
-        <MenuPageLink icon={FileUser} href={paths.menu.resumes}>
+        <MenuPageLink icon={FileUser} href={paths.resumes.my}>
           Мои резюме
         </MenuPageLink>
         <MenuPageLink icon={ListRestart} href={paths.menu.applications}>

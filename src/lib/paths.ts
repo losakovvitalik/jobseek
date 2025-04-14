@@ -14,7 +14,7 @@ export const paths = {
   jobsLink: '/jobs',
   chat: {
     link: '/chats',
-    single: (id: string) => `/chats/${id}`
+    single: (id: string) => `/chats/${id}`,
   },
   companies: {
     single: (id: string) => `/companies/${id}`,
@@ -26,7 +26,8 @@ export const paths = {
   posts: {
     single: (id: string) => `/posts/${id}`,
   },
-  resume: {
+  resumes: {
+    my: '/resumes/my',
     single: (id: string) => `/resumes/${id}`,
     edit: (id: string) => `/resumes/${id}/edit`,
   },

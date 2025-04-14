@@ -30,7 +30,7 @@ const ResumeCard = () => {
         <div className={'mt-4 flex items-center justify-between'}>
           <Typography variant={'muted'}>Создано 12 август</Typography>
           <Button size={'sm'} asChild>
-            <Link href={paths.resume.edit('2')}>Редактировать</Link>
+            <Link href={paths.resumes.edit('2')}>Редактировать</Link>
           </Button>
         </div>
       </CardContent>
