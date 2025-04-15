@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import Typography from '@/shared/ui/typography';
-import { dateToUserString } from '@/shared/utils/dateToUserString';
+import { dateToUserString } from '@/shared/utils/date-to-user-string';
 import { Check, CheckCheck } from 'lucide-react';
 
 export interface MessageProps {

@@ -1,11 +1,11 @@
-import { EditResumeForm } from '@/features/edit-resume';
+import ResumeForm from '@/entities/resume/ui/resume-form';
 import PageTitle from '@/shared/ui/page-title';
 
 const EditResumePage = () => {
   return (
     <div>
       <PageTitle>Редактирование резюме</PageTitle>
-      <EditResumeForm />
+      <ResumeForm />
     </div>
   );
 };

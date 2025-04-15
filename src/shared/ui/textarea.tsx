@@ -16,7 +16,7 @@ function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
   );
 }
 
-const AutoHeightTextarea = (props: React.ComponentProps<'textarea'>) => {
+const AutoHeightTextarea = ({ className, ...props }: React.ComponentProps<'textarea'>) => {
   const [value, setValue] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -30,7 +30,7 @@ const AutoHeightTextarea = (props: React.ComponentProps<'textarea'>) => {
 
   return (
     <Textarea
-      className={'resize-none overflow-hidden'}
+      className={cn('resize-none overflow-hidden', className)}
       ref={textareaRef}
       value={value}
       onChange={(e) => setValue(e.target.value)}
