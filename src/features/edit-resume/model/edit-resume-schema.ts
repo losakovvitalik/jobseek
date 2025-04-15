@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const editResumeSchema = z.object({
   name: z.string().max(100),
-  description: z.string(),
+  description: z.string().max(500),
   skills: z.array(z.string()),
   email: z.string(),
   phone: z.string(),
