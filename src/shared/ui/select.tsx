@@ -20,7 +20,7 @@ export interface SelectOption {
   label: string;
 }
 
-interface SelectProps {
+export interface SelectProps {
   options?: SelectOption[];
   emptyText?: string;
   placeholder?: string;

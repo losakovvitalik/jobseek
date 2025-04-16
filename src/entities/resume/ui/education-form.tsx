@@ -9,11 +9,11 @@ import {
   FormMessage,
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
-import Select from '@/shared/ui/select';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useEducationForm from '../hooks/use-education-form';
 import { EducationFormSchemaType } from '../model/education-form-schema';
+import EducationTypeSelect from './education-type-select';
 
 export interface EducationFormProps {
   onSubmit?: (values: EducationFormSchemaType) => void;
@@ -60,19 +60,7 @@ const EducationForm = ({ onSubmit }: EducationFormProps) => {
                   <Typography size={'sm'}>Тип образования</Typography>
                 </FormLabel>
                 <FormControl>
-                  <Select
-                    options={[
-                      {
-                        label: 'Университет',
-                        value: 'university',
-                      },
-                      {
-                        label: 'Онлайн курсы',
-                        value: 'course',
-                      },
-                    ]}
-                    {...field}
-                  />
+                  <EducationTypeSelect {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

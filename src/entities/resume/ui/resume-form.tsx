@@ -19,7 +19,7 @@ const ResumeForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form className="flex flex-col gap-4 pb-4" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="name"
@@ -200,7 +200,7 @@ const ResumeForm = () => {
           )}
         />
 
-        <Button type="submit">Сохранить</Button>
+        <Button className='ml-auto' type="submit">Сохранить</Button>
       </form>
     </Form>
   );
