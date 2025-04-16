@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { educationFormSchema } from './education-form-schema';
 
 export const resumeFormSchema = z.object({
   name: z.string().max(100),
@@ -22,7 +23,7 @@ export const resumeFormSchema = z.object({
     }),
   ),
   preferred_income: z.number(),
-  education: z.string(),
+  education: z.array(educationFormSchema),
   link: z.string(),
 });
 

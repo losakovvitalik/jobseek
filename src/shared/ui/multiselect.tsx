@@ -61,7 +61,7 @@ const MultiSelect = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="bg-input/30 h-auto w-full cursor-pointer justify-between p-2"
+          className="bg-input border-border h-auto min-h-10 w-full cursor-pointer justify-between p-2 py-1.5"
         >
           {!!selectedValues?.length ? (
             <div className="flex flex-wrap gap-1">

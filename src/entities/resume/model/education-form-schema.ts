@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const educationFormSchema = z.object({
   name: z.string(),
+  organization: z.string(),
   type: z.string(),
   year: z.string(),
 });

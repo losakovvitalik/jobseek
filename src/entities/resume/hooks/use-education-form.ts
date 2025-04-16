@@ -9,6 +9,7 @@ const useEducationForm = () => {
       name: '',
       type: '',
       year: '',
+      organization: '',
     },
   });
 

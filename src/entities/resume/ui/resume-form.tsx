@@ -193,7 +193,7 @@ const ResumeForm = () => {
                 <Typography>Тип занятности</Typography>
               </FormLabel>
               <FormControl>
-                <EducationInput />
+                <EducationInput field={field} />
               </FormControl>
               <FormMessage />
             </FormItem>

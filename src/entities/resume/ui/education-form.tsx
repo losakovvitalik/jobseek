@@ -1,27 +1,51 @@
 import { Button } from '@/shared/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import Select from '@/shared/ui/select';
+import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useEducationForm from '../hooks/use-education-form';
+import { EducationFormSchemaType } from '../model/education-form-schema';
 
-const EducationForm = () => {
+export interface EducationFormProps {
+  onSubmit?: (values: EducationFormSchemaType) => void;
+}
+
+const EducationForm = ({ onSubmit }: EducationFormProps) => {
   const form = useEducationForm();
+
+  const submit = (values: EducationFormSchemaType) => {
+    onSubmit?.(values);
+  };
 
   return (
     <div>
       <Form {...form}>
-        <form className="flex flex-col gap-4">
+        <form
+          className="mt-4 flex flex-col gap-4"
+          onSubmit={(e) => {
+            e.stopPropagation();
+            form.handleSubmit(submit)(e);
+          }}
+        >
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <Typography>Название</Typography>
+                  <Typography size={'sm'}>Название курса или специальности</Typography>
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="Наименование организации" {...field} />
+                  <AutoHeightTextarea {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -33,24 +57,57 @@ const EducationForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <Typography>Тип образования</Typography>
+                  <Typography size={'sm'}>Тип образования</Typography>
                 </FormLabel>
                 <FormControl>
                   <Select
                     options={[
                       {
                         label: 'Университет',
-                        value: 1,
+                        value: 'university',
                       },
                       {
                         label: 'Онлайн курсы',
-                        value: 2,
+                        value: 'course',
                       },
                     ]}
                     {...field}
                   />
                 </FormControl>
                 <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="organization"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <Typography size={'sm'}>Организация</Typography>
+                </FormLabel>
+                <FormControl>
+                  <AutoHeightTextarea placeholder="Наименование организации" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="year"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <Typography size={'sm'}>Год окончания</Typography>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+                <FormDescription className="text-left leading-4">
+                  Если вы ещё не окончили обучение, укажите предполагаемый год окончания
+                </FormDescription>
               </FormItem>
             )}
           />

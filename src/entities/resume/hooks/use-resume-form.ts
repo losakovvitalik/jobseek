@@ -8,7 +8,7 @@ const useResumeForm = () => {
     defaultValues: {
       name: '',
       description: '',
-      education: '',
+      link: '',
     },
   });
 

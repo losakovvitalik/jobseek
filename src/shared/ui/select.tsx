@@ -56,14 +56,14 @@ const Select = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="grid h-auto w-full grid-cols-[1fr_auto] justify-between p-2 bg-input/30"
+          className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] justify-between p-2"
         >
           {selectedValue ? (
-            <div className="flex flex-wrap gap-1">
+            <Typography className="flex flex-wrap gap-1">
               {options.find((op) => op.value == selectedValue)?.label}
-            </div>
+            </Typography>
           ) : (
-            <Typography className="truncate text-sm">{placeholder}</Typography>
+            <Typography className="truncate">{placeholder}</Typography>
           )}
           <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
         </Button>
