@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
-import { Card, CardContent, CardDescription, CardTitle } from '@/shared/ui/card';
+import { Button } from '@/shared/ui/button';
+import { Card, CardContent, CardDescription } from '@/shared/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -8,7 +9,7 @@ import {
   DialogTrigger,
 } from '@/shared/ui/dialog';
 import Typography from '@/shared/ui/typography';
-import { Plus } from 'lucide-react';
+import { Plus, Trash } from 'lucide-react';
 import { useState } from 'react';
 import { ControllerRenderProps } from 'react-hook-form';
 import { EducationFormSchemaType } from '../model/education-form-schema';
@@ -28,6 +29,10 @@ const EducationInput = ({ field }: EducationInputProps) => {
     setOpen(false);
   };
 
+  const handleRemoveEducation = (value: string) => {
+    field.onChange([...field?.value.filter((v) => v.name !== value)]);
+  };
+
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
@@ -40,7 +45,7 @@ const EducationInput = ({ field }: EducationInputProps) => {
               },
             )}
           >
-            <Plus className='size-4' /> <Typography>Добавить образование</Typography>
+            <Plus className="size-4" /> <Typography>Добавить образование</Typography>
           </div>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -52,17 +57,36 @@ const EducationInput = ({ field }: EducationInputProps) => {
       </Dialog>
 
       <div className="mt-4 flex flex-col gap-2">
-        {field?.value?.map((item) => (
-          <Card key={item.name}>
-            <CardContent>
-              <CardTitle>{item.name}</CardTitle>
-              <CardDescription className="mt-2">
-                {EDUCATION_TYPE_OPTIONS.find((op) => op.value === item.type)?.label},{' '}
-                {item.organization}, {item.year}
-              </CardDescription>
-            </CardContent>
-          </Card>
-        ))}
+        {field?.value?.map((item) => {
+          const cardDescription = [
+            EDUCATION_TYPE_OPTIONS.find((op) => op.value === item.type)?.label,
+            item.organization,
+            item.year,
+          ]
+            .filter((v) => v)
+            .join(', ');
+
+          return (
+            <Card key={item.name}>
+              <CardContent>
+                <div className="grid grid-cols-[1fr_auto] items-center gap-4">
+                  <div>
+                    <Typography className="font-semibold">{item.name}</Typography>
+                    {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
+                  </div>
+
+                  <Button
+                    onClick={() => handleRemoveEducation(item.name)}
+                    variant={'destructive'}
+                    size={'icon'}
+                  >
+                    <Trash />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );

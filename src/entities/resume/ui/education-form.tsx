@@ -100,7 +100,7 @@ const EducationForm = ({ onSubmit }: EducationFormProps) => {
             )}
           />
 
-          <Button className="mt-4 w-full" type="submit">
+          <Button className="mt-4 w-full" type="submit" disabled={!form.formState.isValid}>
             Добавить образование
           </Button>
         </form>

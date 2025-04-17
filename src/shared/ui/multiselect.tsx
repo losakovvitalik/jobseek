@@ -12,7 +12,6 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
 import { Check, ChevronsUpDown, X } from 'lucide-react';
 import { useState } from 'react';
-import { ControllerRenderProps } from 'react-hook-form';
 import { Badge } from './badge';
 import Typography from './typography';
 
@@ -23,30 +22,29 @@ export interface MultiSelectOption {
   label: string;
 }
 
-interface MultiSelectProps {
-  field: ControllerRenderProps<any>;
+export interface MultiSelectProps {
   options?: MultiSelectOption[];
   emptyText?: string;
   placeholder?: string;
+  value: ValueType[];
+  onChange: (v: ValueType[]) => void;
 }
 
 const MultiSelect = ({
-  field,
   options = [],
   emptyText = 'По вашему запросу ничего не найдено',
   placeholder = 'Выберите варианты',
+  onChange,
+  value,
 }: MultiSelectProps) => {
-  const selectedValues: MultiSelectOption[] | undefined = field.value;
-  const setSelectedValues = field.onChange as (v: MultiSelectOption[]) => void;
-
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const toggleOption = (currentOptions: MultiSelectOption) => {
-    setSelectedValues(
-      selectedValues?.find((op) => op.value === currentOptions.value)
-        ? selectedValues?.filter((v) => v.value !== currentOptions.value)
-        : [...(selectedValues || []), currentOptions],
+  const toggleOption = (currentOptions: ValueType) => {
+    onChange(
+      value?.find((op) => op === currentOptions)
+        ? value?.filter((v) => v !== currentOptions)
+        : [...(value || []), currentOptions],
     );
   };
 
@@ -61,26 +59,28 @@ const MultiSelect = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="bg-input border-border h-auto min-h-10 w-full cursor-pointer justify-between p-2 py-1.5"
+          className="bg-input border-border grid h-auto min-h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2 py-1.5"
         >
-          {!!selectedValues?.length ? (
+          {!!value?.length ? (
             <div className="flex flex-wrap gap-1">
-              {selectedValues?.map((option) => (
+              {value?.map((option) => (
                 <Badge
-                  key={option.value}
+                  key={option}
                   onClick={(e) => {
                     e.stopPropagation();
                     e.preventDefault();
                     toggleOption(option);
                   }}
                 >
-                  {option.label}
+                  {options.find((item) => item.value === option)?.label}
                   <X className="z-10 size-3 cursor-pointer" />
                 </Badge>
               ))}
             </div>
           ) : (
-            <Typography variant={'muted'}>{placeholder}</Typography>
+            <Typography className="truncate text-left" variant="muted">
+              {placeholder}
+            </Typography>
           )}
           <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
         </Button>
@@ -101,19 +101,19 @@ const MultiSelect = ({
                 <CommandItem
                   className="cursor-pointer"
                   key={option.value}
-                  onSelect={() => toggleOption(option)}
+                  onSelect={() => toggleOption(option.value)}
                 >
                   <div
                     className={cn(
                       'border-primary flex size-4 items-center justify-center rounded-sm border',
-                      selectedValues?.find((op) => op.value === option.value)
+                      value?.find((op) => op === option.value)
                         ? 'bg-primary text-primary-foreground'
                         : 'opacity-50 [&_svg]:invisible',
                     )}
                   >
                     <Check className="size-3.5" />
                   </div>
-                  {option.label}
+                  <Typography>{option.label}</Typography>
                 </CommandItem>
               ))}
             </CommandGroup>
