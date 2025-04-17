@@ -23,7 +23,7 @@ const MobileHeader = () => {
     const previousPath = sessionStorage.getItem('previousPath');
 
     if (previousPath && previousPath !== window.location.pathname) {
-      router.push(previousPath);
+      router.back();
     } else {
       router.push('/jobs');
     }
