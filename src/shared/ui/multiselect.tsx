@@ -12,6 +12,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
 import { Check, ChevronsUpDown, X } from 'lucide-react';
 import { useState } from 'react';
+import { isMobile } from '../utils/is-mobile';
 import { Badge } from './badge';
 import Typography from './typography';
 
@@ -89,8 +90,7 @@ const MultiSelect = ({
         className="w-[var(--radix-popover-trigger-width)] p-0"
         //* Хак, чтобы убрать автофокус на мобильных устройствах
         //* https://github.com/pacocoursey/cmdk/issues/127#issuecomment-2426388564
-        // TODO добавить проверку, чтоб работало только на мобилках
-        onOpenAutoFocus={(e) => e.preventDefault()}
+        onOpenAutoFocus={(e) => isMobile() && e.preventDefault()}
       >
         <Command loop>
           <CommandInput placeholder="Поиск..." value={searchTerm} onValueChange={setSearchTerm} />

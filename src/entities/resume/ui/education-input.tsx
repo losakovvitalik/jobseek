@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent, CardDescription } from '@/shared/ui/card';
+import ConfirmPopup from '@/shared/ui/confirm-popup';
 import {
   Dialog,
   DialogContent,
@@ -75,13 +76,15 @@ const EducationInput = ({ field }: EducationInputProps) => {
                     {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
                   </div>
 
-                  <Button
-                    onClick={() => handleRemoveEducation(item.name)}
-                    variant={'destructive'}
-                    size={'icon'}
+                  <ConfirmPopup
+                    title="Вы уверены что хотите удалить образование из резюме?"
+                    description={item.name}
+                    onConfirm={() => handleRemoveEducation(item.name)}
                   >
-                    <Trash />
-                  </Button>
+                    <Button variant={'destructive'} size={'icon'}>
+                      <Trash />
+                    </Button>
+                  </ConfirmPopup>
                 </div>
               </CardContent>
             </Card>
