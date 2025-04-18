@@ -3,8 +3,11 @@ import { paths } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { Button } from '@/shared/ui/button';
 import { BookOpen, Mail, Menu, Search, WalletCards } from 'lucide-react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+const MotionButton = motion.create(Button);
 
 const MobileMenuLink = ({
   href,
@@ -16,18 +19,21 @@ const MobileMenuLink = ({
   const pathname = usePathname();
 
   return (
-    <Button
+    <MotionButton
       className={cn('size-10', {
-        'ring-ring/50 ring-[2px] border-gray-300': href === pathname,
+        'ring-ring/50 border-gray-300 ring-[2px]': href === pathname,
       })}
       asChild
       size={'icon'}
       variant={'link'}
+      whileTap={{
+        scale: 0.8,
+      }}
     >
       <Link href={href}>
         <Icon className="size-6" />
       </Link>
-    </Button>
+    </MotionButton>
   );
 };
 

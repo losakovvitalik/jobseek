@@ -1,5 +1,6 @@
+import ThemeHandler from '@/components/providers/theme-handler';
 import { ThemeProvider } from '@/components/providers/theme-provider';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -15,7 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'JobSeek',
-  description: 'JobSeek App',
+  description: 'Приложение для поиска вакансий и сотрудников',
+};
+
+export const viewport: Viewport = {
+  viewportFit: 'cover',
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -25,14 +31,16 @@ export default function RootLayout({
 }>) {
   return (
     <html className={'h-dvh max-h-dvh overflow-hidden'} lang="ru" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} pb-safe-area !h-full antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ThemeHandler>{children}</ThemeHandler>
         </ThemeProvider>
       </body>
     </html>

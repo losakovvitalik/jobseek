@@ -45,6 +45,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --spacing-1\/1\.5: 66.66%;
   --spacing-menu: 65px;
+  --spacing-safe-area: env(safe-area-inset-bottom, 8px);
 }
 
 :root {

@@ -5,7 +5,7 @@ import VacancyCarousel from '@/widgets/vacancy-carousel/ui/vacancy-carousel';
 
 const SearchPage = () => {
   return (
-    <div className="">
+    <div>
       <GlobalSearchInput />
       <div className="mt-8 px-1">
         <Typography className="font-bold" size={'xl'}>

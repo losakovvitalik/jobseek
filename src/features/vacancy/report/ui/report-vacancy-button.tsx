@@ -22,8 +22,10 @@ const ReportVacancyButton = ({ className }: ReportVacancyButtonProps) => {
   return (
     <div className={className}>
       <Drawer>
-        <DrawerTrigger>
-          <OctagonAlert className="size-4" />
+        <DrawerTrigger asChild>
+          <Button className='size-6' size={'icon'}>
+            <OctagonAlert className="size-4" />
+          </Button>
         </DrawerTrigger>
         <DrawerContent className="px-4">
           <DrawerHeader>
