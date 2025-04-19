@@ -1,10 +1,12 @@
 'use client';
+import useLayoutStore from '@/shared/stores/use-layout-store';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';
 
 const ThemeHandler = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme();
+  const page = useLayoutStore((state) => state.page);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -17,8 +19,9 @@ const ThemeHandler = ({ children }: PropsWithChildren) => {
       document.head.appendChild(themeColorMeta);
     }
 
-    themeColorMeta.content = theme === 'dark' ? '#000' : '#fff';
-  }, [theme, pathname]);
+    const light = page ? 'oklch(0.97 0 0)' : '#fff';
+    themeColorMeta.content = theme === 'dark' ? '#000' : light;
+  }, [theme, pathname, page]);
 
   return children;
 };

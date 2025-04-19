@@ -3,7 +3,7 @@
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
-import { Input, UnitInput } from '@/shared/ui/input';
+import { UnitInput } from '@/shared/ui/input';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useResumeForm from '../hooks/use-resume-form';
@@ -35,7 +35,10 @@ const ResumeForm = () => {
                     <Typography>Профессия</Typography>
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="На какую профессию вы устраиваитесь" {...field} />
+                    <AutoHeightTextarea
+                      placeholder="На какую профессию вы устраиваитесь"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

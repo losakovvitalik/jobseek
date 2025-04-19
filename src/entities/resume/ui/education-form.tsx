@@ -1,4 +1,5 @@
 import { Button } from '@/shared/ui/button';
+import ConfirmPopup from '@/shared/ui/confirm-popup';
 import {
   Form,
   FormControl,
@@ -13,17 +14,36 @@ import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useEducationForm from '../hooks/use-education-form';
 import { EducationFormSchemaType } from '../model/education-form-schema';
+import { Education } from '../model/types';
 import EducationTypeSelect from './education-type-select';
 
-export interface EducationFormProps {
-  onSubmit?: (values: EducationFormSchemaType) => void;
+interface BaseProps {
+  onSubmit: (values: Education) => void | Promise<void>;
 }
+interface CreateProps extends BaseProps {
+  mode: 'create';
+}
+export interface EducationFormEditProps extends BaseProps {
+  mode: 'edit';
+  defaultValues: Education;
+  onRemove: (id: string) => void | Promise<void>;
+}
+export type EducationFormProps = CreateProps | EducationFormEditProps;
 
-const EducationForm = ({ onSubmit }: EducationFormProps) => {
-  const form = useEducationForm();
+const EducationForm = (props: EducationFormProps) => {
+  const { mode } = props;
+  const isEditMode = mode === 'edit';
+
+  const form = useEducationForm({
+    defaultValues: isEditMode ? props.defaultValues : undefined,
+  });
 
   const submit = (values: EducationFormSchemaType) => {
-    onSubmit?.(values);
+    const payload: Education = {
+      id: isEditMode ? props.defaultValues.id : crypto.randomUUID(),
+      ...values,
+    };
+    props.onSubmit(payload);
   };
 
   return (
@@ -41,7 +61,7 @@ const EducationForm = ({ onSubmit }: EducationFormProps) => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel required>
                   <Typography size={'sm'}>Название курса или специальности</Typography>
                 </FormLabel>
                 <FormControl>
@@ -100,9 +120,22 @@ const EducationForm = ({ onSubmit }: EducationFormProps) => {
             )}
           />
 
-          <Button className="mt-4 w-full" type="submit" disabled={!form.formState.isValid}>
-            Добавить образование
-          </Button>
+          <div className="mt-4 grid grid-cols-[auto_1fr] gap-4">
+            {isEditMode && (
+              <ConfirmPopup
+                onConfirm={() => props.onRemove(props.defaultValues.id)}
+                title="Вы уверены что хотите удалить образование?"
+                description={props.defaultValues.name}
+              >
+                <Button type="button" variant={'destructive'}>
+                  Удалить
+                </Button>
+              </ConfirmPopup>
+            )}
+            <Button type="submit" disabled={!form.formState.isValid}>
+              {isEditMode ? 'Изменить образование' : 'Добавить образование'}
+            </Button>
+          </div>
         </form>
       </Form>
     </div>

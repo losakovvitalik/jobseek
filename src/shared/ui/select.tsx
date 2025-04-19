@@ -84,7 +84,7 @@ const Select = ({
                   key={option.value}
                   onSelect={() => handleChange(option)}
                 >
-                  {option.label}
+                  <Typography>{option.label}</Typography>
                 </CommandItem>
               ))}
             </CommandGroup>
