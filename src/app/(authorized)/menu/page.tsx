@@ -1,7 +1,7 @@
 import MenuPageLink from '@/app/(authorized)/menu/ui/menu-page-link';
 import { paths } from '@/lib/paths';
 import ProfileCard from '@/widgets/profile/ui/profile-card';
-import { Bell, ContactIcon, FileUser, Handshake, Heart, ListRestart, Settings } from 'lucide-react';
+import { Bell, ContactIcon, Edit2, FileUser, Handshake, Heart, ListRestart, Settings } from 'lucide-react';
 
 const MenuPage = () => {
   return (
@@ -12,6 +12,9 @@ const MenuPage = () => {
         imageUrl={'/avatar-placeholder.png'}
       />
       <div className={'mt-4 flex flex-col gap-4'}>
+        <MenuPageLink icon={Edit2} href={paths.me.edit}>
+          Редактировать профиль
+        </MenuPageLink>
         <MenuPageLink icon={FileUser} href={paths.resumes.my}>
           Мои резюме
         </MenuPageLink>

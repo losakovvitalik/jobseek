@@ -17,7 +17,7 @@ type ValueType = number | string;
 
 export interface SelectOption {
   value: ValueType;
-  label: string;
+  label: string | number;
 }
 
 export interface SelectProps {
@@ -46,7 +46,7 @@ const Select = ({
   };
 
   const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase()),
+    String(option.label).toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (

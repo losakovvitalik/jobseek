@@ -32,7 +32,7 @@ const AutoHeightTextarea = ({ className, ...props }: React.ComponentProps<'texta
     <Textarea
       className={cn('resize-none overflow-hidden', className)}
       ref={textareaRef}
-      value={value}
+      value={value || ''}
       onChange={(e) => setValue(e.target.value)}
       {...props}
     />

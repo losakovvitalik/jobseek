@@ -1,6 +1,5 @@
 export const paths = {
   menu: {
-    resumes: '/menu/resumes',
     applications: '/menu/applications',
     favorites: '/menu/favorites',
     settings: '/menu/settings',
@@ -12,6 +11,9 @@ export const paths = {
   postsLink: '/posts',
   menuLink: '/menu',
   jobsLink: '/jobs',
+  me: {
+    edit: '/me/edit'
+  },
   chat: {
     link: '/chats',
     single: (id: string) => `/chats/${id}`,

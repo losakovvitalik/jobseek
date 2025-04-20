@@ -17,6 +17,10 @@ class StringHelper {
 
     return Math.ceil(context.measureText(text).width);
   }
+
+  static capitalizeFirstLetter(val: string): string {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+  }
 }
 
 export default StringHelper;
