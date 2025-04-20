@@ -10,7 +10,6 @@ const ThemeHandler = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    console.log('test', theme);
     let themeColorMeta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement;
 
     if (!themeColorMeta) {

@@ -1,3 +1,4 @@
+import SignInForm from '@/features/sign-in/ui/sign-in-form';
 import { Button } from '@/shared/ui/button';
 import {
   Card,
@@ -14,9 +15,7 @@ import Typography from '@/shared/ui/typography';
 
 const AuthPage = () => {
   return (
-    <div
-      className={'mx-auto flex h-full w-9/12 flex-col items-center justify-center gap-4'}
-    >
+    <div className={'mx-auto flex h-full w-9/12 flex-col items-center justify-center gap-4'}>
       <Tabs defaultValue="sign-in" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="sign-in">Вход</TabsTrigger>
@@ -32,19 +31,8 @@ const AuthPage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <div className="space-y-1">
-                <Label htmlFor="name">Email</Label>
-                <Input
-                  id="email"
-                  type={'email'}
-                  autoComplete={'email'}
-                  placeholder={'email@example.com'}
-                />
-              </div>
+              <SignInForm />
             </CardContent>
-            <CardFooter>
-              <Button className={'w-full'}>Войти</Button>
-            </CardFooter>
           </Card>
         </TabsContent>
         <TabsContent value="sign-up">

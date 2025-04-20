@@ -12,7 +12,7 @@ export const paths = {
   menuLink: '/menu',
   jobsLink: '/jobs',
   me: {
-    edit: '/me/edit'
+    edit: '/me/edit',
   },
   chat: {
     link: '/chats',
@@ -32,5 +32,9 @@ export const paths = {
     my: '/resumes/my',
     single: (id: string) => `/resumes/${id}`,
     edit: (id: string) => `/resumes/${id}/edit`,
+  },
+  auth: {
+    link: '/auth',
+    code: '/auth/code',
   },
 };

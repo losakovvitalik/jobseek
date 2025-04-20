@@ -2,31 +2,22 @@
 
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
-import { DatePickerWithPresets } from '@/shared/ui/datetime-input';
+import DateInput from '@/shared/ui/date-input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
-import { Input, PhoneInput } from '@/shared/ui/input';
+import { Input } from '@/shared/ui/input';
+import PhoneInput from '@/shared/ui/phone-input';
 import Typography from '@/shared/ui/typography';
 import Image from 'next/image';
-import { useMemo } from 'react';
 import useUserEditForm from '../hooks/use-user-edit-form';
-import { UserFormSchemaType } from '../model/user-form-schema';
+import { User } from '../model/types';
 import UserGenderSelect from './user-gender-select';
 import UserSearchStatusSelect from './user-search-status-select';
 
-const UserEditForm = () => {
-  const defaultValues = useMemo<Partial<UserFormSchemaType>>(
-    () => ({
-      search_status: 'active',
-      name: 'Виталий',
-      last_name: 'Лосяков',
-      middle_name: 'Витальевич',
-      email: 'losakovvitalik@gmail.com',
-      gender: 'male',
-      telegram: '@powerofweb',
-    }),
-    [],
-  );
+export interface UserEditFormProps {
+  defaultValues?: User;
+}
 
+const UserEditForm = ({ defaultValues }: UserEditFormProps) => {
   const form = useUserEditForm({
     defaultValues: defaultValues,
   });
@@ -139,7 +130,7 @@ const UserEditForm = () => {
                     <Typography>День рождения</Typography>
                   </FormLabel>
                   <FormControl>
-                    <DatePickerWithPresets />
+                    <DateInput {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -1,6 +1,7 @@
 import ThemeHandler from '@/components/providers/theme-handler';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import type { Metadata, Viewport } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -40,7 +41,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeHandler>{children}</ThemeHandler>
+          <ThemeHandler>
+            <SessionProvider>{children}</SessionProvider>
+          </ThemeHandler>
         </ThemeProvider>
       </body>
     </html>

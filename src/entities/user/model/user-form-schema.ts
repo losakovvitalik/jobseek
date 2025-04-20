@@ -3,14 +3,18 @@ import { z } from 'zod';
 export const userFormSchema = z.object({
   name: z.string().nonempty('Пожалуйста, укажите имя'),
   last_name: z.string().nonempty('Пожалуйста, укажите фамилию'),
-  middle_name: z.string(),
-  email: z.string(),
-  telegram: z.string(),
-  phone: z.string(),
-  photo: z.string(),
+  middle_name: z.string().optional(),
+  email: z.string().nonempty('Пожалуйста, укажите почту'),
+  telegram: z.string().optional(),
+  phone: z.string().optional(),
+  photo: z
+    .object({
+      url: z.string().optional(),
+    })
+    .optional(),
   search_status: z.string(),
   birthday: z.string(),
-  gender: z.string(),
+  gender: z.enum(['male', 'female']),
 });
 
 export type UserFormSchemaType = z.infer<typeof userFormSchema>;

@@ -17,13 +17,16 @@ const options = new Array(100).fill(undefined).map((_, index) => ({
   label: 2025 - index,
 }));
 
-export function DatePickerWithPresets() {
+export interface DateInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+function DateInput() {
   const [date, setDate] = React.useState<Date>();
 
   const formatCaption = (date: Date) =>
     StringHelper.capitalizeFirstLetter(date.toLocaleDateString('ru-RU', { month: 'long' }));
-
-  console.log(date);
 
   return (
     <Popover>
@@ -45,7 +48,7 @@ export function DatePickerWithPresets() {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="flex flex-col space-y-2 p-2 w-auto">
+      <PopoverContent align="start" className="flex w-auto flex-col space-y-2 p-2">
         <Select
           options={options}
           value={getYear(date || new Date())}
@@ -73,3 +76,5 @@ export function DatePickerWithPresets() {
     </Popover>
   );
 }
+
+export default DateInput;
