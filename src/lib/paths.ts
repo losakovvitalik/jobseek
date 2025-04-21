@@ -31,6 +31,7 @@ export const paths = {
     my: '/resumes/my',
     single: (id: string) => `/resumes/${id}`,
     edit: (id: string) => `/resumes/${id}/edit`,
+    create: `/resumes/create`
   },
   auth: {
     link: '/auth',
