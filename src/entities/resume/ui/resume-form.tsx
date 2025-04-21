@@ -23,7 +23,7 @@ const ResumeForm = () => {
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-4 pb-4" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="flex flex-col gap-4 pb-6" onSubmit={form.handleSubmit(onSubmit)}>
         <Card>
           <CardContent className="flex flex-col gap-4">
             <Typography variant={'subtitle'}>Основная информация</Typography>
@@ -172,8 +172,8 @@ const ResumeForm = () => {
           </CardContent>
         </Card>
 
-        <Button className="ml-auto" type="submit">
-          Сохранить
+        <Button className="w-full" type="submit">
+          Создать резюме
         </Button>
       </form>
     </Form>

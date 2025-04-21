@@ -34,7 +34,7 @@ export interface ListInputProps<T> {
   value?: T[];
   onChange: (value: T[]) => void;
   renderForm: (props: ListInputFormProps<T>) => React.ReactNode;
-  renderCard: (value: T) => React.ReactNode;
+  renderCardContent: (value: T) => React.ReactNode;
   entityName: string;
 }
 
@@ -43,7 +43,7 @@ export const ListInput = <T extends { id: string | number }>({
   entityName,
   onChange,
   renderForm,
-  renderCard,
+  renderCardContent: renderCard,
 }: ListInputProps<T>) => {
   const [open, setOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);

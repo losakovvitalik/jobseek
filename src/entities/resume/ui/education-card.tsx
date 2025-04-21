@@ -21,7 +21,6 @@ export interface EducationCardProps extends Pick<EducationFormEditProps, 'onSubm
 
 const EducationCard = ({ education, onRemove, onSubmit }: EducationCardProps) => {
   const [open, setOpen] = useState(false);
-  const cardDescription = getDescriptionFromEducation(education);
 
   const handleSubmit = async (data: Education) => {
     await onSubmit(data);

@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
+import { ListInputFormProps } from '@/shared/ui/list-input';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useEducationForm from '../hooks/use-education-form';
@@ -17,20 +18,7 @@ import { EducationFormSchemaType } from '../model/education-form-schema';
 import { Education } from '../model/types';
 import EducationTypeSelect from './education-type-select';
 
-interface BaseProps {
-  onSubmit: (values: Education) => void | Promise<void>;
-}
-interface CreateProps extends BaseProps {
-  mode: 'create';
-}
-export interface EducationFormEditProps extends BaseProps {
-  mode: 'edit';
-  defaultValues: Education;
-  onRemove: (id: string) => void | Promise<void>;
-}
-export type EducationFormProps = CreateProps | EducationFormEditProps;
-
-const EducationForm = (props: EducationFormProps) => {
+const EducationForm = (props: ListInputFormProps<Education>) => {
   const { mode } = props;
   const isEditMode = mode === 'edit';
 

@@ -20,7 +20,7 @@ const ExperienceInput = ({ field }: ExperienceInputProps) => {
       value={field?.value}
       entityName="Опыт работы"
       onChange={field.onChange}
-      renderCard={(value) => {
+      renderCardContent={(value) => {
         return (
           <div>
             <Typography className="font-semibold">{value.position}</Typography>
