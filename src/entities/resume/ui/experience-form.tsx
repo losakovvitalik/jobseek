@@ -1,13 +1,15 @@
+import CitySelect from '@/entities/city/ui/city-select';
 import { Button } from '@/shared/ui/button';
 import ConfirmPopup from '@/shared/ui/confirm-popup';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
+import { Input } from '@/shared/ui/input';
 import { ListInputFormProps } from '@/shared/ui/list-input';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
+import YearMonthInput from '@/shared/ui/year-month-input';
 import useExperienceForm from '../hooks/use-experience-form';
 import { ExperienceFormSchemaType } from '../model/experience-form-schema';
 import { Experience } from '../model/types';
-import CitySelect from '@/entities/city/ui/city-select';
 
 const ExperienceForm = (props: ListInputFormProps<Experience>) => {
   const { mode } = props;
@@ -41,7 +43,7 @@ const ExperienceForm = (props: ListInputFormProps<Experience>) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel required>
-                  <Typography size={'sm'}>Позиция на которой вы работали</Typography>
+                  <Typography size={'sm'}>Позиция</Typography>
                 </FormLabel>
                 <FormControl>
                   <AutoHeightTextarea {...field} />
@@ -53,14 +55,80 @@ const ExperienceForm = (props: ListInputFormProps<Experience>) => {
 
           <FormField
             control={form.control}
-            name="city"
+            name="organization"
             render={({ field }) => (
               <FormItem>
                 <FormLabel required>
-                  <Typography size={'sm'}>Город в котором вы работали</Typography>
+                  <Typography size={'sm'}>Организация/компания</Typography>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="start_date"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel required>
+                  <Typography size={'sm'}>Начало работы</Typography>
+                </FormLabel>
+                <FormControl>
+                  <YearMonthInput {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="end_date"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel required>
+                  <Typography size={'sm'}>Конец работы</Typography>
+                </FormLabel>
+                <FormControl>
+                  <YearMonthInput {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="city"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <Typography size={'sm'}>Город</Typography>
                 </FormLabel>
                 <FormControl>
                   <CitySelect {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <Typography size={'sm'}>Описание</Typography>
+                </FormLabel>
+                <FormControl>
+                  <AutoHeightTextarea
+                    placeholder="Опишите чем вы занимались и к чему это привело"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -79,7 +147,7 @@ const ExperienceForm = (props: ListInputFormProps<Experience>) => {
                 </Button>
               </ConfirmPopup>
             )}
-            <Button type="submit" disabled={!form.formState.isValid}>
+            <Button type="submit">
               {isEditMode ? 'Изменить опыт работы' : 'Добавить опыт работы'}
             </Button>
           </div>

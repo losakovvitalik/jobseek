@@ -1,5 +1,7 @@
 import ListInput from '@/shared/ui/list-input';
 import Typography from '@/shared/ui/typography';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale/ru';
 import { ControllerRenderProps } from 'react-hook-form';
 import { ResumeFormSchemaType } from '../model/resume-form-schema';
 import ExperienceForm from './experience-form';
@@ -9,6 +11,10 @@ export interface ExperienceInputProps {
 }
 
 const ExperienceInput = ({ field }: ExperienceInputProps) => {
+  const formatDate = (value: string) => {
+    return format(value, 'yyyy MMM', { locale: ru });
+  };
+
   return (
     <ListInput
       value={field?.value}
@@ -19,7 +25,7 @@ const ExperienceInput = ({ field }: ExperienceInputProps) => {
           <div>
             <Typography className="font-semibold">{value.position}</Typography>
             <Typography size={'sm'} variant={'muted'}>
-              {value.organization}
+              {value.organization}, {formatDate(value.start_date)} - {formatDate(value.end_date)}
             </Typography>
           </div>
         );

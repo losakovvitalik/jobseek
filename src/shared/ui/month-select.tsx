@@ -1,6 +1,6 @@
-import Select, { SelectOption, SelectProps } from '@/shared/ui/select';
+import Select, { SelectProps } from '@/shared/ui/select';
 
-export const MONTHS_OPTIONS: SelectOption[] = [
+export const MONTHS_OPTIONS = [
   { value: 0, label: 'Январь' },
   { value: 1, label: 'Февраль' },
   { value: 2, label: 'Март' },
@@ -14,11 +14,8 @@ export const MONTHS_OPTIONS: SelectOption[] = [
   { value: 10, label: 'Ноябрь' },
   { value: 11, label: 'Декабрь' },
 ];
-
-
-
-const MonthSelect = (props: Omit<SelectProps, 'options'>) => {
-  return <Select {...props} options={MONTHS_OPTIONS} searchable />;
+const MonthSelect = (props: Omit<SelectProps<number>, 'options'>) => {
+  return <Select {...props} options={MONTHS_OPTIONS} />;
 };
 
 export default MonthSelect;

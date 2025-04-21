@@ -67,7 +67,7 @@ export const ListInput = <T extends { id: string | number }>({
         <DialogTrigger asChild>
           <div
             className={cn(
-              'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed p-6',
+              'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed p-4',
               {
                 'p-2': !!value?.length,
               },

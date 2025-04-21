@@ -13,34 +13,34 @@ import { ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
 import Typography from './typography';
 
-type ValueType = number | string | undefined;
+type ValueType = number | string;
 
-export interface SelectOption {
-  value: ValueType;
+export interface SelectOption<T = ValueType> {
+  value: T;
   label: string | number;
 }
 
-export interface SelectProps {
-  options?: SelectOption[];
+export interface SelectProps<T = ValueType> {
+  options?: SelectOption<T>[];
   emptyText?: string;
   placeholder?: string;
-  value: ValueType;
-  onChange: (v: ValueType) => void;
+  value: T | undefined;
+  onChange: (v: T | undefined) => void;
   searchable?: boolean;
 }
 
-const Select = ({
+const Select = <T extends ValueType>({
   options = [],
   emptyText = 'Ничего не найдено',
   placeholder,
   value: selectedValue,
   onChange,
   searchable,
-}: SelectProps) => {
+}: SelectProps<T>) => {
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleChange = (currentOptions: SelectOption) => {
+  const handleChange = (currentOptions: SelectOption<T>) => {
     onChange(currentOptions.value);
     setOpen(false);
   };
@@ -58,7 +58,7 @@ const Select = ({
           aria-expanded={open}
           className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2"
         >
-          {selectedValue ? (
+          {selectedValue !== undefined ? (
             <Typography className="flex flex-wrap gap-1">
               {options.find((op) => op.value == selectedValue)?.label}
             </Typography>
