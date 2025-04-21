@@ -1,4 +1,5 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 import PostsSearch from '../ui/posts-search';
 
@@ -18,10 +19,10 @@ describe('PostsSearch', () => {
     expect(screen.getByPlaceholderText('Поиск')).toBeDefined();
   });
 
-  it('updates value in input on change', () => {
+  it('updates value in input on change', async () => {
     render(<PostsSearch />);
     const input = screen.getByPlaceholderText('Поиск');
-    fireEvent.change(input,  { target: { value: 'test1234' } });
-    expect(input).toHaveValue("test1234")
+    await userEvent.type(input, 'test1234');
+    expect(input).toHaveValue('test1234');
   });
 });
