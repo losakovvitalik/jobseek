@@ -22,11 +22,19 @@ export interface DateInputProps {
   onChange?: (value: string) => void;
 }
 
-function DateInput() {
-  const [date, setDate] = React.useState<Date>();
+function DateInput({ value, onChange }: DateInputProps) {
+  console.log(value ? new Date(value) : new Date());
+  const [date, setDate] = React.useState<Date>(value ? new Date(value) : new Date());
 
   const formatCaption = (date: Date) =>
     StringHelper.capitalizeFirstLetter(date.toLocaleDateString('ru-RU', { month: 'long' }));
+
+  const handleChange = (value: Date | undefined) => {
+    if (value) {
+      onChange?.(value.toISOString());
+      setDate(value);
+    }
+  };
 
   return (
     <Popover>
@@ -54,7 +62,10 @@ function DateInput() {
           value={getYear(date || new Date())}
           onChange={(value) =>
             setDate(
-              setYear(date || new Date(), typeof value === 'string' ? parseInt(value) : value),
+              setYear(
+                date || new Date(),
+                typeof value === 'string' ? parseInt(value) : Number(value),
+              ),
             )
           }
         />
@@ -66,7 +77,7 @@ function DateInput() {
             selected={date}
             // month={date}
             defaultMonth={date}
-            onSelect={setDate}
+            onSelect={handleChange}
             formatters={{
               formatCaption,
             }}

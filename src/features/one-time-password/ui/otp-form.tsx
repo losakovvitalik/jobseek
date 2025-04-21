@@ -9,6 +9,7 @@ import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/shar
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { otpFormSchema, OtpFormSchemaType } from '../model/otp-form-schema';
+import { paths } from '@/lib/paths';
 
 const OtpForm = () => {
   const searchParams = useSearchParams();
@@ -20,11 +21,11 @@ const OtpForm = () => {
   });
 
   const onSubmit = (data: OtpFormSchemaType) => {
-   if (email) {
+    if (email) {
       signIn('credentials', {
         email: email,
         code: data.code,
-        redirectTo: '/jobs'
+        redirectTo: paths.vacancies.link,
       });
     }
   };

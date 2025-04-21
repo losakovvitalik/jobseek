@@ -1,20 +1,21 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from './auth';
+import { paths } from './lib/paths';
 
 export async function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
   const session = await auth();
 
   if (
-    pathname === '/auth' ||
-    pathname === '/auth/code' ||
+    pathname === paths.auth.link ||
+    pathname === paths.auth.code ||
     pathname.startsWith('/_next/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest'
   ) {
     if (session) {
-      const loginUrl = new URL('/jobs', origin);
+      const loginUrl = new URL(paths.vacancies.link, origin);
       return NextResponse.redirect(loginUrl);
     }
 
@@ -22,7 +23,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (!session) {
-    const loginUrl = new URL('/auth', origin);
+    const loginUrl = new URL(paths.auth.link, origin);
     // loginUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(loginUrl);
   }

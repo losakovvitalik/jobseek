@@ -10,7 +10,6 @@ export const paths = {
   searchLink: '/search',
   postsLink: '/posts',
   menuLink: '/menu',
-  jobsLink: '/jobs',
   me: {
     edit: '/me/edit',
   },

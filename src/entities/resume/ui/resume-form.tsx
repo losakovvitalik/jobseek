@@ -9,6 +9,7 @@ import Typography from '@/shared/ui/typography';
 import useResumeForm from '../hooks/use-resume-form';
 import { ResumeFormSchemaType } from '../model/resume-form-schema';
 import EducationInput from './education-input';
+import ExperienceInput from './experience-input';
 import ResumeEmploymentTypeSelect from './resume-employment-type-select';
 import ResumeSkillsSelect from './resume-skills-select';
 import ResumeWorkScheduleSelect from './resume-work-schedule-select';
@@ -73,6 +74,22 @@ const ResumeForm = () => {
                   </FormLabel>
                   <FormControl>
                     <UnitInput placeholder="В каком доходе вы заинтересованы" unit="₽" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="experience"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <Typography>Опыт работы</Typography>
+                  </FormLabel>
+                  <FormControl>
+                    <ExperienceInput field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -1,5 +1,6 @@
 'use client';
 
+import { paths } from '@/lib/paths';
 import useLayoutStore from '@/shared/stores/use-layout-store';
 import Typography from '@/shared/ui/typography';
 import { ArrowLeft } from 'lucide-react';
@@ -25,7 +26,7 @@ const MobileHeader = () => {
     if (previousPath && previousPath !== window.location.pathname) {
       router.back();
     } else {
-      router.push('/jobs');
+      router.push(paths.vacancies.link);
     }
   };
 

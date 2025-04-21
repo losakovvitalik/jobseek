@@ -7,7 +7,7 @@ const AuthLayout = async ({ children }: PropsWithChildren) => {
   const session = await auth();
 
   if (session) {
-    redirect(paths.jobsLink);
+    redirect(paths.vacancies.link);
   }
 
   return children;

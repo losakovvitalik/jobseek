@@ -13,7 +13,7 @@ import { ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
 import Typography from './typography';
 
-type ValueType = number | string;
+type ValueType = number | string | undefined;
 
 export interface SelectOption {
   value: ValueType;
@@ -50,7 +50,7 @@ const Select = ({
   );
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover modal open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -77,7 +77,7 @@ const Select = ({
           )}
           <CommandList>
             <CommandEmpty>{emptyText || 'Ничего не найдено'}</CommandEmpty>
-            <CommandGroup>
+            <CommandGroup className="overflow-auto">
               {filteredOptions.map((option) => (
                 <CommandItem
                   className="cursor-pointer"

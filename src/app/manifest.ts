@@ -1,3 +1,4 @@
+import { paths } from '@/lib/paths';
 import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
@@ -5,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'JobSeek',
     short_name: 'JobSeek',
     description: 'Приложение для поиска вакансий и сотрудников',
-    start_url: '/jobs',
+    start_url: paths.vacancies.link,
     display: 'standalone',
     background_color: '#ccc',
     theme_color: '#ccc',
