@@ -1,5 +1,4 @@
 import { Button } from '@/shared/ui/button';
-import ConfirmPopup from '@/shared/ui/confirm-popup';
 import {
   Form,
   FormControl,
@@ -17,6 +16,7 @@ import useEducationForm from '../hooks/use-education-form';
 import { EducationFormSchemaType } from '../model/education-form-schema';
 import { Education } from '../model/types';
 import EducationTypeSelect from './education-type-select';
+import ConfirmPopup from '@/shared/ui/confirm-popup';
 
 const EducationForm = (props: ListInputFormProps<Education>) => {
   const { mode } = props;
@@ -120,9 +120,9 @@ const EducationForm = (props: ListInputFormProps<Education>) => {
                 </Button>
               </ConfirmPopup>
             )}
-            <Button type="submit" disabled={!form.formState.isValid}>
+            <button type="submit" disabled={!form.formState.isValid}>
               {isEditMode ? 'Изменить образование' : 'Добавить образование'}
-            </Button>
+            </button>
           </div>
         </form>
       </Form>

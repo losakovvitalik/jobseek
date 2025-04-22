@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogOverlay,
   DialogTitle,
   DialogTrigger,
 } from '@/shared/ui/dialog';
@@ -95,35 +94,31 @@ export const ListInput = <T extends { id: string | number }>({
                   {renderCard(item)}
 
                   <Dialog modal={true} open={editOpen} onOpenChange={setEditOpen}>
-                    <DialogOverlay>
-                      <DialogTrigger asChild>
-                        <div
-                          className={cn(
-                            'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl',
-                          )}
-                        >
-                          <Button type="button" size={'icon'}>
-                            <Edit />
-                          </Button>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent
-                        onOpenAutoFocus={(e) => e.preventDefault()}
-                        className="sm:max-w-[425px]"
+                    <DialogTrigger asChild>
+                      <div
+                        className={cn(
+                          'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl',
+                        )}
                       >
-                        <DialogHeader>
-                          <DialogTitle>
-                            {StringHelper.capitalizeFirstLetter(entityName)}
-                          </DialogTitle>
-                          {renderForm({
-                            mode: 'edit',
-                            defaultValues: item,
-                            onRemove: handleRemove,
-                            onSubmit: handleEdit,
-                          })}
-                        </DialogHeader>
-                      </DialogContent>
-                    </DialogOverlay>
+                        <Button type="button" size={'icon'}>
+                          <Edit />
+                        </Button>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent
+                      onOpenAutoFocus={(e) => e.preventDefault()}
+                      className="sm:max-w-[425px]"
+                    >
+                      <DialogHeader>
+                        <DialogTitle>{StringHelper.capitalizeFirstLetter(entityName)}</DialogTitle>
+                        {renderForm({
+                          mode: 'edit',
+                          defaultValues: item,
+                          onRemove: handleRemove,
+                          onSubmit: handleEdit,
+                        })}
+                      </DialogHeader>
+                    </DialogContent>
                   </Dialog>
                 </div>
               </CardContent>

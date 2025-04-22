@@ -9,14 +9,14 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/shared/ui/alert-dialog';
-import { PropsWithChildren } from 'react';
+import { isValidElement, PropsWithChildren } from 'react';
 
-interface ConfirmPopup extends PropsWithChildren {
+export interface ConfirmPopupProps extends PropsWithChildren {
   onCancel?: () => void;
   onConfirm?: () => void;
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
-  title?: string;
+  title: string;
   description?: string;
 }
 
@@ -28,20 +28,22 @@ const ConfirmPopup = ({
   title,
   description,
   children,
-}: ConfirmPopup) => {
+}: ConfirmPopupProps) => {
+  const trigger = isValidElement(children) ? children : <button>{children}</button>;
+
   return (
     <AlertDialog onOpenChange={onOpenChange} open={open}>
       <AlertDialogContent className="w-11/12 rounded-lg">
         <AlertDialogHeader>
-          {title && <AlertDialogTitle>{title}</AlertDialogTitle>}
-          {description && <AlertDialogDescription>{description}</AlertDialogDescription>}
+          <AlertDialogTitle>{title}</AlertDialogTitle>
+          <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel onClick={onCancel}>Отменить</AlertDialogCancel>
           <AlertDialogAction onClick={onConfirm}>Подтвердить</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
-      <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
+      <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
     </AlertDialog>
   );
 };
