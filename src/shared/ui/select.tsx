@@ -25,14 +25,14 @@ export interface SelectProps<T = ValueType> {
   emptyText?: string;
   placeholder?: string;
   value: T | undefined;
-  onChange: (v: T | undefined) => void;
+  onChange: (v: T) => void;
   searchable?: boolean;
 }
 
 const Select = <T extends ValueType>({
   options = [],
   emptyText = 'Ничего не найдено',
-  placeholder,
+  placeholder = 'Выберите',
   value: selectedValue,
   onChange,
   searchable,
@@ -53,10 +53,11 @@ const Select = <T extends ValueType>({
     <Popover modal open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
+          className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2"
           variant="outline"
           role="combobox"
+          aria-haspopup="listbox"
           aria-expanded={open}
-          className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2"
         >
           {selectedValue !== undefined ? (
             <Typography className="flex flex-wrap gap-1">
@@ -70,7 +71,7 @@ const Select = <T extends ValueType>({
           <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" role="listbox">
         <Command>
           {searchable && (
             <CommandInput placeholder="Поиск..." value={searchTerm} onValueChange={setSearchTerm} />
@@ -83,6 +84,8 @@ const Select = <T extends ValueType>({
                   className="cursor-pointer"
                   key={option.value}
                   onSelect={() => handleChange(option)}
+                  role="option"
+                  aria-selected={option.value === selectedValue}
                 >
                   <Typography>{option.label}</Typography>
                 </CommandItem>

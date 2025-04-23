@@ -1,6 +1,6 @@
 'use client';
 
-import { format, getYear, setYear } from 'date-fns';
+import { format, getDate, getMonth, getYear } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { CalendarIcon } from 'lucide-react';
 import * as React from 'react';
@@ -20,11 +20,11 @@ const options = new Array(100).fill(undefined).map((_, index) => ({
 export interface DateInputProps {
   value?: string;
   onChange?: (value: string) => void;
+  placeholder?: string;
 }
 
-function DateInput({ value, onChange }: DateInputProps) {
-  console.log(value ? new Date(value) : new Date());
-  const [date, setDate] = React.useState<Date>(value ? new Date(value) : new Date());
+function DateInput({ value, onChange, placeholder = 'Выберите дату' }: DateInputProps) {
+  const [date, setDate] = React.useState<Date | undefined>(value ? new Date(value) : undefined);
 
   const formatCaption = (date: Date) =>
     StringHelper.capitalizeFirstLetter(date.toLocaleDateString('ru-RU', { month: 'long' }));
@@ -36,15 +36,29 @@ function DateInput({ value, onChange }: DateInputProps) {
     }
   };
 
+  const handleYearChange = (year: number) => {
+    const newYear = new Date(
+      year,
+      getMonth(value || new Date()),
+      getDate(value || new Date()),
+      0,
+      0,
+      0,
+    );
+
+    setDate(newYear);
+    onChange?.(newYear.toISOString());
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant={'outline'}
           className={cn(
             'bg-input border-border w-full justify-start text-left font-normal',
             !date && 'text-muted-foreground',
           )}
+          variant={'outline'}
         >
           <CalendarIcon />
           {date ? (
@@ -52,22 +66,15 @@ function DateInput({ value, onChange }: DateInputProps) {
               locale: ru,
             })
           ) : (
-            <span>Выберите дату</span>
+            <span>{placeholder}</span>
           )}
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="flex w-auto flex-col space-y-2 p-2">
         <Select
           options={options}
-          value={getYear(date || new Date())}
-          onChange={(value) =>
-            setDate(
-              setYear(
-                date || new Date(),
-                typeof value === 'string' ? parseInt(value) : Number(value),
-              ),
-            )
-          }
+          value={date ? getYear(date) : options[0].value}
+          onChange={handleYearChange}
         />
         <div className="rounded-md border">
           <Calendar
@@ -75,7 +82,6 @@ function DateInput({ value, onChange }: DateInputProps) {
             mode="single"
             className="w-max"
             selected={date}
-            // month={date}
             defaultMonth={date}
             onSelect={handleChange}
             formatters={{

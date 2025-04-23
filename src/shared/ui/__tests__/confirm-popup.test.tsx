@@ -106,7 +106,7 @@ describe('ConfirmPopup', () => {
     expect(screen.getByText(/описание/i)).toBeInTheDocument();
   });
 
-  it('has role alertdialog and correct aria-labelledby/aria-describedby', async () => {
+  it('has role alertdialog and correct aria-labelledby/aria-describedby', () => {
     renderConfirmPopup({
       title: 'Заголовок',
       description: 'Описание',
