@@ -38,6 +38,30 @@ describe('DateInput', () => {
     });
   });
 
+  describe('validation', () => {
+    it('should fallback to placeholder and warn on non-ISO date string', () => {
+      const consoleWarnSpy = vitest.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const invalidValue = '20-08-2023'; // не в формате ISO
+      const placeholder = 'Выберите дату';
+
+      renderDateInput({
+        value: invalidValue,
+        placeholder,
+      });
+
+      // Ожидаем, что рендерится placeholder
+      expect(screen.getByRole('button', { name: placeholder })).toBeInTheDocument();
+
+      // И что в консоль был выведен ворнинг о некорректном формате
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        `[DateInput] Некорректный ISO-формат: "${invalidValue}"`,
+      );
+
+      consoleWarnSpy.mockRestore();
+    });
+  });
+
   describe('interactions', () => {
     it('should open calendar popover on button click', async () => {
       renderDateInput();

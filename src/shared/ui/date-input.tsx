@@ -1,14 +1,14 @@
 'use client';
 
-import { format, getDate, getMonth, getYear } from 'date-fns';
+import { format, getDate, getMonth, getYear, isValid, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { CalendarIcon } from 'lucide-react';
-import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/shared/ui/button';
 import { Calendar } from '@/shared/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
+import { useEffect, useState } from 'react';
 import StringHelper from '../utils/string-helper';
 import Select from './select';
 
@@ -24,7 +24,11 @@ export interface DateInputProps {
 }
 
 function DateInput({ value, onChange, placeholder = 'Выберите дату' }: DateInputProps) {
-  const [date, setDate] = React.useState<Date | undefined>(value ? new Date(value) : undefined);
+  const [date, setDate] = useState<Date | undefined>(() => {
+    if (!value) return undefined;
+    const parsed = parseISO(value);
+    return isValid(parsed) ? parsed : undefined;
+  });
 
   const formatCaption = (date: Date) =>
     StringHelper.capitalizeFirstLetter(date.toLocaleDateString('ru-RU', { month: 'long' }));
@@ -35,6 +39,20 @@ function DateInput({ value, onChange, placeholder = 'Выберите дату' 
       setDate(value);
     }
   };
+
+  useEffect(() => {
+    if (!value) {
+      setDate(undefined);
+      return;
+    }
+    const parsed = parseISO(value);
+    if (isValid(parsed)) {
+      setDate(parsed);
+    } else {
+      console.warn(`[DateInput] Некорректный ISO-формат: "${value}"`);
+      setDate(undefined);
+    }
+  }, [value]);
 
   const handleYearChange = (year: number) => {
     const newYear = new Date(
