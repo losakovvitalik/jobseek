@@ -60,6 +60,13 @@ describe('Select', () => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
 
+    it('should not render search input when searchable is false', async () => {
+      renderSelect({ searchable: false });
+      await openPopup();
+      expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
+    });
+
+
     it('should call onChange with the correct value when an option is selected', async () => {
       const onChange = vitest.fn();
       const currentOption = options[0];
@@ -109,7 +116,7 @@ describe('Select', () => {
     });
   });
 
-  it('should render nothing when options array is empty and searchable is false', async () => {
+  it('should display emptyText when options is empty', async () => {
     const emptyText = 'ничего не найдено';
 
     renderSelect({
