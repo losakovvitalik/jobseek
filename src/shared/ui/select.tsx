@@ -17,15 +17,15 @@ type ValueType = number | string;
 
 export interface SelectOption<T = ValueType> {
   value: T;
-  label: string | number;
+  label: string;
 }
 
 export interface SelectProps<T = ValueType> {
   options?: SelectOption<T>[];
   emptyText?: string;
   placeholder?: string;
-  value: T | undefined;
-  onChange: (v: T) => void;
+  value?: T | undefined;
+  onChange?: (v: T) => void;
   searchable?: boolean;
 }
 
@@ -41,13 +41,15 @@ const Select = <T extends ValueType>({
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (currentOptions: SelectOption<T>) => {
-    onChange(currentOptions.value);
+    onChange?.(currentOptions.value);
     setOpen(false);
   };
 
   const filteredOptions = options.filter((option) =>
     String(option.label).toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const currentOption = options.find((op) => op.value == selectedValue);
 
   return (
     <Popover modal open={open} onOpenChange={setOpen}>
@@ -58,11 +60,10 @@ const Select = <T extends ValueType>({
           role="combobox"
           aria-haspopup="listbox"
           aria-expanded={open}
+          aria-label={currentOption ? String(currentOption.label) : placeholder}
         >
           {selectedValue !== undefined ? (
-            <Typography className="flex flex-wrap gap-1">
-              {options.find((op) => op.value == selectedValue)?.label}
-            </Typography>
+            <Typography className="flex flex-wrap gap-1">{currentOption?.label}</Typography>
           ) : (
             <Typography className="truncate" variant={'muted'}>
               {placeholder}
@@ -71,7 +72,7 @@ const Select = <T extends ValueType>({
           <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" role="listbox">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
         <Command>
           {searchable && (
             <CommandInput placeholder="Поиск..." value={searchTerm} onValueChange={setSearchTerm} />
