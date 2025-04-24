@@ -32,7 +32,7 @@ export interface SelectProps<T = ValueType> {
 const Select = <T extends ValueType>({
   options = [],
   emptyText = 'Ничего не найдено',
-  placeholder = 'Выберите',
+  placeholder = 'Выберите значение',
   value: selectedValue,
   onChange,
   searchable,
@@ -62,7 +62,7 @@ const Select = <T extends ValueType>({
           aria-expanded={open}
           aria-label={currentOption ? String(currentOption.label) : placeholder}
         >
-          {selectedValue !== undefined ? (
+          {currentOption ? (
             <Typography className="flex flex-wrap gap-1">{currentOption?.label}</Typography>
           ) : (
             <Typography className="truncate" variant={'muted'}>
@@ -75,7 +75,12 @@ const Select = <T extends ValueType>({
       <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
         <Command>
           {searchable && (
-            <CommandInput placeholder="Поиск..." value={searchTerm} onValueChange={setSearchTerm} />
+            <CommandInput
+              role="searchbox"
+              placeholder="Поиск..."
+              value={searchTerm}
+              onValueChange={setSearchTerm}
+            />
           )}
           <CommandList>
             <CommandEmpty>{emptyText || 'Ничего не найдено'}</CommandEmpty>
