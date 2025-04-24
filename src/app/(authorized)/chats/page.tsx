@@ -1,5 +1,5 @@
-import { SearchInput } from '@/shared/ui/input';
 import Conversation from '@/entities/message/ui/conversation';
+import SearchInput from '@/shared/ui/search-input';
 
 const MessagesPage = () => {
   return (

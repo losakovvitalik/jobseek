@@ -1,4 +1,4 @@
-import GlobalSearchInput from '@/features/global-search/ui/global-search-input';
+import SearchInput from '@/shared/ui/search-input';
 import Typography from '@/shared/ui/typography';
 import CompanyCarousel from '@/widgets/company-carousel/ui/company-carousel';
 import VacancyCarousel from '@/widgets/vacancy-carousel/ui/vacancy-carousel';
@@ -6,7 +6,7 @@ import VacancyCarousel from '@/widgets/vacancy-carousel/ui/vacancy-carousel';
 const SearchPage = () => {
   return (
     <div>
-      <GlobalSearchInput />
+      <SearchInput />
       <div className="mt-8 px-1">
         <Typography className="font-bold" size={'xl'}>
           Рекомендуемые компании

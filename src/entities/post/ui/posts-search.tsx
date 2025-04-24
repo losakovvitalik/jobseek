@@ -1,4 +1,4 @@
-import { SearchInput } from '@/shared/ui/input';
+import SearchInput from '@/shared/ui/search-input';
 import { useState } from 'react';
 
 const PostsSearch = () => {

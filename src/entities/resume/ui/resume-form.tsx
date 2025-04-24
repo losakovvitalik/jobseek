@@ -3,7 +3,6 @@
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
-import { UnitInput } from '@/shared/ui/input';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useResumeForm from '../hooks/use-resume-form';
@@ -13,6 +12,7 @@ import ExperienceInput from './experience-input';
 import ResumeEmploymentTypeSelect from './resume-employment-type-select';
 import ResumeSkillsSelect from './resume-skills-select';
 import ResumeWorkScheduleSelect from './resume-work-schedule-select';
+import UnitInput from '@/shared/ui/unit-input';
 
 const ResumeForm = () => {
   const form = useResumeForm();
