@@ -2,15 +2,21 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addDays, format, subYears } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { describe, expect, it, vitest } from 'vitest';
-import DateInput, { DateInputProps } from '../date-input';
+import { afterEach, beforeEach, describe, expect, it, vitest } from 'vitest';
+import DateInput from '../date-input';
 
-const mockToday = new Date(2025, 3, 23);
+const mockToday = new Date(2025, 3, 23); // 23 апреля 2025
 
-const renderDateInput = (props?: DateInputProps) => {
-  vitest.useFakeTimers().setSystemTime(mockToday);
-  render(<DateInput {...props} />);
+beforeEach(() => {
+  vitest.setSystemTime(mockToday);
+});
+
+afterEach(() => {
   vitest.useRealTimers();
+});
+
+const renderDateInput = (props?: Parameters<typeof DateInput>[0]) => {
+  render(<DateInput {...props} />);
 };
 
 describe('DateInput', () => {

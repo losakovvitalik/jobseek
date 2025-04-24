@@ -14,7 +14,7 @@ import Select from './select';
 
 const options = new Array(100).fill(undefined).map((_, index) => ({
   value: 2025 - index,
-  label: 2025 - index,
+  label: String(2025 - index),
 }));
 
 export interface DateInputProps {
@@ -55,19 +55,12 @@ function DateInput({ value, onChange, placeholder = 'Выберите дату' 
   }, [value]);
 
   const handleYearChange = (year: number) => {
-    const newYear = new Date(
-      year,
-      getMonth(value || new Date()),
-      getDate(value || new Date()),
-      0,
-      0,
-      0,
-    );
+    const currentDate = date || new Date();
+    const newYear = new Date(year, getMonth(currentDate), getDate(currentDate), 0, 0, 0);
 
     setDate(newYear);
     onChange?.(newYear.toISOString());
   };
-
   return (
     <Popover>
       <PopoverTrigger asChild>
