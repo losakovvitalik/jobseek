@@ -1,4 +1,4 @@
-import MultiSelect, { MultiSelectOption, MultiSelectProps } from '@/shared/ui/multiselect';
+import MultiSelect, { MultiSelectOption, MultiSelectProps } from '@/shared/ui/multi-select';
 
 const SKILL_OPTIONS: MultiSelectOption[] = [
   {

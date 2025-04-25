@@ -11,7 +11,7 @@ import {
 } from '@/shared/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
 import { Check, ChevronsUpDown, X } from 'lucide-react';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { isMobile } from '../utils/is-mobile';
 import { Badge } from './badge';
 import Typography from './typography';
@@ -40,6 +40,7 @@ const MultiSelect = ({
 }: MultiSelectProps) => {
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const id = useId();
 
   const toggleOption = (currentOptions: ValueType) => {
     onChange(
@@ -59,41 +60,61 @@ const MultiSelect = ({
         <Button
           variant="outline"
           role="combobox"
+          aria-haspopup="listbox"
           aria-expanded={open}
+          aria-controls={`${id}-multiselect-options`}
           className="bg-input border-border grid h-auto min-h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2 py-1.5"
         >
           {!!value?.length ? (
-            <div className="flex flex-wrap gap-1">
-              {value?.map((option) => (
-                <Badge
-                  key={option}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    toggleOption(option);
-                  }}
-                >
-                  {options.find((item) => item.value === option)?.label}
-                  <X className="z-10 size-3 cursor-pointer" />
-                </Badge>
-              ))}
-            </div>
+            <ul className="flex flex-wrap gap-1">
+              {value?.map((option) => {
+                const currentOption = options.find((item) => item.value === option);
+
+                return (
+                  <li key={option}>
+                    <Badge asChild>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          toggleOption(option);
+                        }}
+                        aria-label={`Удалить ${currentOption?.label};`}
+                      >
+                        {currentOption?.label}
+
+                        <X className="z-10 size-3 cursor-pointer" />
+                      </button>
+                    </Badge>
+                  </li>
+                );
+              })}
+            </ul>
           ) : (
-            <Typography className="truncate text-left" variant="muted">
+            <Typography className="truncate text-left" id={`${id}-label`} variant="muted">
               {placeholder}
             </Typography>
           )}
-          <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
+          <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" aria-hidden="true" />
         </Button>
       </PopoverTrigger>
       <PopoverContent
         className="w-[var(--radix-popover-trigger-width)] p-0"
         //* Хак, чтобы убрать автофокус на мобильных устройствах
         //* https://github.com/pacocoursey/cmdk/issues/127#issuecomment-2426388564
+        id={`${id}-multiselect-options`}
         onOpenAutoFocus={(e) => isMobile() && e.preventDefault()}
+        role="listbox"
+        aria-multiselectable="true"
       >
         <Command loop>
-          <CommandInput placeholder="Поиск..." value={searchTerm} onValueChange={setSearchTerm} />
+          <CommandInput
+            role="searchbox"
+            placeholder="Поиск..."
+            value={searchTerm}
+            onValueChange={setSearchTerm}
+            aria-label="Поиск опций"
+          />
           <CommandList>
             <CommandEmpty>{emptyText || 'Ничего не найдено'}</CommandEmpty>
             <CommandGroup>
@@ -102,6 +123,9 @@ const MultiSelect = ({
                   className="cursor-pointer"
                   key={option.value}
                   onSelect={() => toggleOption(option.value)}
+                  role="option"
+                  aria-selected={value.includes(option.value)}
+                  id={`${id}-option-${option.value}`}
                 >
                   <div
                     className={cn(
@@ -111,7 +135,7 @@ const MultiSelect = ({
                         : 'opacity-50 [&_svg]:invisible',
                     )}
                   >
-                    <Check className="size-3.5" />
+                    <Check className="size-3.5" aria-hidden="true" />
                   </div>
                   <Typography>{option.label}</Typography>
                 </CommandItem>
