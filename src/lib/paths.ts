@@ -8,7 +8,6 @@ export const paths = {
     contact: '/menu/contact',
   },
   searchLink: '/search',
-  postsLink: '/posts',
   menuLink: '/menu',
   me: {
     edit: '/me/edit',
@@ -25,6 +24,7 @@ export const paths = {
     single: (id: string) => `/vacancies/${id}`,
   },
   posts: {
+    link: `/posts`,
     single: (id: string) => `/posts/${id}`,
   },
   resumes: {
