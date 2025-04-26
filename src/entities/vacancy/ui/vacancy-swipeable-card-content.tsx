@@ -7,15 +7,14 @@ import { Badge } from '@/shared/ui/badge';
 import { buttonVariants } from '@/shared/ui/button';
 import Typography from '@/shared/ui/typography';
 import Link from 'next/link';
+import { Vacancy } from '../model/types';
 
 export interface VacancySwipeableCardContentProps {
-  job: {
-    title: string;
-  };
+  vacancy: Vacancy;
   className?: string;
 }
 
-const VacancySwipeableCardContent = ({ job, className }: VacancySwipeableCardContentProps) => {
+const VacancySwipeableCardContent = ({ vacancy, className }: VacancySwipeableCardContentProps) => {
   return (
     <div
       className={cn(
@@ -24,7 +23,7 @@ const VacancySwipeableCardContent = ({ job, className }: VacancySwipeableCardCon
       )}
     >
       <div className="flex justify-between">
-        <Typography size={'3xl'}>{job.title}</Typography>
+        <Typography size={'3xl'}>{vacancy.title}</Typography>
         <ReportVacancyButton />
       </div>
       <CompanyLink />

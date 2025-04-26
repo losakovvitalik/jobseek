@@ -1,20 +1,20 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Vacancy } from '../model/types';
 import VacancySwipeableCardContent from './vacancy-swipeable-card-content';
 
 export interface VacancySwipeableCardProps {
-  job: string;
-  cards: string[];
-  setCards: Dispatch<SetStateAction<string[]>>;
+  vacancy: Vacancy;
+  setCards: Dispatch<SetStateAction<Vacancy[]>>;
+  isFront?: boolean;
 }
 
-const VacancySwipeableCard = ({ job, cards, setCards }: VacancySwipeableCardProps) => {
+const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCardProps) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
-  const [secondaryColor, setSecondaryColor] = useState('#00000000'); // Default fallback
+  const [secondaryColor, setSecondaryColor] = useState('#00000000');
 
   useEffect(() => {
-    // Get the CSS variable value after component mounts
     const root = document.documentElement;
     const color = getComputedStyle(root).getPropertyValue('--secondary').trim();
     setSecondaryColor(color);
@@ -22,26 +22,23 @@ const VacancySwipeableCard = ({ job, cards, setCards }: VacancySwipeableCardProp
 
   const background = useTransform(x, [-100, 0, 100], ['#6EC175', secondaryColor, '#F47174']);
 
-  const isFront = cards[cards.length - 1] === job;
-
   const handleDragEnd = () => {
     if (Math.abs(x.get()) > 50) {
-      setCards((pv) => pv.filter((v) => v !== job));
+      setCards((pv) => pv.filter((v) => v.id !== vacancy.id));
     }
   };
 
   return (
     <motion.div
+      className="origin-bottom rounded-xl hover:cursor-grab active:cursor-grabbing"
       drag="x"
-      className="origin-bottom rounded-xl"
-      key={job}
+      key={vacancy.id}
       onDragEnd={handleDragEnd}
       style={{
         z: isFront ? 1 : 0,
         gridColumn: 1,
         gridRow: 1,
         background,
-        // opacity,
         rotate,
         x,
       }}
@@ -51,7 +48,7 @@ const VacancySwipeableCard = ({ job, cards, setCards }: VacancySwipeableCardProp
       }}
       animate={{ scale: isFront ? 1 : 0.9 }}
     >
-      <VacancySwipeableCardContent className="bg-transparent" job={{ title: job }} />
+      <VacancySwipeableCardContent className="bg-transparent" vacancy={vacancy} />
     </motion.div>
   );
 };
