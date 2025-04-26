@@ -1,6 +1,6 @@
-import MobileHeader from '@/components/layout/mobile-header';
-import MobileMenu from '@/components/layout/mobile-menu';
 import { AppSidebar } from '@/shared/ui/app-sidebar';
+import MobileHeader from '@/shared/ui/layout/mobile-header';
+import MobileMenu from '@/shared/ui/layout/mobile-menu';
 import { SidebarProvider } from '@/shared/ui/sidebar';
 
 export default function RootLayout({
@@ -9,13 +9,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid h-full grid-rows-[auto_auto_auto] overflow-hidden lg:block">
-      <MobileHeader />
-      <SidebarProvider className="w-full overflow-auto">
-        <AppSidebar />
-        <main className="h-full w-full overflow-auto p-2 lg:w-full lg:h-svh">{children}</main>
-      </SidebarProvider>
-      <MobileMenu />
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <div className="grid h-full w-full grid-rows-[auto_1fr_auto] overflow-hidden">
+        <MobileHeader />
+        <main className="w-full overflow-auto p-2 lg:h-[calc(100vh-64px)] lg:px-10 lg:py-4">
+          {children}
+        </main>
+        <MobileMenu />
+      </div>
+    </SidebarProvider>
   );
 }

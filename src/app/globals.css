@@ -45,13 +45,17 @@
   --radius-xl: calc(var(--radius) + 4px);
   --spacing-1\/1\.5: 66.66%;
   --spacing-menu: 65px;
+  --spacing-header: var(--header);
   --spacing-safe-area: env(safe-area-inset-bottom, 8px);
   --animate-caret-blink: caret-blink 1.25s ease-out infinite;
   @keyframes caret-blink {
-    0%, 70%, 100% {
+    0%,
+    70%,
+    100% {
       opacity: 1;
     }
-    20%, 50% {
+    20%,
+    50% {
       opacity: 0;
     }
   }
@@ -91,6 +95,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --header: 0px;
 }
 
 .dark {

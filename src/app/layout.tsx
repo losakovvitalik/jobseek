@@ -1,5 +1,5 @@
-import ThemeHandler from '@/components/providers/theme-handler';
-import { ThemeProvider } from '@/components/providers/theme-provider';
+import ThemeHandler from '@/app/providers/theme-handler';
+import { ThemeProvider } from '@/app/providers/theme-provider';
 import type { Metadata, Viewport } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

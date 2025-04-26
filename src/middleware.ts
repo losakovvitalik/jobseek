@@ -7,6 +7,10 @@ export async function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
   const session = await auth();
 
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.next();
+  }
+
   if (
     pathname === paths.auth.link ||
     pathname === paths.auth.code ||
@@ -24,7 +28,6 @@ export async function middleware(request: NextRequest) {
 
   if (!session) {
     const loginUrl = new URL(paths.auth.link, origin);
-    // loginUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
@@ -32,5 +35,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api/auth|auth|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api/|_next/|favicon.ico).*)'],
 };

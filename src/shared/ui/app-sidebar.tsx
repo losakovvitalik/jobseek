@@ -1,9 +1,13 @@
-import { Inbox, Mail, Menu, Search, WalletCards } from 'lucide-react';
+import { ChevronUp, Inbox, Mail, Menu, Search, User2, WalletCards } from 'lucide-react';
 
+import { auth } from '@/auth';
+import SignOutButton from '@/features/sing-out/ui/sign-out-button';
+import ToggleThemeButton from '@/features/toggle-theme/ui/toggle-theme-button';
 import { paths } from '@/lib/paths';
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -11,6 +15,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/shared/ui/sidebar';
+import Image from 'next/image';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './dropdown-menu';
 
 const items = [
   {
@@ -40,7 +51,10 @@ const items = [
   },
 ];
 
-export function AppSidebar() {
+export async function AppSidebar() {
+  const session = await auth();
+  const imageUrl = session?.user.photo?.url;
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -62,6 +76,29 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  {imageUrl ? <Image width={24} height={24} src={imageUrl} alt="" /> : <User2 />}{' '}
+                  {session?.user.name}
+                  <ChevronUp className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent side="top">
+                <DropdownMenuItem className="cursor-pointer">
+                  <ToggleThemeButton className="h-9" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <SignOutButton className="!p-0" size={'sm'} variant={'ghost'} />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }

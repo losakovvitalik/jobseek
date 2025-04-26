@@ -193,7 +193,7 @@ const UserEditForm = ({ defaultValues }: UserEditFormProps) => {
           </CardContent>
         </Card>
 
-        <div className="bg-accent pb-safe-area fixed bottom-0 left-0 flex w-full items-center justify-center p-4">
+        <div className="bg-accent pb-safe-area fixed bottom-0 left-(--sidebar-width) flex w-[calc(100%-var(--sidebar-width))] items-center justify-center p-4">
           <Button className="mb-4 w-full">Сохранить изменения</Button>
         </div>
       </form>

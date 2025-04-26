@@ -1,4 +1,5 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -21,7 +22,7 @@ const ToggleThemeButton = ({ className }: ToggleThemeButtonProps) => {
   };
 
   return (
-    <button className={className} onClick={toggleTheme}>
+    <button className={cn('flex items-center gap-1 cursor-pointer', className)} onClick={toggleTheme}>
       {theme === 'dark' ? <Sun /> : <Moon />} Включить {theme === 'dark' ? 'светлую' : 'темную'}{' '}
       тему
     </button>

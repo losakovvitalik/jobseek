@@ -35,7 +35,14 @@ const MobileHeader = () => {
   }
 
   return (
-    <header className="bg-accent relative flex h-12 items-center justify-center rounded-b-lg p-2 pl-12 text-2xl">
+    <header
+      style={
+        {
+          '--spacing-header': '48px',
+        } as React.CSSProperties
+      }
+      className="bg-accent h-(--spacing-header) relative flex items-center justify-center rounded-b-lg p-2 pl-12 text-2xl"
+      >
       <ArrowLeft className="absolute top-1/2 left-3 -translate-y-1/2" onClick={handleBack} />
       <Typography className={'line-clamp-1'} size={'xl'}>
         {page}

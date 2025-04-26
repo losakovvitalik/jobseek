@@ -1,79 +1,63 @@
 'use client';
-import { Button, buttonVariants } from '@/shared/ui/button';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/shared/ui/drawer';
+import { useIsDesktop } from '@/shared/hooks/use-is-desktop';
+import { Button } from '@/shared/ui/button';
+
 import { Label } from '@/shared/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/radio-group';
 import { Textarea } from '@/shared/ui/textarea';
-import { OctagonAlert } from 'lucide-react';
+import ReportVacancyDialog from './report-vacancy-dialog';
+import ReportVacancyDrawer from './report-vacancy-drawer';
 
 export interface ReportVacancyButtonProps {
   className?: string;
 }
 
 const ReportVacancyButton = ({ className }: ReportVacancyButtonProps) => {
+  const isDesktop = useIsDesktop();
+
+  const Content = (
+    <>
+      <div>
+        <RadioGroup defaultValue="option-one">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-one" id="option-one" />
+            <Label htmlFor="option-one">Неактуальная информация</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-two" id="option-two" />
+            <Label htmlFor="option-two">Оскорбительное содержание</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-three" id="option-three" />
+            <Label htmlFor="option-three">Неточная информация</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-four" id="option-four" />
+            <Label htmlFor="option-four">Рекламный характер</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option-five" id="option-five" />
+            <Label htmlFor="option-five">Другое</Label>
+          </div>
+        </RadioGroup>
+        <Textarea
+          className="mt-4"
+          placeholder="Опишите ситуацию более детально. Это поможет поддержке оперативно решить проблему."
+        />
+      </div>
+      <div className="mt-4">
+        <Button className='w-full'>Отправить</Button>
+      </div>
+    </>
+  );
+
   return (
     <div className={className}>
-      <Drawer>
-        <DrawerTrigger asChild>
-          <Button className='size-6' size={'icon'}>
-            <OctagonAlert className="size-4" />
-          </Button>
-        </DrawerTrigger>
-        <DrawerContent className="px-4">
-          <DrawerHeader>
-            <DrawerTitle>Отправить жалобу</DrawerTitle>
-          </DrawerHeader>
-          <div>
-            <RadioGroup defaultValue="option-one">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-one" id="option-one" />
-                <Label htmlFor="option-one">Неактуальная информация</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-two" id="option-two" />
-                <Label htmlFor="option-two">Оскорбительное содержание</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-three" id="option-three" />
-                <Label htmlFor="option-three">Неточная информацияация</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-four" id="option-four" />
-                <Label htmlFor="option-four">Рекламный характер</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-five" id="option-five" />
-                <Label htmlFor="option-five">Другое</Label>
-              </div>
-            </RadioGroup>
-            <Textarea
-              className="mt-4"
-              placeholder="Опишите ситуацию более детально. Это поможет поддержки оперативно решить проблему."
-            />
-          </div>
-          <DrawerFooter>
-            <Button>Отправить</Button>
-            <DrawerClose>
-              <div
-                className={buttonVariants({
-                  className: 'w-full',
-                  variant: 'outline',
-                })}
-              >
-                Отменить
-              </div>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      {isDesktop ? (
+        <ReportVacancyDialog>{Content}</ReportVacancyDialog>
+      ) : (
+        <ReportVacancyDrawer>{Content}</ReportVacancyDrawer>
+      )}
     </div>
   );
 };
