@@ -7,6 +7,10 @@ export interface User {
   phone?: string;
   birthday?: string;
   search_status?: 'active' | 'considering' | 'inactive';
+  city?: {
+    id: number;
+    name: string;
+  };
   photo?: {
     url: string;
   };

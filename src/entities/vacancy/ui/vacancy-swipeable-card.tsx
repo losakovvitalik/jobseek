@@ -36,6 +36,7 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
       onDragEnd={handleDragEnd}
       style={{
         z: isFront ? 1 : 0,
+        y: isFront ? '5%' : 0,
         gridColumn: 1,
         gridRow: 1,
         background,

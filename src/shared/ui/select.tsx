@@ -55,7 +55,7 @@ const Select = <T extends ValueType>({
     <Popover modal open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] p-2"
+          className="bg-input border-border grid h-10 w-full cursor-pointer grid-cols-[1fr_auto] justify-items-start p-2"
           variant="outline"
           role="combobox"
           aria-haspopup="listbox"

@@ -66,7 +66,7 @@ function DateInput({ value, onChange, placeholder = 'Выберите дату' 
       <PopoverTrigger asChild>
         <Button
           className={cn(
-            'bg-input border-border w-full justify-start text-left font-normal',
+            'bg-input border-border h-10 w-full justify-start text-left font-normal',
             !date && 'text-muted-foreground',
           )}
           variant={'outline'}

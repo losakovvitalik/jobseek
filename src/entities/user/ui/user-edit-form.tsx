@@ -12,6 +12,7 @@ import useUserEditForm from '../hooks/use-user-edit-form';
 import { User } from '../model/types';
 import UserGenderSelect from './user-gender-select';
 import UserSearchStatusSelect from './user-search-status-select';
+import CitySelect from '@/entities/city/ui/city-select';
 
 export interface UserEditFormProps {
   defaultValues?: User;
@@ -131,6 +132,28 @@ const UserEditForm = ({ defaultValues }: UserEditFormProps) => {
                   </FormLabel>
                   <FormControl>
                     <DateInput {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="flex flex-col gap-4">
+            <Typography variant={'subtitle'}>Дополнительная информация</Typography>
+
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <Typography>Город проживания</Typography>
+                  </FormLabel>
+                  <FormControl>
+                    <CitySelect {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

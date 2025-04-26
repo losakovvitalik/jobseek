@@ -15,6 +15,7 @@ export const userFormSchema = z.object({
   search_status: z.string(),
   birthday: z.string(),
   gender: z.enum(['male', 'female']),
+  city: z.number().optional(),
 });
 
 export type UserFormSchemaType = z.infer<typeof userFormSchema>;
