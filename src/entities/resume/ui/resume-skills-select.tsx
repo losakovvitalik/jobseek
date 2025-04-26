@@ -16,7 +16,14 @@ const SKILL_OPTIONS: MultiSelectOption[] = [
 ];
 
 const ResumeSkillsSelect = (props: Omit<MultiSelectProps, 'options'>) => {
-  return <MultiSelect options={SKILL_OPTIONS} placeholder="Ваши основные навыки" {...props} />;
+  return (
+    <MultiSelect
+      options={SKILL_OPTIONS}
+      placeholder="Ваши основные навыки"
+      searchable={true}
+      {...props}
+    />
+  );
 };
 
 export default ResumeSkillsSelect;

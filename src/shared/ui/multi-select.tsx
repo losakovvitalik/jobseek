@@ -16,10 +16,10 @@ import { isMobile } from '../utils/is-mobile';
 import { Badge } from './badge';
 import Typography from './typography';
 
-type ValueType = number | string;
+export type MultiSelectValueType = number | string;
 
 export interface MultiSelectOption {
-  value: ValueType;
+  value: MultiSelectValueType;
   label: string;
 }
 
@@ -27,8 +27,9 @@ export interface MultiSelectProps {
   options?: MultiSelectOption[];
   emptyText?: string;
   placeholder?: string;
-  value: ValueType[];
-  onChange: (v: ValueType[]) => void;
+  value?: MultiSelectValueType[];
+  onChange: (v: MultiSelectValueType[]) => void;
+  searchable?: boolean;
 }
 
 const MultiSelect = ({
@@ -37,12 +38,13 @@ const MultiSelect = ({
   placeholder = 'Выберите варианты',
   onChange,
   value,
+  searchable,
 }: MultiSelectProps) => {
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const id = useId();
 
-  const toggleOption = (currentOptions: ValueType) => {
+  const toggleOption = (currentOptions: MultiSelectValueType) => {
     onChange(
       value?.find((op) => op === currentOptions)
         ? value?.filter((v) => v !== currentOptions)
@@ -72,19 +74,18 @@ const MultiSelect = ({
 
                 return (
                   <li key={option}>
-                    <Badge asChild>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          e.preventDefault();
-                          toggleOption(option);
-                        }}
-                        aria-label={`Удалить ${currentOption?.label};`}
-                      >
-                        {currentOption?.label}
+                    <Badge
+                      role="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        toggleOption(option);
+                      }}
+                      aria-label={`Удалить ${currentOption?.label};`}
+                    >
+                      {currentOption?.label}
 
-                        <X className="z-10 size-3 cursor-pointer" />
-                      </button>
+                      <X className="z-10 size-3 cursor-pointer" />
                     </Badge>
                   </li>
                 );
@@ -104,17 +105,18 @@ const MultiSelect = ({
         //* https://github.com/pacocoursey/cmdk/issues/127#issuecomment-2426388564
         id={`${id}-multiselect-options`}
         onOpenAutoFocus={(e) => isMobile() && e.preventDefault()}
-        role="listbox"
         aria-multiselectable="true"
       >
         <Command loop>
-          <CommandInput
-            role="searchbox"
-            placeholder="Поиск..."
-            value={searchTerm}
-            onValueChange={setSearchTerm}
-            aria-label="Поиск опций"
-          />
+          {searchable && (
+            <CommandInput
+              role="searchbox"
+              placeholder="Поиск..."
+              value={searchTerm}
+              onValueChange={setSearchTerm}
+              aria-label="Поиск опций"
+            />
+          )}
           <CommandList>
             <CommandEmpty>{emptyText || 'Ничего не найдено'}</CommandEmpty>
             <CommandGroup>
@@ -124,7 +126,7 @@ const MultiSelect = ({
                   key={option.value}
                   onSelect={() => toggleOption(option.value)}
                   role="option"
-                  aria-selected={value.includes(option.value)}
+                  aria-selected={value?.includes(option.value)}
                   id={`${id}-option-${option.value}`}
                 >
                   <div
