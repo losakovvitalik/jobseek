@@ -30,7 +30,6 @@ describe('Input', () => {
 
     it('should render with provided type', () => {
       const type = 'email';
-
       renderInput({
         type: type,
       });
@@ -41,9 +40,10 @@ describe('Input', () => {
 
     it('should render with provided value', () => {
       const value = 'test1234';
-
+      const onChange = vitest.fn();
       renderInput({
         value,
+        onChange,
       });
 
       const textbox = screen.getByRole('textbox');
