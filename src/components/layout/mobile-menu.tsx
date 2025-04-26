@@ -53,7 +53,7 @@ const MobileMenu = () => {
   }
 
   return (
-    <div className="border-border h-menu bg-background z-10 grid grid-cols-5 items-center justify-items-center border-t px-4">
+    <div className="border-border h-menu bg-background z-10 grid grid-cols-5 items-center justify-items-center border-t px-4 lg:hidden">
       {menuLinks.map((link) => (
         <MobileMenuLink key={link.key} href={link.path} icon={link.icon} />
       ))}

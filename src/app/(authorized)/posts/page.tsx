@@ -4,7 +4,7 @@ import PostWithTopComment from '@/features/post-feed/ui/post-with-top-comment';
 
 const PostsPage = () => {
   return (
-    <div className="grid h-full grid-rows-[auto,1fr] gap-2">
+    <div className="grid h-full grid-rows-[auto_1fr] gap-2">
       <PostsSearch />
       <div className="flex overflow-auto h-full flex-col gap-4">
         {mockPosts.map((post) => (

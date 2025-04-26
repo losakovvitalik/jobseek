@@ -1,3 +1,4 @@
+'use client';
 import SearchInput from '@/shared/ui/search-input';
 import { useState } from 'react';
 

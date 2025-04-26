@@ -34,10 +34,6 @@ const MobileHeader = () => {
     return <div />;
   }
 
-  if (!page) {
-    return <div />;
-  }
-
   return (
     <header className="bg-accent relative flex h-12 items-center justify-center rounded-b-lg p-2 pl-12 text-2xl">
       <ArrowLeft className="absolute top-1/2 left-3 -translate-y-1/2" onClick={handleBack} />
