@@ -1,3 +1,5 @@
+import { Comment } from '@/entities/comment/model/type';
+
 export interface Post {
   id: string;
   title: string;
@@ -5,6 +7,9 @@ export interface Post {
   tags: string[];
   author: PostAuthor;
   image_url: string;
+  top_comment: Comment;
+  likes: number;
+  comments: number;
 }
 
 export interface PostAuthor {

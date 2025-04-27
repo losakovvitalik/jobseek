@@ -46,13 +46,13 @@ const PostCard = ({ post, className }: PostCardProps) => {
         <div className="flex items-center gap-1">
           <Heart />
           <Typography className="font-bold" size={'sm'}>
-            512
+            {post.likes}
           </Typography>
         </div>
         <div className="flex items-center gap-1">
           <MessageSquareText />
           <Typography className="font-bold" size={'sm'}>
-            512
+            {post.comments}
           </Typography>
         </div>
       </div>

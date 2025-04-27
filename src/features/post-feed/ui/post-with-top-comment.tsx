@@ -1,4 +1,4 @@
-import Comment from '@/entities/comment/ui/comment';
+import CommentCard from '@/entities/comment/ui/comment-card';
 import PostCard, { PostCardProps } from '@/entities/post/ui/post-card';
 import { Card, CardContent } from '@/shared/ui/card';
 
@@ -10,7 +10,7 @@ const PostWithTopComment = ({ post }: PostWithTopCommentProps) => {
       <CardContent>
         <PostCard className="p-0" post={post} />
         <div className="bg-accent mx-auto my-4 h-0.5 w-11/12 rounded" />
-        <Comment />
+        <CommentCard comment={post.top_comment} />
       </CardContent>
     </Card>
   );
