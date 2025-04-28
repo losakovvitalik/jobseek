@@ -15,6 +15,8 @@ export interface VacancySwipeableCardContentProps {
 }
 
 const VacancySwipeableCardContent = ({ vacancy, className }: VacancySwipeableCardContentProps) => {
+  const { title, city, description, experience, price_from, price_to, skills } = vacancy;
+
   return (
     <div
       className={cn(
@@ -23,28 +25,24 @@ const VacancySwipeableCardContent = ({ vacancy, className }: VacancySwipeableCar
       )}
     >
       <div className="flex justify-between">
-        <Typography size={'3xl'}>{vacancy.title}</Typography>
+        <Typography size={'3xl'}>{title}</Typography>
         <ReportVacancyButton />
       </div>
       <CompanyLink />
-      <Typography size={'lg'}>40 000₽ - 80 000₽</Typography>
-      <Typography>Опыт работы: любой</Typography>
-      <Typography>Город: Москва</Typography>
-
-      <Typography>
-        Описание: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod sit aliquid
-        quia adipisci, maiores perferendis blanditiis, hic est quae dolorum cumque iure vero, velit
-        eius cupiditate pariatur recusandae. Optio fuga magnam maiores reiciendis delectus facilis
-        consectetur laboriosam vero consequatur.
+      <Typography size={'lg'}>
+        {price_from}₽ - {price_to}₽
       </Typography>
-      <div className="mt-2 flex flex-wrap gap-1">
-        <Badge>JavaScript</Badge>
-        <Badge>TypeScript</Badge>
-        <Badge>React</Badge>
-        <Badge>NextJs</Badge>
-        <Badge>Tailwind</Badge>
-        <Badge>FSD</Badge>
-      </div>
+      <Typography>Опыт работы: {experience.label}</Typography>
+      <Typography>Город: {city.label}</Typography>
+
+      <Typography>Описание: {description}</Typography>
+      <ul className="mt-2 flex flex-wrap gap-1">
+        {skills.map((skill) => (
+          <Badge asChild key={skill.label}>
+            <li>{skill.label}</li>
+          </Badge>
+        ))}
+      </ul>
       <div className={'mt-2 flex justify-end gap-2'}>
         <FavoriteVacancyButton size={'sm'} />
         <Link
