@@ -20,6 +20,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './dropdown-menu';
 
@@ -88,11 +89,12 @@ export async function AppSidebar() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent side="top">
-                <DropdownMenuItem className="cursor-pointer">
-                  <ToggleThemeButton className="h-9" />
+                <DropdownMenuItem className="cursor-pointer p-0">
+                  <ToggleThemeButton className="h-9 w-full px-2" />
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <SignOutButton className="!p-0" size={'sm'} variant={'ghost'} />
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="cursor-pointer p-0">
+                  <SignOutButton className="!py-0" size={'sm'} variant={'ghost'} />
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

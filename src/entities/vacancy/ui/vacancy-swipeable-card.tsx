@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
+import { useTheme } from 'next-themes';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Vacancy } from '../model/types';
 import VacancySwipeableCardContent from './vacancy-swipeable-card-content';
@@ -13,12 +14,15 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
   const [secondaryColor, setSecondaryColor] = useState('#00000000');
+  const { theme } = useTheme();
 
   useEffect(() => {
-    const root = document.documentElement;
-    const color = getComputedStyle(root).getPropertyValue('--secondary').trim();
-    setSecondaryColor(color);
-  }, []);
+    requestAnimationFrame(() => {
+      const root = document.documentElement;
+      const color = getComputedStyle(root).getPropertyValue('--secondary').trim();
+      setSecondaryColor(color);
+    });
+  }, [theme]);
 
   const background = useTransform(x, [-100, 0, 100], ['#6EC175', secondaryColor, '#F47174']);
 
