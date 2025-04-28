@@ -1,5 +1,6 @@
 'use client';
 
+import CitySelect from '@/entities/city/ui/city-select';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import DateInput from '@/shared/ui/date-input';
@@ -11,8 +12,8 @@ import Image from 'next/image';
 import useUserEditForm from '../hooks/use-user-edit-form';
 import { User } from '../model/types';
 import UserGenderSelect from './user-gender-select';
+import UserLanguageInput from './user-language-input';
 import UserSearchStatusSelect from './user-search-status-select';
-import CitySelect from '@/entities/city/ui/city-select';
 
 export interface UserEditFormProps {
   defaultValues?: User;
@@ -154,6 +155,22 @@ const UserEditForm = ({ defaultValues }: UserEditFormProps) => {
                   </FormLabel>
                   <FormControl>
                     <CitySelect {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="languages"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    <Typography>Языки</Typography>
+                  </FormLabel>
+                  <FormControl>
+                    <UserLanguageInput field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

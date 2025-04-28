@@ -10,7 +10,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         email: {},
         code: {},
       },
-      authorize: async (credentials) => {
+      authorize: (credentials) => {
         if (!credentials) {
           throw new Error('No credentials provided');
         }
@@ -34,6 +34,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               value: 'male',
               label: 'Мужской',
             },
+            languages: [
+              {
+                id: 1,
+                label: 'Русский',
+                level: {
+                  id: 6,
+                  label: 'C2',
+                },
+              },
+              {
+                id: 2,
+                label: 'Английский',
+                level: {
+                  id: 4,
+                  label: 'B2',
+                },
+              },
+            ],
           };
         } else {
           throw new Error('Invalid credentials.');
@@ -70,6 +88,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
   pages: {
-    signIn: '/auth'
-  }
+    signIn: '/auth',
+  },
 });

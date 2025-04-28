@@ -7,6 +7,7 @@ export interface User {
   phone?: string;
   birthday?: string;
   search_status?: 'active' | 'considering' | 'inactive';
+  languages: UserLanguage[];
   city?: {
     id: number;
     name: string;
@@ -18,4 +19,15 @@ export interface User {
     value: 'female' | 'male';
     label: string;
   };
+}
+
+export interface UserLanguage {
+  id: number;
+  label: string;
+  level: UserLanguageLevel;
+}
+
+export interface UserLanguageLevel {
+  id: number;
+  label: string;
 }

@@ -65,7 +65,7 @@ const Select = <T extends ValueType>({
           {currentOption ? (
             <Typography className="flex flex-wrap gap-1">{currentOption?.label}</Typography>
           ) : (
-            <Typography className="truncate" variant={'muted'}>
+            <Typography className="truncate w-full text-left" variant={'muted'}>
               {placeholder}
             </Typography>
           )}

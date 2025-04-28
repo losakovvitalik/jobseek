@@ -13,7 +13,13 @@ const useUserEditForm = ({ defaultValues }: UseUserEditFormProps = {}) => {
     defaultValues: {
       ...defaultValues,
       gender: defaultValues?.gender.value,
-      city: defaultValues?.city?.id
+      city: defaultValues?.city?.id,
+      languages: defaultValues?.languages?.map((lang) => ({
+        id: lang.id,
+        level: {
+          id: lang.level.id,
+        },
+      })),
     },
   });
 

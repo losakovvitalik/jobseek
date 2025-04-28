@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { languageFormSchema } from './language-form-schema';
 
 export const userFormSchema = z.object({
   name: z.string().nonempty('Пожалуйста, укажите имя'),
@@ -16,6 +17,7 @@ export const userFormSchema = z.object({
   birthday: z.string(),
   gender: z.enum(['male', 'female']),
   city: z.number().optional(),
+  languages: z.array(languageFormSchema),
 });
 
 export type UserFormSchemaType = z.infer<typeof userFormSchema>;

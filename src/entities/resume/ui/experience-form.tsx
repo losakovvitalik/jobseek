@@ -28,132 +28,130 @@ const ExperienceForm = (props: ListInputFormProps<Experience>) => {
   };
 
   return (
-    <div>
-      <Form {...form}>
-        <form
-          className="mt-4 flex flex-col gap-4"
-          onSubmit={(e) => {
-            e.stopPropagation();
-            form.handleSubmit(submit)(e);
-          }}
-        >
-          <FormField
-            control={form.control}
-            name="position"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel required>
-                  <Typography size={'sm'}>Позиция</Typography>
-                </FormLabel>
-                <FormControl>
-                  <AutoHeightTextarea {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <Form {...form}>
+      <form
+        className="mt-4 flex flex-col gap-4"
+        onSubmit={(e) => {
+          e.stopPropagation();
+          form.handleSubmit(submit)(e);
+        }}
+      >
+        <FormField
+          control={form.control}
+          name="position"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>
+                <Typography size={'sm'}>Позиция</Typography>
+              </FormLabel>
+              <FormControl>
+                <AutoHeightTextarea {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormField
-            control={form.control}
-            name="organization"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel required>
-                  <Typography size={'sm'}>Организация/компания</Typography>
-                </FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <FormField
+          control={form.control}
+          name="organization"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>
+                <Typography size={'sm'}>Организация/компания</Typography>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormField
-            control={form.control}
-            name="start_date"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel required>
-                  <Typography size={'sm'}>Начало работы</Typography>
-                </FormLabel>
-                <FormControl>
-                  <YearMonthInput {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="end_date"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel required>
-                  <Typography size={'sm'}>Конец работы</Typography>
-                </FormLabel>
-                <FormControl>
-                  <YearMonthInput {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <FormField
+          control={form.control}
+          name="start_date"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>
+                <Typography size={'sm'}>Начало работы</Typography>
+              </FormLabel>
+              <FormControl>
+                <YearMonthInput {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="end_date"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel required>
+                <Typography size={'sm'}>Конец работы</Typography>
+              </FormLabel>
+              <FormControl>
+                <YearMonthInput {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormField
-            control={form.control}
-            name="city"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  <Typography size={'sm'}>Город</Typography>
-                </FormLabel>
-                <FormControl>
-                  <CitySelect {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <FormField
+          control={form.control}
+          name="city"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <Typography size={'sm'}>Город</Typography>
+              </FormLabel>
+              <FormControl>
+                <CitySelect {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormField
-            control={form.control}
-            name="description"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  <Typography size={'sm'}>Описание</Typography>
-                </FormLabel>
-                <FormControl>
-                  <AutoHeightTextarea
-                    placeholder="Опишите чем вы занимались и к чему это привело"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <Typography size={'sm'}>Описание</Typography>
+              </FormLabel>
+              <FormControl>
+                <AutoHeightTextarea
+                  placeholder="Опишите чем вы занимались и к чему это привело"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className="mt-4 grid grid-cols-[auto_1fr] gap-4">
-            {isEditMode && (
-              <ConfirmPopup
-                onConfirm={() => props.onRemove(props.defaultValues.id)}
-                title="Вы уверены что хотите удалить опыт работы?"
-                description={props.defaultValues.position}
-              >
-                <Button type="button" variant={'destructive'}>
-                  Удалить
-                </Button>
-              </ConfirmPopup>
-            )}
-            <Button type="submit">
-              {isEditMode ? 'Изменить опыт работы' : 'Добавить опыт работы'}
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </div>
+        <div className="mt-4 grid grid-cols-[auto_1fr] gap-4">
+          {isEditMode && (
+            <ConfirmPopup
+              onConfirm={() => props.onRemove(props.defaultValues.id)}
+              title="Вы уверены что хотите удалить опыт работы?"
+              description={props.defaultValues.position}
+            >
+              <Button type="button" variant={'destructive'}>
+                Удалить
+              </Button>
+            </ConfirmPopup>
+          )}
+          <Button type="submit">
+            {isEditMode ? 'Изменить опыт работы' : 'Добавить опыт работы'}
+          </Button>
+        </div>
+      </form>
+    </Form>
   );
 };
 

@@ -12,7 +12,6 @@ const SignInForm = () => {
   const router = useRouter();
 
   const onSubmit = (value: SignInFormSchemaType) => {
-    console.log(value);
     router.push(`/auth/code?email=${value.email}`);
   };
 
