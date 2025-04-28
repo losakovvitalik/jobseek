@@ -24,6 +24,8 @@ const UserEditForm = ({ defaultValues }: UserEditFormProps) => {
     defaultValues: defaultValues,
   });
 
+  console.log(defaultValues);
+
   return (
     <Form {...form}>
       <form className="mb-20 flex flex-col gap-4">

@@ -34,6 +34,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               value: 'male',
               label: 'Мужской',
             },
+            city: {
+              id: 1,
+              name: 'Москва',
+            },
             languages: [
               {
                 id: 1,
@@ -72,7 +76,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.photo = user.photo;
         token.gender = user.gender;
         token.city = user.city;
-        token.languages = user.languages; 
+        token.languages = user.languages;
       }
       return token;
     },
