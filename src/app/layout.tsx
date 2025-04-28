@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html className={'h-dvh max-h-dvh overflow-hidden'} lang="ru" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} pb-safe-area !h-full antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} pb-safe-area !h-dvh antialiased`}
       >
         <ThemeProvider
           attribute="class"

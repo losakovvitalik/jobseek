@@ -1,3 +1,4 @@
+import Typography from '@/shared/ui/typography';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { useTheme } from 'next-themes';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
@@ -13,8 +14,12 @@ export interface VacancySwipeableCardProps {
 const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCardProps) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-150, 150], [-15, 15]);
+
   const [secondaryColor, setSecondaryColor] = useState('#00000000');
   const { theme } = useTheme();
+
+  const cancelTextT = useTransform(x, [0, 50], [25, -25]);
+  const confirmTextT = useTransform(x, [-50, 0], [-25, 25]);
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -34,7 +39,7 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
 
   return (
     <motion.div
-      className="origin-bottom rounded-xl hover:cursor-grab active:cursor-grabbing"
+      className="relative origin-bottom rounded-xl hover:cursor-grab active:cursor-grabbing"
       drag="x"
       key={vacancy.id}
       onDragEnd={handleDragEnd}
@@ -53,7 +58,26 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
       }}
       animate={{ scale: isFront ? 1 : 0.9 }}
     >
-      <VacancySwipeableCardContent className="bg-transparent" vacancy={vacancy} />
+      <motion.div
+        style={{
+          y: cancelTextT,
+        }}
+      >
+        <Typography className="absolute -top-4 left-1/2 -z-10 -translate-x-1/2">
+          Пропустить
+        </Typography>
+      </motion.div>
+
+      <motion.div
+        style={{
+          y: confirmTextT,
+        }}
+      >
+        <Typography className="absolute -top-4 left-1/2 -z-10 -translate-x-1/2">
+          Откликнуться
+        </Typography>
+      </motion.div>
+      <VacancySwipeableCardContent className="relative bg-inherit" vacancy={vacancy} />
     </motion.div>
   );
 };

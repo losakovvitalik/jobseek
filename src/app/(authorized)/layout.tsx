@@ -3,15 +3,15 @@ import Header from '@/shared/ui/layout/header';
 import MobileMenu from '@/shared/ui/layout/mobile-menu';
 import { SidebarProvider } from '@/shared/ui/sidebar';
 
-export default function RootLayout({
+export default function AuthorizedLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <SidebarProvider>
+    <SidebarProvider className='h-full'>
       <AppSidebar />
-      <div className="grid h-screen w-full grid-rows-[auto_1fr_auto] overflow-hidden">
+      <div className="grid h-full w-full grid-rows-[auto_1fr_auto] overflow-hidden">
         <Header />
         <main className="w-full overflow-auto p-2 lg:px-10 lg:py-4">
           {children}
