@@ -6,11 +6,11 @@ export const LANGUAGE_OPTIONS: SelectOption[] = [
     value: 1,
   },
   {
-    label: 'Китайский',
+    label: 'Английский',
     value: 2,
   },
   {
-    label: 'Английский',
+    label: 'Китайский',
     value: 3,
   },
   {

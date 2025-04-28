@@ -17,7 +17,6 @@ const YearMonthInput = ({ value, onChange }: YearMonthInputProps) => {
 
   useEffect(() => {
     if (year && month !== undefined) {
-      console.log(new Date(parseInt(year), month, 1).toISOString());
       onChange(new Date(parseInt(year), month, 1).toISOString());
     }
   }, [year, month, onChange]);

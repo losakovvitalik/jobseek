@@ -71,6 +71,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.phone = user.phone;
         token.photo = user.photo;
         token.gender = user.gender;
+        token.city = user.city;
+        token.languages = user.languages; 
       }
       return token;
     },
@@ -84,6 +86,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.user.phone = token.phone;
       session.user.photo = token.photo;
       session.user.gender = token.gender;
+      session.user.city = token.city;
+      session.user.languages = token.languages;
       return session;
     },
   },
