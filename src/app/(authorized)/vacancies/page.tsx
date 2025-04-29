@@ -1,5 +1,5 @@
 'use client';
-import { vacanciesMock } from '@/entities/vacancy/model/vacancies.mock';
+import { vacanciesMock } from '@/entities/vacancy/model/vacancy.mock';
 import VacanciesListEnd from '@/entities/vacancy/ui/vacancies-list-end';
 import VacancySwipeableCard from '@/entities/vacancy/ui/vacancy-swipeable-card';
 

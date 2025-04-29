@@ -32,7 +32,7 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
   const background = useTransform(x, [-100, 0, 100], ['#6EC175', secondaryColor, '#F47174']);
 
   const handleDragEnd = () => {
-    if (Math.abs(x.get()) > 50) {
+    if (Math.abs(x.get()) > 30) {
       setCards((pv) => pv.filter((v) => v.id !== vacancy.id));
     }
   };
@@ -56,7 +56,7 @@ const VacancySwipeableCard = ({ vacancy, isFront, setCards }: VacancySwipeableCa
         left: 0,
         right: 0,
       }}
-      animate={{ scale: isFront ? 1 : 0.9 }}
+      animate={{ scale: isFront ? 1 : 0.8 }}
     >
       <motion.div
         style={{

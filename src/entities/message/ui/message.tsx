@@ -12,12 +12,11 @@ export interface MessageProps {
 
 const Message = ({ text, isMine, isRead, createdAt }: MessageProps) => {
 
-
   return (
     <div
-      className={cn('rounded p-2 text-sm', {
-        'bg-secondary text-secondary-foreground mr-20': !isMine,
-        'bg-primary text-primary-foreground ml-20': isMine,
+      className={cn('rounded p-2 text-sm w-10/12 max-w-lg', {
+        'bg-secondary text-secondary-foreground mr-auto': !isMine,
+        'bg-primary text-primary-foreground ml-auto': isMine,
       })}
     >
       <Typography>{text}</Typography>

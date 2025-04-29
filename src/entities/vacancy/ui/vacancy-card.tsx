@@ -5,8 +5,15 @@ import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import Typography from '@/shared/ui/typography';
 import Link from 'next/link';
+import { Vacancy } from '../model/types';
 
-const VacancyCard = () => {
+export interface VacancyCardProps {
+  vacancy: Vacancy;
+}
+
+const VacancyCard = ({ vacancy }: VacancyCardProps) => {
+  const { title, description, price_from, price_to } = vacancy;
+
   return (
     <Card className="h-full w-full">
       <CardContent>
@@ -19,21 +26,27 @@ const VacancyCard = () => {
         </Link>
         <Link href={paths.vacancies.single('34')}>
           <Typography size={'lg'} className="mt-1 font-bold underline">
-            Frontend Разработчик
+            {title}
           </Typography>
         </Link>
 
         <Typography className="text-muted-foreground mt-2" size={'xs'}>
-          Ищем старшего разработчик в новую команду. Нужно будет заниматься проектирование
-          архитектуры проекта, код-ревью, написание автоматических тестов
+          {description}
         </Typography>
 
-        <div className="mt-4 flex items-center justify-between">
-          <Typography size={'lg'} className="font-bold">
-            От 120 000 ₽
-          </Typography>
-          <Button size={'sm'}>Откликнуться</Button>
+        <div className="my-4 flex flex-wrap items-center gap-2 first-letter:uppercase">
+          {price_from && (
+            <Typography size={'lg'} className="font-bold">
+              oт {price_from}₽
+            </Typography>
+          )}
+          {price_to && (
+            <Typography size={'lg'} className="font-bold">
+              до {price_to}₽
+            </Typography>
+          )}
         </div>
+        <Button size={'sm'}>Откликнуться</Button>
       </CardContent>
     </Card>
   );

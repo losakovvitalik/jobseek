@@ -35,16 +35,15 @@ const VacancySwipeableCardContent = ({ vacancy, className }: VacancySwipeableCar
       <Typography>Опыт работы: {experience.label}</Typography>
       <Typography>Город: {city.label}</Typography>
 
-      <Typography>Описание: {description}</Typography>
-      <ul className="mt-2 flex flex-wrap gap-1">
+      <Typography className="line-clamp-4">Описание: {description}</Typography>
+      <ul className="mt-4 flex flex-wrap gap-1">
         {skills.map((skill) => (
           <Badge asChild key={skill.label}>
             <li>{skill.label}</li>
           </Badge>
         ))}
       </ul>
-      <div className={'mt-2 flex justify-end gap-2'}>
-        <FavoriteVacancyButton size={'sm'} />
+      <div className={'mt-4 grid grid-cols-[1fr_auto] gap-2'}>
         <Link
           className={buttonVariants({
             size: 'sm',
@@ -53,6 +52,7 @@ const VacancySwipeableCardContent = ({ vacancy, className }: VacancySwipeableCar
         >
           Подробнее
         </Link>
+        <FavoriteVacancyButton size={'sm'} />
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ const useEducationForm = ({ defaultValues }: UseEducationFormProps = {}) => {
     resolver: zodResolver(educationFormSchema),
     defaultValues: {
       name: '',
-      type: '',
       year: '',
       organization: '',
     },

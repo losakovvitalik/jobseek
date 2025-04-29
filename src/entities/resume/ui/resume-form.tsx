@@ -5,17 +5,24 @@ import { Card, CardContent } from '@/shared/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import AutoHeightTextarea from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
+import UnitInput from '@/shared/ui/unit-input';
 import useResumeForm from '../hooks/use-resume-form';
 import { ResumeFormSchemaType } from '../model/resume-form-schema';
+import { resumesMock } from '../model/resume.mock';
 import EducationInput from './education-input';
 import ExperienceInput from './experience-input';
 import ResumeEmploymentTypeSelect from './resume-employment-type-select';
 import ResumeSkillsSelect from './resume-skills-select';
 import ResumeWorkScheduleSelect from './resume-work-schedule-select';
-import UnitInput from '@/shared/ui/unit-input';
+
+export interface ResumeFormProps {
+
+}
 
 const ResumeForm = () => {
-  const form = useResumeForm();
+  const form = useResumeForm({
+    defaultValues: resumesMock[0],
+  });
 
   function onSubmit(values: ResumeFormSchemaType) {
     console.log(values);

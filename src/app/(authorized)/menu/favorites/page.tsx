@@ -1,3 +1,4 @@
+import { vacanciesMock } from '@/entities/vacancy/model/vacancy.mock';
 import VacancyCard from '@/entities/vacancy/ui/vacancy-card';
 import PageTitle from '@/shared/ui/page-title';
 
@@ -6,10 +7,9 @@ const FavoritesPage = () => {
     <div>
       <PageTitle>Избранное</PageTitle>
       <div className={'flex flex-col gap-4'}>
-        <VacancyCard />
-        <VacancyCard />
-        <VacancyCard />
-        <VacancyCard />
+        {vacanciesMock.map((vacancy) => (
+          <VacancyCard key={vacancy.id} vacancy={vacancy} />
+        ))}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export interface ConversationProps {}
 
 const Conversation = () => {
   return (
-    <Link href={paths.chat.single('34')} className="border-border block border-b py-2.5">
+    <Link href={paths.chat.single('34')} className="border-border block border-t py-2.5">
       <div className="grid grid-cols-[48px_1fr] gap-2">
         <Image
           className="h-12 w-12 rounded-full object-cover"
