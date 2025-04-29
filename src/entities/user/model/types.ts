@@ -22,7 +22,8 @@ export interface User {
 }
 
 export interface UserLanguage {
-  id: number;
+  id: string;
+  language_id: number;
   label: string;
   level: UserLanguageLevel;
 }

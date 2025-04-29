@@ -17,7 +17,9 @@ export const userFormSchema = z.object({
   birthday: z.string(),
   gender: z.enum(['male', 'female']),
   city: z.number().optional(),
-  languages: z.array(languageFormSchema),
+  languages: z.array(languageFormSchema.extend({
+    id: z.string(),
+  })),
 });
 
 export type UserFormSchemaType = z.infer<typeof userFormSchema>;

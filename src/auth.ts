@@ -40,7 +40,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
             languages: [
               {
-                id: 1,
+                id: '81c6682b-4368-4e8a-ba38-c6ca54d5ca54',
+                language_id: 1,
                 label: 'Русский',
                 level: {
                   id: 6,
@@ -48,7 +49,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 },
               },
               {
-                id: 2,
+                id: 'c9457236-21d5-4c2d-9f1e-168a78fcdb1b',
+                language_id: 2,
                 label: 'Английский',
                 level: {
                   id: 4,

@@ -20,7 +20,7 @@ const UserLanguageInput = ({ field }: ExperienceInputProps) => {
         return (
           <div>
             <Typography className="font-semibold">
-              {LANGUAGE_OPTIONS.find((op) => op.value === value.id)?.label}
+              {LANGUAGE_OPTIONS.find((op) => op.value === value.language_id)?.label}
             </Typography>
             <Typography size={'sm'} variant={'muted'}>
               {LANGUAGE_LEVEL_OPTIONS.find((op) => op.value === value.level.id)?.label}

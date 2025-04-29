@@ -8,7 +8,7 @@ const ContactPage = () => {
   return (
     <div>
       <PageTitle>Контакты</PageTitle>
-      <Card>
+      <Card className='max-w-lg mx-auto'>
         <CardContent>
           <Typography size={'lg'}>
             Если у вас есть какие-то пожелания или предложения по поводу моего проекта, вы всегда
@@ -16,7 +16,7 @@ const ContactPage = () => {
           </Typography>
 
           <Button className="mt-2 flex w-full items-center gap-2" asChild>
-            <a target="_blank" href="https://t.me/powerofweb">
+            <a target="_blank" href="https://powerofweb.t.me">
               <Typography size={'xl'}>Написать</Typography>
               <Send className="fill-primary-foreground stroke-primary-foreground" />
             </a>

@@ -42,10 +42,9 @@ export const ListInput = <T extends { id: string | number }>({
   entityName,
   onChange,
   renderForm,
-  renderCardContent: renderCard,
+  renderCardContent,
 }: ListInputProps<T>) => {
   const [open, setOpen] = useState(false);
-  const [editOpen, setEditOpen] = useState(false);
 
   const handleSubmit = (newValue: T) => {
     onChange([...(value || []), newValue]);
@@ -86,47 +85,76 @@ export const ListInput = <T extends { id: string | number }>({
       </Dialog>
 
       <div className="mt-4 flex flex-col gap-2">
-        {value?.map((item) => {
-          return (
-            <Card key={item.id}>
-              <CardContent>
-                <div className="grid grid-cols-[1fr_auto] items-center gap-4">
-                  {renderCard(item)}
-
-                  <Dialog modal={true} open={editOpen} onOpenChange={setEditOpen}>
-                    <DialogTrigger asChild>
-                      <div
-                        className={cn(
-                          'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl',
-                        )}
-                      >
-                        <Button type="button" size={'icon'}>
-                          <Edit />
-                        </Button>
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent
-                      onOpenAutoFocus={(e) => e.preventDefault()}
-                      className="sm:max-w-[425px]"
-                    >
-                      <DialogHeader>
-                        <DialogTitle>{StringHelper.capitalizeFirstLetter(entityName)}</DialogTitle>
-                        {renderForm({
-                          mode: 'edit',
-                          defaultValues: item,
-                          onRemove: handleRemove,
-                          onSubmit: handleEdit,
-                        })}
-                      </DialogHeader>
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+        {value?.map((item) => (
+          <ListInputCard
+            key={item.id}
+            item={item}
+            renderCardContent={renderCardContent}
+            renderForm={renderForm}
+            entityName={entityName}
+            onRemove={handleRemove}
+            onSubmit={handleEdit}
+          />
+        ))}
       </div>
     </div>
+  );
+};
+
+interface ListInputCard<T>
+  extends Pick<ListInputProps<T>, 'renderCardContent' | 'renderForm' | 'entityName'>,
+    Pick<EditProps<T>, 'onRemove' | 'onSubmit'> {
+  item: T;
+}
+
+const ListInputCard = <T extends { id: string | number }>({
+  item,
+  renderCardContent,
+  renderForm,
+  entityName,
+  onRemove,
+  onSubmit,
+}: ListInputCard<T>) => {
+  const [editOpen, setEditOpen] = useState(false);
+
+  const handleSubmit = (value: T) => {
+    onSubmit(value);
+    setEditOpen(false);
+  };
+
+  return (
+    <Card>
+      <CardContent>
+        <div className="grid grid-cols-[1fr_auto] items-center gap-4">
+          {renderCardContent(item)}
+
+          <Dialog modal={true} open={editOpen} onOpenChange={setEditOpen}>
+            <DialogTrigger asChild>
+              <div
+                className={cn(
+                  'bg-input flex cursor-pointer items-center justify-center gap-2 rounded-xl',
+                )}
+              >
+                <Button type="button" size={'icon'}>
+                  <Edit />
+                </Button>
+              </div>
+            </DialogTrigger>
+            <DialogContent onOpenAutoFocus={(e) => e.preventDefault()} className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>{StringHelper.capitalizeFirstLetter(entityName)}</DialogTitle>
+                {renderForm({
+                  mode: 'edit',
+                  defaultValues: item,
+                  onRemove,
+                  onSubmit: handleSubmit,
+                })}
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -1,13 +1,15 @@
+import { ElementType } from '@/shared/types/element-type';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import { ListInputFormProps } from '@/shared/ui/list-input';
 import Typography from '@/shared/ui/typography';
 import useLanguageForm from '../hooks/use-language-form';
 import { LanguageFormSchemaType } from '../model/language-form-schema';
+import { UserFormSchemaType } from '../model/user-form-schema';
 import LanguageFormLevelSelect from './language-form-level-select';
 import LanguageFormSelect from './language-select';
 
-const LanguageForm = (props: ListInputFormProps<LanguageFormSchemaType>) => {
+const LanguageForm = (props: ListInputFormProps<ElementType<UserFormSchemaType['languages']>>) => {
   const { mode } = props;
   const isEditMode = mode === 'edit';
 
@@ -16,12 +18,14 @@ const LanguageForm = (props: ListInputFormProps<LanguageFormSchemaType>) => {
   });
 
   const submit = (values: LanguageFormSchemaType) => {
-    const payload: LanguageFormSchemaType = {
-      id: values.id,
+    const payload = {
+      id: isEditMode ? props.defaultValues.id : crypto.randomUUID(),
+      language_id: values.language_id,
       level: {
-        id: values.id,
+        id: values.level.id,
       },
     };
+
     props.onSubmit(payload);
   };
 
@@ -33,10 +37,10 @@ const LanguageForm = (props: ListInputFormProps<LanguageFormSchemaType>) => {
           form.handleSubmit(submit)(e);
         }}
       >
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-[2fr_1fr] gap-2">
           <FormField
             control={form.control}
-            name="id"
+            name="language_id"
             render={({ field }) => (
               <FormItem>
                 <FormLabel required>
@@ -55,7 +59,7 @@ const LanguageForm = (props: ListInputFormProps<LanguageFormSchemaType>) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel required>
-                  <Typography size={'sm'}>Уровень знания</Typography>
+                  <Typography size={'sm'}>Уровень</Typography>
                 </FormLabel>
                 <FormControl>
                   <LanguageFormLevelSelect {...field} />
@@ -66,7 +70,7 @@ const LanguageForm = (props: ListInputFormProps<LanguageFormSchemaType>) => {
           />
         </div>
 
-        <Button>Добавить язык</Button>
+        <Button>{isEditMode ? 'Изменить язык' : 'Добавить язык'}</Button>
       </form>
     </Form>
   );
