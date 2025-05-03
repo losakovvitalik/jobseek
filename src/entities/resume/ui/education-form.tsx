@@ -10,7 +10,7 @@ import {
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { ListInputFormProps } from '@/shared/ui/list-input';
-import AutoHeightTextarea from '@/shared/ui/textarea';
+import { AutoHeightTextarea} from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import useEducationForm from '../hooks/use-education-form';
 import { EducationFormSchemaType } from '../model/education-form-schema';

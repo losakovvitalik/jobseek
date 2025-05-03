@@ -4,7 +4,7 @@ import ConfirmPopup from '@/shared/ui/confirm-popup';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { ListInputFormProps } from '@/shared/ui/list-input';
-import AutoHeightTextarea from '@/shared/ui/textarea';
+import { AutoHeightTextarea } from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import YearMonthInput from '@/shared/ui/year-month-input';
 import useExperienceForm from '../hooks/use-experience-form';

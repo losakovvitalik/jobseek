@@ -3,7 +3,7 @@
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
-import AutoHeightTextarea from '@/shared/ui/textarea';
+import { AutoHeightTextarea } from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import UnitInput from '@/shared/ui/unit-input';
 import useResumeForm from '../hooks/use-resume-form';

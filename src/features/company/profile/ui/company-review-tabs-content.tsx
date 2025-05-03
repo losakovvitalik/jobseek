@@ -1,5 +1,5 @@
 import ReviewCard from '@/entities/review/ui/review-card';
-import AutoHeightTextarea from '@/shared/ui/textarea';
+import { AutoHeightTextarea } from '@/shared/ui/textarea';
 
 const CompanyReviewTabsContent = () => {
   return (

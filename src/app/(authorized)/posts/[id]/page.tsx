@@ -3,7 +3,7 @@ import { Badge } from '@/shared/ui/badge';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
 import PageTitle from '@/shared/ui/page-title';
-import AutoHeightTextarea from '@/shared/ui/textarea';
+import { AutoHeightTextarea } from '@/shared/ui/textarea';
 import Typography from '@/shared/ui/typography';
 import { Heart } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';

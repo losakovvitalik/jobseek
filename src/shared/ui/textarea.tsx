@@ -39,6 +39,4 @@ const AutoHeightTextarea = ({ className, ...props }: React.ComponentProps<'texta
   );
 };
 
-export default AutoHeightTextarea;
-
-export { Textarea };
+export { Textarea, AutoHeightTextarea };
