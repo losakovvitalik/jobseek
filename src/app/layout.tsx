@@ -1,9 +1,9 @@
-import ThemeHandler from '@/app/providers/theme-handler';
 import { ThemeProvider } from '@/app/providers/theme-provider';
 import type { Metadata, Viewport } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import ThemeHandler from './providers/theme-handler';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,12 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} pb-safe-area !h-dvh antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <ThemeHandler>
             <SessionProvider>{children}</SessionProvider>
           </ThemeHandler>

@@ -1,6 +1,5 @@
 import { ChevronUp, Inbox, Mail, Menu, Search, User2, WalletCards } from 'lucide-react';
 
-import { auth } from '@/auth';
 import SignOutButton from '@/features/sing-out/ui/sign-out-button';
 import ToggleThemeButton from '@/features/toggle-theme/ui/toggle-theme-button';
 import { paths } from '@/lib/paths';
@@ -15,7 +14,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/shared/ui/sidebar';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,7 +24,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './dropdown-menu';
-import Link from 'next/link';
 
 const items = [
   {
@@ -53,9 +53,9 @@ const items = [
   },
 ];
 
-export async function AppSidebar() {
-  const session = await auth();
-  const imageUrl = session?.user.photo?.url;
+export function AppSidebar() {
+  const session = useSession();
+  const imageUrl = session?.data?.user.photo?.url;
 
   return (
     <Sidebar>
@@ -85,7 +85,7 @@ export async function AppSidebar() {
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
                   {imageUrl ? <Image width={24} height={24} src={imageUrl} alt="" /> : <User2 />}{' '}
-                  {session?.user.name}
+                  {session?.data?.user.name}
                   <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
