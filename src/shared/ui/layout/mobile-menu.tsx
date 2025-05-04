@@ -7,7 +7,7 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const MotionButton = motion.create(Button);
+const MotionLink = motion.create(Link);
 
 const MobileMenuLink = ({
   href,
@@ -19,21 +19,26 @@ const MobileMenuLink = ({
   const pathname = usePathname();
 
   return (
-    <MotionButton
+    <Button
       className={cn('size-10', {
         'ring-ring/50 border-gray-300 ring-[2px]': href === pathname,
       })}
       asChild
       size={'icon'}
       variant={'link'}
-      whileTap={{
-        scale: 0.8,
-      }}
     >
-      <Link href={href}>
+      <MotionLink
+        href={href}
+        initial={{ scale: 1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.15 }}
+        whileTap={{
+          scale: 0.8,
+        }}
+      >
         <Icon className="size-6" />
-      </Link>
-    </MotionButton>
+      </MotionLink>
+    </Button>
   );
 };
 
